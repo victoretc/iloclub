@@ -24,5 +24,9 @@
       {{ $js := . | js.Build (dict "minify" true) | fingerprint }}
       <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
     {{ end }}
+    {{ with resources.Get "js/footer-balls.js" }}
+      {{ $js := . | js.Build (dict "minify" true) | fingerprint }}
+      <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+    {{ end }}
   </body>
 </html>

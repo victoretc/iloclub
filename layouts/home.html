@@ -279,71 +279,70 @@
 
   </section>
 
-  <section class="wrap section" id="sertifikat" aria-labelledby="sertifikat-title">
-    <div class="sert-head">
-      <div class="section-head">
+  <section class="sert" id="sertifikat" aria-labelledby="sertifikat-title">
+    <div class="wrap section sert-inner">
+      <div class="sert-head">
         <h2 id="sertifikat-title">Подарочный сертификат</h2>
+
+        <a class="btn sert-cta" href="{{ site.Params.social.instagram }}" target="_blank" rel="noopener">
+          Оформить сертификат
+          {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
+        </a>
+
+        <p class="lead">Час на корте в подарок: занятие с тренером, аренда корта или любая сумма
+          на выбор получателя.</p>
       </div>
 
-      <a class="btn" href="{{ site.Params.social.instagram }}" target="_blank" rel="noopener">
-        Оформить сертификат
-        {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
-      </a>
-    </div>
-
-    <div class="sert">
-      <ul class="sert-options">
-        <li class="sert-option">
-          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "graduation-cap" "size" 20 "stroke" 1.8) }}</span>
-          <div class="sert-option-body">
+      <div class="sert-body">
+        <ul class="sert-options">
+          <li class="sert-option">
+            <p class="sert-option-index" aria-hidden="true">01</p>
             <h3 class="sert-option-title">Персональное занятие с тренером</h3>
             <p class="sert-option-text">Для тех, кто ещё не играл: необычный подарок и новые эмоции.
               Для тех, кто уже играет: час с тренером, чтобы подтянуть навыки. Хороший повод удивить
               вторую половинку и провести время по-новому.</p>
-          </div>
-        </li>
-        <li class="sert-option">
-          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "court" "size" 20 "stroke" 1.8) }}</span>
-          <div class="sert-option-body">
+          </li>
+          <li class="sert-option">
+            <p class="sert-option-index" aria-hidden="true">02</p>
             <h3 class="sert-option-title">Аренда корта</h3>
             <p class="sert-option-text">Для действующих игроков: корт целиком на час. Подойдёт тем,
               кто уже играет матчи, и тем, кто ходит на персональные занятия и готов выходить на игру.</p>
-          </div>
-        </li>
-        <li class="sert-option">
-          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "wallet" "size" 20 "stroke" 1.8) }}</span>
-          <div class="sert-option-body">
+          </li>
+          <li class="sert-option">
+            <p class="sert-option-index" aria-hidden="true">03</p>
             <h3 class="sert-option-title">На любую сумму</h3>
             <p class="sert-option-text">Не привязывает к услуге: получатель сам выберет — арендовать
               корт для матча или сходить на тренировку самостоятельно, в паре или группой.</p>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
 
-      <div class="sert-ticket">
-        <div class="sert-ticket-top">
-          <span class="sert-ticket-brand">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
-          <span class="sert-ticket-stamp">Подарочный</span>
+        <div class="sert-ticket">
+          <span class="sert-ticket-ball" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "ball" "size" 320 "stroke" 1) }}</span>
+
+          <div class="sert-ticket-top">
+            <span class="sert-ticket-brand">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
+            <span class="sert-ticket-stamp">Подарочный</span>
+          </div>
+
+          <p class="sert-ticket-title">Сертификат<br>ILO&nbsp;Club</p>
+
+          <div class="sert-ticket-cut"></div>
+
+          <dl class="sert-ticket-meta">
+            <div>
+              <dt>{{ partial "art/icon.html" (dict "name" "file-text" "size" 14 "stroke" 1.8) }}<span>Формат</span></dt>
+              <dd>PDF или бумажный<span class="sert-ticket-note">Бумажный — забрать в клубе: Ратомка, Перспективная, 12.</span></dd>
+            </div>
+            <div>
+              <dt>{{ partial "art/icon.html" (dict "name" "calendar" "size" 14 "stroke" 1.8) }}<span>Срок действия</span></dt>
+              <dd>2 месяца</dd>
+            </div>
+            <div>
+              <dt>{{ partial "art/icon.html" (dict "name" "wallet" "size" 14 "stroke" 1.8) }}<span>Номинал</span></dt>
+              <dd>Любая сумма или услуга</dd>
+            </div>
+          </dl>
         </div>
-
-        <p class="sert-ticket-title">Сертификат<br>ILO&nbsp;Club</p>
-
-        <div class="sert-ticket-cut"></div>
-
-        <dl class="sert-ticket-meta">
-          <div>
-            <dt>{{ partial "art/icon.html" (dict "name" "file-text" "size" 14 "stroke" 1.8) }}<span>Формат</span></dt>
-            <dd>PDF — отправим на почту. Бумажный — забрать в клубе: Ратомка, Перспективная, 12.</dd>
-          </div>
-          <div>
-            <dt>{{ partial "art/icon.html" (dict "name" "calendar" "size" 14 "stroke" 1.8) }}<span>Срок действия</span></dt>
-            <dd>2 месяца</dd>
-          </div>
-          <div>
-            <dt>{{ partial "art/icon.html" (dict "name" "wallet" "size" 14 "stroke" 1.8) }}<span>Номинал</span></dt>
-            <dd>Любая сумма или конкретная услуга</dd>
-          </div>
-        </dl>
       </div>
     </div>
   </section>
@@ -542,9 +541,9 @@
     </div>
   </section>
 
-  <section class="band" id="rules" aria-labelledby="rules-title">
-    <div class="wrap rules-section">
-      <div class="rules-layout">
+  <section class="rules" id="rules" aria-labelledby="rules-title">
+    <div class="wrap">
+      <div class="rules-panel">
         <h2 class="rules-title" id="rules-title">Правила посещения клуба</h2>
 
         <ul class="rules-list">
@@ -559,6 +558,9 @@
             <p>Без полной оплаты мы не бронируем время, и оно остаётся открытым
               для других желающих.</p>
           </li>
+        </ul>
+
+        <ul class="rules-list rules-list--next">
           <li class="rule">
             <p class="rule-lead"><strong>Оплата возможна только через ЕРИП:</strong></p>
             <ul class="rule-sub">

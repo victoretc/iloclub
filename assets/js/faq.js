@@ -6,6 +6,21 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+  const close = (item) => {
+    const body = item.querySelector(".faq-body");
+    const button = item.querySelector(".faq-q");
+    if (!body || !button || !item.classList.contains("is-open")) return;
+
+    if (!reduceMotion.matches) {
+      body.style.height = `${body.getBoundingClientRect().height}px`;
+      void body.offsetHeight;
+    }
+
+    item.classList.remove("is-open");
+    button.setAttribute("aria-expanded", "false");
+    body.style.height = "0px";
+  };
+
   items.forEach((item) => {
     const button = item.querySelector(".faq-q");
     const body = item.querySelector(".faq-body");
@@ -18,27 +33,19 @@
     });
 
     button.addEventListener("click", () => {
-      const isOpen = item.classList.contains("is-open");
-
-      if (reduceMotion.matches) {
-        item.classList.toggle("is-open", !isOpen);
-        button.setAttribute("aria-expanded", String(!isOpen));
-        body.style.height = isOpen ? "0px" : "auto";
+      if (item.classList.contains("is-open")) {
+        close(item);
         return;
       }
 
-      if (isOpen) {
-        body.style.height = `${body.getBoundingClientRect().height}px`;
-        void body.offsetHeight;
-        item.classList.remove("is-open");
-        button.setAttribute("aria-expanded", "false");
-        body.style.height = "0px";
-        return;
-      }
+      // открыт всегда один вопрос: остальные закрываем
+      items.forEach((other) => {
+        if (other !== item) close(other);
+      });
 
       item.classList.add("is-open");
       button.setAttribute("aria-expanded", "true");
-      body.style.height = `${body.scrollHeight}px`;
+      body.style.height = reduceMotion.matches ? "auto" : `${body.scrollHeight}px`;
     });
   });
 })();

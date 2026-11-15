@@ -707,7 +707,6 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 /* ---------- секции ---------- */
 .section { padding-block: var(--section-gap); }
-.band { background: var(--concrete); }
 
 .section-head { max-width: 760px; }
 .section-head h2 {
@@ -1480,106 +1479,77 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 /* ---------- сертификат ----------
-   заголовок с кнопкой в строку, ниже тёмная панель: варианты подарка слева,
-   макет сертификата справа */
-.sert-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem 2rem;
-}
-
-.sert-head .section-head h2 { margin-bottom: 0; }
-
+   тёмная полоса на всю ширину: шапка в одну строку, ниже три варианта
+   подарка списком и макет сертификата справа */
 .sert {
   position: relative;
   isolation: isolate;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  align-items: stretch;
-  gap: clamp(1.5rem, 3.5vw, 3rem);
-  margin-top: clamp(1.25rem, 2vw, 1.75rem);
-  padding: clamp(1.25rem, 3vw, 2.5rem);
-  border-radius: var(--radius-card);
-  background:
-    radial-gradient(120% 90% at 50% -20%, rgba(255, 255, 255, 0.07), transparent 60%),
-    var(--obsidian);
+  background: var(--obsidian);
   color: var(--paper);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
 }
 
-/* свет в углу: стеклу нужен фон, иначе blur не читается */
+/* два пятна света: lime снизу слева, белое сверху справа — стеклу нужен фон */
 .sert::before {
   content: "";
   position: absolute;
   z-index: -1;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(50% 72% at 4% 106%, rgba(227, 252, 3, 0.17), transparent 72%);
+  background:
+    radial-gradient(42% 62% at 0% 110%, rgba(227, 252, 3, 0.15), transparent 70%),
+    radial-gradient(46% 66% at 98% -14%, rgba(255, 255, 255, 0.07), transparent 72%);
 }
 
-/* три варианта: одна стеклянная плашка с разделителями */
-.sert-options {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius-card);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-}
-
-.sert-option {
+.sert-inner {
   display: grid;
-  grid-template-columns: 40px minmax(0, 1fr);
-  align-items: start;
-  gap: 0.85rem 1rem;
-  padding: clamp(0.9rem, 1.6vw, 1.15rem) clamp(1rem, 2vw, 1.4rem);
+  gap: clamp(1.75rem, 3vw, 2.5rem);
 }
 
-.sert-option + .sert-option { border-top: 1px solid rgba(255, 255, 255, 0.1); }
-
-.sert-option-icon {
-  display: inline-flex;
+/* шапка: заголовок и кнопка в одну строку по краям, подводка — под ними */
+.sert-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "title cta"
+    "lead lead";
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-card);
-  color: var(--lime);
-  background: color-mix(in oklab, var(--lime) 14%, transparent);
-  border: 1px solid color-mix(in oklab, var(--lime) 28%, transparent);
+  gap: 0.95rem clamp(1.5rem, 3vw, 3rem);
 }
 
-.sert-option-icon .icon { flex: none; }
-
-.sert-option-title {
-  font-family: var(--font-display);
-  font-size: var(--text-body);
-  font-weight: 400;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+.sert-head h2 {
+  grid-area: title;
+  font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
 }
 
-.sert-option-text {
-  margin-top: 0.35rem;
-  font-size: var(--text-body-sm);
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.72);
+.sert-cta { grid-area: cta; }
+
+.sert-head .lead {
+  grid-area: lead;
+  max-width: 60ch;
+  color: rgba(255, 255, 255, 0.7);
   text-wrap: pretty;
+}
+
+/* тело: варианты подарка слева, макет справа; линия отделяет шапку */
+.sert-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: stretch;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  padding-top: clamp(1.4rem, 2.4vw, 2rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 /* макет сертификата: стеклянная карта с отрывной линией */
 .sert-ticket {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
-  padding: clamp(1.25rem, 2.5vw, 1.9rem);
+  padding: clamp(1.25rem, 2.2vw, 1.9rem);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-card);
   background:
@@ -1591,7 +1561,20 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   -webkit-backdrop-filter: var(--blur);
 }
 
+/* мяч уходит за край: тот же мотив, что в шапке и в «Тренерах» */
+.sert-ticket-ball {
+  position: absolute;
+  z-index: -1;
+  right: -104px;
+  top: 30%;
+  color: rgba(255, 255, 255, 0.055);
+  pointer-events: none;
+}
+
+.sert-ticket-ball .icon { display: block; }
+
 .sert-ticket-top {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1615,26 +1598,26 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .sert-ticket-title {
-  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+  margin: clamp(1.1rem, 2vw, 1.6rem) 0 clamp(1.25rem, 2.4vw, 2rem);
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
-  line-height: 1.05;
+  font-size: clamp(1.9rem, 2.6vw, 2.25rem);
+  line-height: 1.04;
   letter-spacing: -0.03em;
 }
 
-/* отрывная линия с просечками по краям прижата к нижней части */
+/* отрывная линия с просечками по краям: верхняя часть отделена от реквизитов */
 .sert-ticket-cut {
   position: relative;
   margin-top: auto;
   height: 1px;
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.32) 0 5px,
-    transparent 5px 11px
+    rgba(255, 255, 255, 0.26) 0 4px,
+    transparent 4px 10px
   );
 }
 
@@ -1646,58 +1629,158 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #040404;
+  background: var(--obsidian);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
   transform: translateY(-50%);
 }
 
-.sert-ticket-cut::before { left: calc(-1 * clamp(1.25rem, 2.5vw, 1.9rem) - 9px); }
-.sert-ticket-cut::after { right: calc(-1 * clamp(1.25rem, 2.5vw, 1.9rem) - 9px); }
+.sert-ticket-cut::before { left: calc(-1 * clamp(1.25rem, 2.2vw, 1.9rem) - 9px); }
+.sert-ticket-cut::after { right: calc(-1 * clamp(1.25rem, 2.2vw, 1.9rem) - 9px); }
 
+/* реквизиты: строки с подписями — в вертикальной карте так читается спокойнее */
 .sert-ticket-meta {
+  position: relative;
   display: grid;
   gap: 0.7rem;
-  margin: clamp(1rem, 2vw, 1.4rem) 0 0;
+  margin: clamp(0.9rem, 1.7vw, 1.25rem) 0 0;
 }
 
 .sert-ticket-meta > div + div {
   padding-top: 0.7rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .sert-ticket-meta dt {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.625rem;
+  gap: 0.35rem;
+  font-size: 0.6875rem;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.58);
 }
 
 .sert-ticket-meta dt .icon { flex: none; color: var(--lime); }
 
 .sert-ticket-meta dd {
-  margin: 0.3rem 0 0;
+  margin: 0.28rem 0 0;
   font-size: var(--text-caption);
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.92);
+  text-wrap: pretty;
+}
+
+.sert-ticket-note {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.55);
+  text-wrap: pretty;
+}
+
+/* три варианта подарка: строки с номером, разделённые линиями */
+.sert-options {
+  display: grid;
+  align-content: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sert-option {
+  display: grid;
+  grid-template-columns: clamp(2.5rem, 3.4vw, 3rem) minmax(0, 1fr);
+  align-content: start;
+  padding-block: clamp(1.1rem, 2vw, 1.55rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.sert-option:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.sert-option-index {
+  grid-row: 1 / span 2;
+  padding-top: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--lime);
+}
+
+.sert-option-title {
+  font-size: var(--text-subheading);
+  line-height: 1.24;
+  letter-spacing: -0.015em;
+}
+
+.sert-option-text {
+  margin-top: 0.45rem;
+  max-width: 52ch;
+  font-size: var(--text-body-sm);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
   text-wrap: pretty;
 }
 
 /* без blur стекло остаётся плоским, но контраст сохраняем */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .sert-options { background: rgba(255, 255, 255, 0.09); }
   .sert-ticket { background: rgba(255, 255, 255, 0.1); }
 }
 
-@media (max-width: 980px) {
-  .sert { grid-template-columns: 1fr; }
-  .sert-ticket { order: -1; width: 100%; max-width: 460px; }
+@media (max-width: 1024px) {
+  .sert-head {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .sert-body {
+    grid-template-columns: 1fr;
+    gap: clamp(1.75rem, 3vw, 2.25rem);
+  }
+
+  /* карта лежит во всю ширину: реквизиты встают в три колонки */
+  .sert-ticket-meta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem clamp(0.9rem, 2.4vw, 2rem);
+  }
+
+  .sert-ticket-meta > div + div {
+    padding-top: 0;
+    border-top: 0;
+  }
 }
 
 @media (max-width: 640px) {
-  .sert-ticket { min-height: 0; }
-  .sert-ticket-cut { margin-top: clamp(1.5rem, 5vw, 2rem); }
+  /* кнопка в одну строку с заголовком не влезает: разводим шапку в колонку */
+  .sert-head {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "lead"
+      "cta";
+    gap: 0.85rem;
+  }
+
+  .sert-cta { justify-self: start; }
+
+  /* карта узкая и высокая: реквизиты снова в столбик */
+  .sert-ticket-meta { grid-template-columns: 1fr; }
+
+  .sert-ticket-meta > div + div {
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .sert-option {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    padding-block: 1rem;
+  }
+
+  .sert-option-title { font-size: var(--text-body); }
 }
 
 /* ---------- корт: лента фотографий ---------- */
@@ -1838,6 +1921,11 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .faq-item.is-open .faq-mark svg { transform: rotate(45deg); }
 
+@media (prefers-reduced-motion: reduce) {
+  .faq-mark,
+  .faq-mark svg { transition: none; }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .faq-q:hover .faq-mark { border-color: var(--obsidian); }
 }
@@ -1854,7 +1942,12 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .faq-body { transition-property: height; transition-duration: 240ms; transition-timing-function: var(--ease-out); }
+  .faq-body {
+    transition-property: height;
+    transition-duration: 180ms;
+    transition-timing-function: var(--ease-out);
+  }
+  .faq-item.is-open .faq-body { transition-duration: 240ms; }
 }
 
 .faq-body-inner { padding: 0 3.5rem 1.5rem 0; }
@@ -1874,42 +1967,58 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 /* ---------- правила ----------
-   только текст: заголовок слева, список справа, строки на волосяных линиях */
-.rules-section { padding-block: clamp(2.75rem, 5vw, 4rem); }
+   только текст: светлая плашка на белом, две колонки, без линий */
+.rules { padding-block: clamp(2rem, 4vw, 3rem) clamp(1rem, 2vw, 1.5rem); }
 
-.rules-layout {
+.rules-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(2rem, 5vw, 4.5rem);
   align-items: start;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 3.4vw, 2.75rem);
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(120% 80% at 12% 0%, rgba(255, 255, 255, 0.95), transparent 62%),
+    linear-gradient(180deg, #f1f1f1 0%, #e4e4e4 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .rules-title {
+  grid-column: 1;
   margin: 0;
-  max-width: 15ch;
-  font-size: var(--text-heading-lg);
-  line-height: 1.06;
+  font-size: var(--text-heading);
+  line-height: 1.08;
   text-wrap: balance;
 }
 
 .rules-list {
-  max-width: 64ch;
-  margin: 0;
+  grid-column: 1;
+  margin: clamp(1.25rem, 2.4vw, 1.75rem) 0 0;
   padding: 0;
   list-style: none;
   font-size: var(--text-body-sm);
-  border-top: 1px solid var(--obsidian);
+}
+
+/* вторая колонка начинается с верхнего края плашки */
+.rules-list--next {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  margin-top: 0;
 }
 
 .rule {
-  padding-block: clamp(0.95rem, 1.6vw, 1.15rem);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  margin-bottom: clamp(1.1rem, 2vw, 1.45rem);
   line-height: 1.6;
   color: var(--graphite);
   text-wrap: pretty;
 }
 
-.rule:last-child { border-bottom-color: var(--obsidian); }
+.rule:last-child { margin-bottom: 0; }
 
 .rule p { margin: 0; }
 
@@ -1926,7 +2035,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 /* перечисления внутри правила: висячий отступ, точки-маркеры */
 .rule-sub {
-  margin: 0.3rem 0 0;
+  margin: 0.35rem 0 0;
   padding: 0;
   list-style: none;
   font-variant-numeric: tabular-nums;
@@ -1952,9 +2061,8 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 @media (max-width: 900px) {
-  .rules-layout { grid-template-columns: 1fr; gap: clamp(1.25rem, 3vw, 1.75rem); }
-  .rules-title,
-  .rules-list { max-width: none; }
+  .rules-panel { grid-template-columns: minmax(0, 1fr); row-gap: clamp(1.1rem, 2vw, 1.45rem); }
+  .rules-list--next { grid-column: 1; grid-row: auto; }
 }
 
 /* ---------- как добраться ---------- */
@@ -2016,6 +2124,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
   background: var(--obsidian);
   color: var(--paper);
 }
@@ -2203,14 +2312,24 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent);
 }
 
+/* пол с мячами: слой обрезает сцену, поэтому мяч влетает сверху из-за кадра */
+.footer-net-floor {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
 .footer-net-ball {
   position: absolute;
   bottom: 8px;
-  z-index: 5;
   display: block;
   width: clamp(44px, 5.2vw, 68px);
   aspect-ratio: 1;
   color: var(--lime);
+  translate: var(--bx, 0px) var(--by, 0px);
+  pointer-events: auto;
 }
 
 .footer-net-ball svg { display: block; width: 100%; height: 100%; }
@@ -2223,7 +2342,8 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .footer-net-ball svg g { stroke: rgba(0, 0, 0, 0.55); }
 
-/* тень под мячом держит его на полу */
+/* тень остаётся на полу, когда мяч подняли: смещается вниз на высоту мяча,
+   бледнеет и ужимается */
 .footer-net-ball::after {
   content: "";
   position: absolute;
@@ -2234,6 +2354,15 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.7);
   filter: blur(5px);
+  translate: 0 calc(-1 * var(--by, 0px));
+  scale: calc(1 - 0.42 * var(--lift, 0));
+  opacity: calc(1 - 0.55 * var(--lift, 0));
+}
+
+/* мяч можно взять мышью: на тач-устройствах жест остаётся за скроллом */
+@media (hover: hover) and (pointer: fine) {
+  .footer-net-ball { cursor: grab; }
+  .footer-net-ball.is-dragging { cursor: grabbing; }
 }
 
 .footer-net-ball--a { left: 7%; bottom: 13px; rotate: -9deg; }

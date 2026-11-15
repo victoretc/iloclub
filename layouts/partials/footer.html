@@ -29,8 +29,10 @@
     <span class="footer-net__mesh"></span>
     <span class="footer-net__cord"></span>
 
-    <span class="footer-net-ball footer-net-ball--a">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
-    <span class="footer-net-ball footer-net-ball--b">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
-    <span class="footer-net-ball footer-net-ball--c">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
+    <div class="footer-net-floor" data-ball-floor>
+      <span class="footer-net-ball footer-net-ball--a">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
+      <span class="footer-net-ball footer-net-ball--b">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
+      <span class="footer-net-ball footer-net-ball--c">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
+    </div>
   </div>
 </footer>
