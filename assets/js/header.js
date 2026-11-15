@@ -1,18 +1,18 @@
-/* Шапка: пока под ней фото героя — стекло прозрачное,
-   дальше — светлое, чтобы чёрный текст читался на белом. */
+/* Шапка: пока под ней фото героя и чёрный блок тренеров — стекло прозрачное,
+   дальше (с третьего блока) — светлое, чтобы чёрный текст читался на белом. */
 (() => {
   const header = document.querySelector("[data-header]");
   if (!header || header.classList.contains("site-header--solid")) return;
 
-  const hero = document.querySelector(".hero");
+  const switchBlock = document.querySelectorAll("main > section")[2] || null;
   let frame = 0;
-
-  const threshold = () =>
-    hero ? hero.offsetHeight - header.offsetHeight - 8 : 24;
 
   const sync = () => {
     frame = 0;
-    header.classList.toggle("is-stuck", window.scrollY > threshold());
+    const reached = switchBlock
+      ? switchBlock.getBoundingClientRect().top <= header.offsetHeight - 8
+      : window.scrollY > 24;
+    header.classList.toggle("is-stuck", reached);
   };
 
   const schedule = () => {

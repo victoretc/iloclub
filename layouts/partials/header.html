@@ -1,8 +1,7 @@
 <header class="site-header{{ if not .IsHome }} site-header--solid{{ end }}" data-header>
-  <div class="header-inner">
-    <a class="brand" href="{{ site.Home.RelPermalink }}">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-name">{{ site.Title }}</span>
+  <div class="header-shell">
+    <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} — на главную">
+      <span class="brand-badge" aria-hidden="true">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
     </a>
 
     <nav class="header-nav-wrap" aria-label="Разделы страницы">
@@ -13,6 +12,18 @@
       </ul>
     </nav>
 
-    <a class="btn btn--header" href="{{ site.Params.booking }}" target="_blank" rel="noopener">Забронировать</a>
+    <div class="header-meta">
+      <a class="header-address" href="{{ site.Params.map }}" target="_blank" rel="noopener">
+        <span class="header-address__city">аг. Ратомка, Перспективная 12</span>
+        <span class="header-address__hours">{{ site.Params.hours }}</span>
+      </a>
+
+      {{ partial "social.html" . }}
+
+      <a class="btn btn--header" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
+        Забронировать
+        {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 14 "stroke" 2.2) }}
+      </a>
+    </div>
   </div>
 </header>

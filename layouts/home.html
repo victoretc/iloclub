@@ -25,7 +25,7 @@
             <span class="hero-price">80 BYN в час.</span>
           </h1>
 
-          <p class="hero-sub">Вчетвером — 20 BYN с человека. Корт целиком ваш.</p>
+          <p class="hero-sub">20 BYN с человека и корт целиком ваш.</p>
 
           <div class="hero-actions">
             <a class="btn btn--hero" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
@@ -58,185 +58,232 @@
     </div>
   </section>
 
-  <section class="wrap section" id="coaches" aria-labelledby="coaches-title">
-    <div class="section-head">
-      <p class="eyebrow">Тренеры</p>
-      <h2 id="coaches-title">Кого слушать на корте</h2>
-      <p class="lead">Основатель клуба, тренеры по паделу и большому теннису. Выберите, к кому хотите
-        на корт, — покажем график на этой неделе.</p>
-    </div>
-
-    <div class="coach-tabs">
-      <input type="radio" name="coach" id="tab-ilona" checked>
-      <input type="radio" name="coach" id="tab-karina">
-      <input type="radio" name="coach" id="tab-eduard">
-      <input type="radio" name="coach" id="tab-evgeny">
-
-      <div class="coach-chips" role="group" aria-label="Выбор тренера">
-        <label for="tab-ilona">Илона</label>
-        <label for="tab-karina">Карина</label>
-        <label for="tab-eduard">Эдуард</label>
-        <label for="tab-evgeny">Евгений</label>
+  <section class="coaches" id="coaches" aria-labelledby="coaches-title">
+    <div class="wrap section">
+      <div class="coaches-head">
+        <h2 id="coaches-title">Тренеры</h2>
+        <p class="lead">Начните с тренера: поставьте базовую технику и разберитесь, что происходит
+          на корте — как выполнять удары, куда двигаться и как строить розыгрыш.</p>
+        <div class="coaches-balls" aria-hidden="true">
+          {{ partial "art/icon.html" (dict "name" "ball" "size" 52 "stroke" 1.4) }}
+          {{ partial "art/icon.html" (dict "name" "ball" "size" 36 "stroke" 1.8) }}
+          {{ partial "art/icon.html" (dict "name" "ball" "size" 24 "stroke" 2.1) }}
+        </div>
       </div>
 
-      <div class="coach-panels">
-        <article class="coach-panel" data-panel="ilona">
-          <img src="{{ "img/ilona.jpg" | relURL }}" alt="Илона, основатель и главный тренер ILO Club" width="1200" height="900" loading="lazy">
-          <div>
-            <p class="coach-name">Илона</p>
-            <p class="coach-role">Основатель и главный тренер</p>
+      <div class="coach-tabs">
+        <input type="radio" name="coach" id="tab-ilona" checked>
+        <input type="radio" name="coach" id="tab-karina">
+        <input type="radio" name="coach" id="tab-eduard">
+        <input type="radio" name="coach" id="tab-evgeny">
 
-            <dl class="coach-facts">
-              <div><dt>Звание</dt><dd>Мастер спорта международного класса</dd></div>
-              <div><dt>Титулы</dt><dd>8-кратная чемпионка Беларуси, чемпионка Европы среди юниоров, 33 титула ITF в женском теннисе</dd></div>
-              <div><dt>Рейтинг</dt><dd>Наивысший WTA: №201 в одиночном и №157 в парном разряде; топ-20 мирового рейтинга среди юниоров</dd></div>
-              <div><dt>Большой шлем</dt><dd>Участница Australian Open, Roland Garros, Wimbledon, US Open</dd></div>
-              <div><dt>Опыт</dt><dd>Дипломированный тренер по теннису (8+ лет), международно-сертифицированный тренер по паделу (4+ года)</dd></div>
-            </dl>
+        <div class="coach-chips" role="group" aria-label="Выбор тренера">
+          <label for="tab-ilona">Илона</label>
+          <label for="tab-karina">Карина</label>
+          <label for="tab-eduard">Эдуард</label>
+          <label for="tab-evgeny">Евгений</label>
+        </div>
 
-            <blockquote class="coach-quote">
-              «Илона прошла путь профессионального спортсмена и знает, что сильная игра строится
-              на дисциплине, системной работе и внимании к деталям».
-              <cite>Из описания клуба</cite>
-            </blockquote>
+        <div class="coach-panels">
+          <article class="coach-panel" data-panel="ilona">
+            <figure class="coach-photo">
+              <img src="{{ "img/ilona.jpg" | relURL }}" alt="Илона, основатель и главный тренер ILO Club" width="1080" height="1920" loading="lazy">
+            </figure>
+            <div class="coach-body">
+              <h3 class="coach-name">Илона</h3>
+              <p class="coach-role">Основатель и главный тренер</p>
 
-            <p class="coach-voices">Работает с игроками любого уровня: помогает новичкам заложить правильную
-              основу, а опытным — найти точки роста.</p>
-          </div>
-        </article>
+              <ul class="coach-facts">
+                  <li>{{ partial "art/icon.html" (dict "name" "medal" "size" 18 "stroke" 1.8) }}<span>Мастер спорта международного класса</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "trophy" "size" 18 "stroke" 1.8) }}<span>8-кратная чемпионка Беларуси, чемпионка Европы среди юниоров, 33 титула ITF в женском теннисе</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "trending-up" "size" 18 "stroke" 1.8) }}<span>Наивысший WTA: №201 в одиночном и №157 в парном разряде; топ-20 мирового рейтинга среди юниоров</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "globe" "size" 18 "stroke" 1.8) }}<span>Участница Australian Open, Roland Garros, Wimbledon, US Open</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "graduation-cap" "size" 18 "stroke" 1.8) }}<span>Дипломированный тренер по теннису (8+ лет), международно-сертифицированный тренер по паделу (4+ года)</span></li>
+              </ul>
 
-        <article class="coach-panel" data-panel="karina">
-          <img src="{{ "img/karina.jpg" | relURL }}" alt="Карина, тренер ILO Club" width="1200" height="900" loading="lazy">
-          <div>
-            <p class="coach-name">Карина</p>
-            <p class="coach-role">Тренер по паделу</p>
+              <blockquote class="coach-quote">
+                «Илона прошла путь профессионального спортсмена и знает, что сильная игра строится
+                на дисциплине, системной работе и внимании к деталям».
+              </blockquote>
 
-            <dl class="coach-facts">
-              <div><dt>Опыт</dt><dd>26 лет в теннисе; 12+ лет тренерского опыта в большом теннисе и 2+ года в паделе</dd></div>
-              <div><dt>Сборная</dt><dd>Входила в состав сборной Беларуси до 12, 14 и 16 лет</dd></div>
-              <div><dt>Турниры</dt><dd>Победитель и призёр международных турниров Tennis Europe и ITF Junior Circuit; участница открытого чемпионата Республики Беларусь</dd></div>
-              <div><dt>Образование</dt><dd>Выпускница БГУФК, специальность «тренер по теннису»</dd></div>
-            </dl>
+              <p class="coach-voices">Работает с игроками любого уровня: помогает новичкам заложить правильную
+                основу, а опытным — найти точки роста.</p>
+            </div>
+          </article>
 
-            <blockquote class="coach-quote">
-              «Её подход — это понятные объяснения, внимательная работа с каждым игроком и развитие
-              навыков, которые помогают получать больше удовольствия от игры».
-              <cite>Из описания клуба</cite>
-            </blockquote>
+          <article class="coach-panel" data-panel="karina">
+            <figure class="coach-photo">
+              <img src="{{ "img/karina.jpg" | relURL }}" alt="Карина, тренер ILO Club" width="1080" height="1920" loading="lazy">
+            </figure>
+            <div class="coach-body">
+              <h3 class="coach-name">Карина</h3>
+              <p class="coach-role">Тренер по паделу</p>
 
-            <p class="coach-voices">«Лучшее её я не знаю. Все, кто у неё бывал, в восторге». «Она
-              доступная и понятная».</p>
-          </div>
-        </article>
+              <ul class="coach-facts">
+                  <li>{{ partial "art/icon.html" (dict "name" "clock" "size" 18 "stroke" 1.8) }}<span>26 лет в теннисе; 12+ лет тренерского опыта в большом теннисе и 2+ года в паделе</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "flag" "size" 18 "stroke" 1.8) }}<span>Входила в состав сборной Беларуси до 12, 14 и 16 лет</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "trophy" "size" 18 "stroke" 1.8) }}<span>Победитель и призёр международных турниров Tennis Europe и ITF Junior Circuit; участница открытого чемпионата Республики Беларусь</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "graduation-cap" "size" 18 "stroke" 1.8) }}<span>Выпускница БГУФК, специальность «тренер по теннису»</span></li>
+              </ul>
 
-        <article class="coach-panel" data-panel="eduard">
-          <img src="{{ "img/eduard.jpg" | relURL }}" alt="Эдуард, тренер ILO Club" width="1200" height="900" loading="lazy">
-          <div>
-            <p class="coach-name">Эдуард</p>
-            <p class="coach-role">Тренер по паделу</p>
+              <blockquote class="coach-quote">
+                «Её подход — это понятные объяснения, внимательная работа с каждым игроком и развитие
+                навыков, которые помогают получать больше удовольствия от игры».
+              </blockquote>
 
-            <dl class="coach-facts">
-              <div><dt>Опыт</dt><dd>20+ лет тренерского опыта в теннисе, 3+ года работы в паделе</dd></div>
-              <div><dt>Турниры</dt><dd>10 лет сопровождения спортсменов на международных детских, юниорских и взрослых профессиональных турнирах</dd></div>
-              <div><dt>Уровни</dt><dd>От начинающих до спортсменов высокого уровня</dd></div>
-              <div><dt>Подход</dt><dd>Помогает довести удары до идеала и вывести игру на новый уровень</dd></div>
-            </dl>
+              <p class="coach-voices">«Лучшее её я не знаю. Все, кто у неё бывал, в восторге». «Она
+                доступная и понятная».</p>
+            </div>
+          </article>
 
-            <blockquote class="coach-quote">
-              «Если тренер, то только такой. Тут про понятность, дисциплину и всё это с любовью
-              и профессионализмом».
-              <cite>Игроки клуба</cite>
-            </blockquote>
-          </div>
-        </article>
+          <article class="coach-panel" data-panel="eduard">
+            <figure class="coach-photo">
+              <img src="{{ "img/eduard.jpg" | relURL }}" alt="Эдуард, тренер ILO Club" width="1080" height="1920" loading="lazy">
+            </figure>
+            <div class="coach-body">
+              <h3 class="coach-name">Эдуард</h3>
+              <p class="coach-role">Тренер по паделу</p>
 
-        <article class="coach-panel" data-panel="evgeny">
-          <img src="{{ "img/evgeny.jpg" | relURL }}" alt="Евгений, тренер ILO Club" width="1200" height="900" loading="lazy">
-          <div>
-            <p class="coach-name">Евгений</p>
-            <p class="coach-role">Тренер по паделу</p>
+              <ul class="coach-facts">
+                  <li>{{ partial "art/icon.html" (dict "name" "clock" "size" 18 "stroke" 1.8) }}<span>20+ лет тренерского опыта в теннисе, 3+ года работы в паделе</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "flag" "size" 18 "stroke" 1.8) }}<span>10 лет сопровождения спортсменов на международных детских, юниорских и взрослых профессиональных турнирах</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "users" "size" 18 "stroke" 1.8) }}<span>От начинающих до спортсменов высокого уровня</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "target" "size" 18 "stroke" 1.8) }}<span>Помогает довести удары до идеала и вывести игру на новый уровень</span></li>
+              </ul>
 
-            <dl class="coach-facts">
-              <div><dt>Опыт</dt><dd>В теннисе с 7 лет; 10+ лет тренерского опыта в большом теннисе</dd></div>
-              <div><dt>Образование</dt><dd>Выпускник БГУФК, специальность «тренер по теннису»</dd></div>
-              <div><dt>Турниры</dt><dd>Опыт работы на турнирах в качестве судьи</dd></div>
-              <div><dt>Подход</dt><dd>Помогает лучше понимать игру и раскрывать свой потенциал на корте</dd></div>
-            </dl>
+              <blockquote class="coach-quote">
+                «Если тренер, то только такой. Тут про понятность, дисциплину и всё это с любовью
+                и профессионализмом».
+              </blockquote>
+            </div>
+          </article>
 
-            <blockquote class="coach-quote">
-              «Гоняет знатно! Объясняет доходчиво. Очень комфортно учиться под его руководством».
-              <cite>Игроки клуба</cite>
-            </blockquote>
+          <article class="coach-panel" data-panel="evgeny">
+            <figure class="coach-photo">
+              <img src="{{ "img/evgeny.jpg" | relURL }}" alt="Евгений, тренер ILO Club" width="1080" height="1920" loading="lazy">
+            </figure>
+            <div class="coach-body">
+              <h3 class="coach-name">Евгений</h3>
+              <p class="coach-role">Тренер по паделу</p>
 
-            <p class="coach-voices">«Вот уж точно не даст расслабиться — проверено на себе». Тренировки
-              отличаются динамикой и энергией: благодаря насыщенной практике игроки быстро учатся
-              адаптироваться к любым ситуациям на корте.</p>
-          </div>
-        </article>
+              <ul class="coach-facts">
+                  <li>{{ partial "art/icon.html" (dict "name" "clock" "size" 18 "stroke" 1.8) }}<span>В теннисе с 7 лет; 10+ лет тренерского опыта в большом теннисе</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "graduation-cap" "size" 18 "stroke" 1.8) }}<span>Выпускник БГУФК, специальность «тренер по теннису»</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "flag" "size" 18 "stroke" 1.8) }}<span>Опыт работы на турнирах в качестве судьи</span></li>
+                  <li>{{ partial "art/icon.html" (dict "name" "target" "size" 18 "stroke" 1.8) }}<span>Помогает лучше понимать игру и раскрывать свой потенциал на корте</span></li>
+              </ul>
+
+              <blockquote class="coach-quote">
+                «Гоняет знатно! Объясняет доходчиво. Очень комфортно учиться под его руководством».
+              </blockquote>
+
+              <p class="coach-voices">«Вот уж точно не даст расслабиться — проверено на себе». Тренировки
+                отличаются динамикой и энергией: благодаря насыщенной практике игроки быстро учатся
+                адаптироваться к любым ситуациям на корте.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
 
   </section>
 
   <section class="pricing" id="price" aria-labelledby="price-title">
-    {{ partial "art/ball-field.html" (dict "balls" (slice "a" "b" "c") "prefix" "price") }}
+    {{ partial "art/ball-field.html" (dict "balls" (slice "a" "b" "c" "d")) }}
     <div class="wrap section">
-      <div class="section-head">
-        <p class="eyebrow">Цены</p>
-        <h2 id="price-title">За корт, а не за человека</h2>
-        <p class="lead">80 BYN за корт в час. Вчетвером — по 20 BYN с человека.
-          Корт и ракетки входят в тренировку.</p>
-      </div>
+      <h2 class="sr-only" id="price-title">Цены</h2>
 
-      <div class="rates">
-        <div class="rates-table">
-          <table class="price-table">
-            <caption class="sr-only">Стоимость аренды и тренировок по длительности</caption>
-            <thead>
-              <tr>
-                <th scope="col">Формат</th>
-                {{ range $d := $durations }}<th scope="col">{{ $d.label }}</th>{{ end }}
-              </tr>
-            </thead>
-            <tbody>
-              {{ range $f := $formats }}
-                <tr{{ if eq $f.id "rent" }} class="rate--lead"{{ end }}>
-                  <th scope="row">
-                    <span class="rate-name">{{ $f.name }}</span>
-                    <small>{{ $f.note }}</small>
-                    {{ if gt $f.players 1 }}
-                      {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
-                      <small class="rate-per">{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</small>
-                    {{ end }}
-                  </th>
-                  {{ range $i, $d := $durations }}
-                    <td data-label="{{ $d.short }}">{{ index $f.prices $i }} <span>BYN</span></td>
-                  {{ end }}
-                </tr>
-              {{ end }}
-            </tbody>
-          </table>
+      <div class="price-panel" data-prices-root>
+        <div class="price-filters">
+          <div class="price-tabs" role="group" aria-label="Категория">
+            <input class="sr-only" type="radio" name="price-cat" id="cat-court" value="court" checked>
+            <label for="cat-court">Корт</label>
+            <input class="sr-only" type="radio" name="price-cat" id="cat-training" value="training">
+            <label for="cat-training">Тренировки</label>
+            <input class="sr-only" type="radio" name="price-cat" id="cat-gear" value="gear">
+            <label for="cat-gear">Инвентарь</label>
+          </div>
+
+          <div class="price-durations" role="group" aria-label="Длительность">
+            {{ range $i, $d := $durations }}
+              <input class="sr-only" type="radio" name="price-duration" id="pd-{{ $d.key }}" value="{{ $d.key }}" data-index="{{ $i }}" {{ if eq $i 0 }}checked{{ end }}>
+              <label for="pd-{{ $d.key }}">{{ $d.label }}</label>
+            {{ end }}
+          </div>
         </div>
 
-        <aside class="rates-side">
-          <p class="rates-side-title">Инвентарь</p>
-          <ul class="rates-extras">
-            {{ range $e := $extras }}
-              <li>
-                <span class="rates-extra-name">{{ $e.name }}</span>
-                <span class="rates-extra-price">{{ index $e.prices 0 }} BYN/час</span>
-                <span class="rates-extra-note">{{ $e.unit }} · 1,5 ч — {{ index $e.prices 1 }} · 2 ч — {{ index $e.prices 2 }}</span>
+        <ul class="price-list" data-cat="court">
+          {{ range $f := $formats }}
+            {{ if eq $f.id "rent" }}
+              <li data-prices="{{ delimit $f.prices "," }}" data-players="{{ $f.players }}">
+                <div>
+                  <p class="price-name">{{ $f.name }}</p>
+                  <p class="price-note">{{ $f.note }}</p>
+                </div>
+                <div class="price-box">
+                  <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span> <span class="price-unit">BYN</span></p>
+                  {{ if gt $f.players 1 }}
+                    {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
+                    <p class="price-per" data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</p>
+                  {{ end }}
+                </div>
               </li>
             {{ end }}
-          </ul>
+          {{ end }}
+        </ul>
 
-          <p class="rates-side-text">Инвентарь нужен, если играете без своего.</p>
+        <ul class="price-list" data-cat="training" hidden>
+          {{ range $f := $formats }}
+            {{ if ne $f.id "rent" }}
+              <li data-prices="{{ delimit $f.prices "," }}" data-players="{{ $f.players }}">
+                <div>
+                  <p class="price-name">{{ $f.name }}</p>
+                  <p class="price-note">{{ $f.note }}</p>
+                </div>
+                <div class="price-box">
+                  <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span> <span class="price-unit">BYN</span></p>
+                  {{ if gt $f.players 1 }}
+                    {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
+                    <p class="price-per" data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</p>
+                  {{ end }}
+                </div>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
 
-          <a class="btn rates-btn" href="{{ site.Params.booking }}" target="_blank" rel="noopener">Выбрать время</a>
-          <p class="rates-note">Бронь и оплата — в Yclients. Время держим за вами после оплаты.</p>
-        </aside>
+        <ul class="price-list" data-cat="gear" hidden>
+          {{ range $e := $extras }}
+            <li data-prices="{{ delimit $e.prices "," }}">
+              <div>
+                <p class="price-name">{{ $e.name }}</p>
+                <p class="price-note">{{ $e.unit }}</p>
+              </div>
+              <div class="price-box">
+                <p class="price-value"><span data-price>{{ index $e.prices 0 }}</span> <span class="price-unit">BYN</span></p>
+              </div>
+            </li>
+          {{ end }}
+        </ul>
+
+        <button class="btn price-cta" type="button" data-sheet-open>Выбрать время</button>
       </div>
     </div>
+
+    <dialog class="sheet" id="price-sheet" aria-labelledby="sheet-title">
+      <div class="sheet-inner">
+        <div class="sheet-head">
+          <p class="sheet-title" id="sheet-title">Выбрать время</p>
+          <form method="dialog">
+            <button class="sheet-close" aria-label="Закрыть">{{ partial "art/icon.html" (dict "name" "x" "size" 18 "stroke" 2) }}</button>
+          </form>
+        </div>
+        <a class="btn sheet-btn" href="{{ site.Params.booking }}" target="_blank" rel="noopener">Перейти к записи</a>
+        {{ with site.Params.social.telegram }}
+          <a class="sheet-link" href="{{ . }}" target="_blank" rel="noopener">Написать в Telegram</a>
+        {{ end }}
+      </div>
+    </dialog>
   </section>
 
   <section class="wrap section" id="sertifikat" aria-labelledby="sertifikat-title">
@@ -546,7 +593,6 @@
   </section>
 
   <section class="cta-band" aria-labelledby="cta-title">
-    {{ partial "art/ball-field.html" (dict "balls" (slice "e" "f") "prefix" "cta") }}
     <div class="wrap cta-inner">
       <div>
         <p class="eyebrow">ILO Club · Ратомка</p>

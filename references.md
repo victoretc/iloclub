@@ -8,3 +8,8 @@
 8. https://skypadel.club/ 
 9. https://mypadelpark.ru/
 10. https://padel-tennis-msk.ru/
+
+
+Для кнопки Забронировать корт и Забронировать не меняй при hover цвет а чуть приподнимай их 
+
+Используй skill animate, чтобы сделать профессиональную анимацию 
