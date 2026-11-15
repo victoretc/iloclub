@@ -24,6 +24,43 @@
         Забронировать
         {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 14 "stroke" 2.2) }}
       </a>
+
+      <button class="header-toggle" type="button" aria-expanded="false" aria-controls="header-panel" data-header-toggle>
+        <span class="sr-only">Меню</span>
+        <span class="header-toggle__icons" aria-hidden="true">
+          {{ partial "art/icon.html" (dict "name" "menu" "size" 22 "stroke" 2) }}
+          {{ partial "art/icon.html" (dict "name" "x" "size" 22 "stroke" 2) }}
+        </span>
+      </button>
+    </div>
+
+    <div class="header-panel" id="header-panel" data-header-panel>
+      <nav class="header-panel__nav" aria-label="Разделы страницы">
+        <a class="header-panel__link" href="{{ site.Home.RelPermalink }}#coaches">
+          Тренеры
+          {{ partial "art/icon.html" (dict "name" "arrow-right" "size" 18 "stroke" 1.8) }}
+        </a>
+        <a class="header-panel__link" href="{{ site.Home.RelPermalink }}#price">
+          Цены
+          {{ partial "art/icon.html" (dict "name" "arrow-right" "size" 18 "stroke" 1.8) }}
+        </a>
+        <a class="header-panel__link" href="{{ site.Home.RelPermalink }}#sertifikat">
+          Сертификат
+          {{ partial "art/icon.html" (dict "name" "arrow-right" "size" 18 "stroke" 1.8) }}
+        </a>
+      </nav>
+
+      <div class="header-panel__foot">
+        <a class="header-panel__place" href="{{ site.Params.map }}" target="_blank" rel="noopener">
+          {{ partial "art/icon.html" (dict "name" "map-pin" "size" 18 "stroke" 1.8) }}
+          <span>
+            <span class="header-panel__city">аг. Ратомка, Перспективная 12</span>
+            <span class="header-panel__hours">{{ site.Params.hours }}</span>
+          </span>
+        </a>
+
+        {{ partial "social.html" . }}
+      </div>
     </div>
   </div>
 </header>

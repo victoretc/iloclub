@@ -313,6 +313,55 @@ a { color: inherit; text-decoration-color: rgba(0, 0, 0, 0.35); text-underline-o
 .site-header--solid :focus-visible,
 .site-header.is-stuck :focus-visible { outline-color: var(--obsidian); }
 
+/* ---------- шапка: мобильное меню ---------- */
+/* кнопка и панель живут только в узком полотне, на десктопе их нет */
+.header-toggle { display: none; }
+
+.header-panel { display: none; }
+
+.header-toggle {
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition-property: background-color;
+  transition-duration: 150ms;
+  transition-timing-function: var(--ease);
+}
+
+/* обе иконки в DOM: меню и крестик меняются местами без перерисовки */
+.header-toggle__icons {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+.header-toggle__icons .icon {
+  position: absolute;
+  inset: 0;
+  transition-property: opacity, scale, filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.header-toggle__icons .icon--x { opacity: 0; scale: 0.25; filter: blur(4px); }
+
+.header-toggle[aria-expanded="true"] .icon--menu { opacity: 0; scale: 0.25; filter: blur(4px); }
+.header-toggle[aria-expanded="true"] .icon--x { opacity: 1; scale: 1; filter: blur(0); }
+
+@media (hover: hover) and (pointer: fine) {
+  .header-toggle:hover { background: rgba(255, 255, 255, 0.12); }
+  .site-header--solid .header-toggle:hover,
+  .site-header.is-stuck .header-toggle:hover { background: rgba(0, 0, 0, 0.06); }
+}
+
 /* фиксированная шапка не должна накрывать заголовки по якорям */
 main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
