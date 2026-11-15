@@ -1391,9 +1391,9 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 .price-durations label {
-  min-height: 38px;
-  padding: 0.45rem 0.9rem;
-  font-size: var(--text-caption);
+  min-height: 44px;
+  padding: 0.55rem 0.85rem;
+  font-size: var(--text-body-sm);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1541,7 +1541,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 @media (max-width: 620px) {
   .price-tabs label { min-height: 42px; padding-inline: 0.5rem; font-size: 0.875rem; }
-  .price-durations label { padding-inline: 0.5rem; font-size: var(--text-caption); }
+  .price-durations label { min-height: 42px; padding-inline: 0.55rem; font-size: 0.875rem; }
 
   /* цена уходит под название: крупная цифра не делит строку с текстом */
   .price-list li { grid-template-columns: 1fr; }
@@ -1554,9 +1554,8 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 /* ---------- сертификат ----------
-   витрина подарка в духе первого экрана: слева карта с фото корта,
-   стеклянной строкой реквизитов и lime-строкой в заголовке,
-   справа — три стеклянные карточки с вариантами подарка */
+   без карточек и фото: раздел держится на крупном заголовке, линиях и тексте.
+   Сверху имя подарка, под ним реквизиты одной строкой, ниже три варианта колонками */
 .sert {
   position: relative;
   isolation: isolate;
@@ -1564,7 +1563,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   color: var(--paper);
 }
 
-/* два пятна света: lime снизу слева, белое сверху справа — стеклу нужен фон */
+/* два пятна света: lime снизу слева, белое сверху справа */
 .sert::before {
   content: "";
   position: absolute;
@@ -1572,269 +1571,171 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(42% 62% at 0% 110%, rgba(227, 252, 3, 0.15), transparent 70%),
-    radial-gradient(46% 66% at 98% -14%, rgba(255, 255, 255, 0.07), transparent 72%);
+    radial-gradient(42% 62% at 0% 110%, rgba(227, 252, 3, 0.13), transparent 70%),
+    radial-gradient(46% 66% at 98% -14%, rgba(255, 255, 255, 0.06), transparent 72%);
 }
 
 .sert-inner {
   display: grid;
-  gap: clamp(1.6rem, 3vw, 2.4rem);
+  gap: clamp(1.75rem, 3vw, 2.5rem);
 }
 
-/* шапка: заголовок и кнопка по краям одной строки */
+/* шапка: имя подарка в две строки, вторая lime — приём h1 первого экрана */
 .sert-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
-  gap: 0.95rem clamp(1.5rem, 3vw, 3rem);
+  gap: 1.25rem clamp(1.5rem, 3vw, 3rem);
 }
 
-.sert-head h2 {
-  font-size: clamp(2.5rem, 4.4vw, 3.75rem);
-  line-height: 0.96;
-  letter-spacing: -0.035em;
+.sert-title {
+  font-size: var(--text-display);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
 }
 
-.sert-cta { justify-self: start; align-self: center; }
+.sert-title span {
+  display: block;
+  color: var(--lime);
+}
+
+.sert-cta { justify-self: start; align-self: end; }
 
 .sert .btn:focus-visible { outline-color: var(--paper); }
 
-/* карта слева, карточки вариантов справа; высота общая */
-.sert-grid {
+/* реквизиты: строка документа, разделённая волосяными линиями */
+.sert-spec {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-  align-items: stretch;
-  gap: clamp(0.75rem, 1.6vw, 1.25rem);
-}
-
-/* ---------- карта сертификата ----------
-   без фотографии: тёмная поверхность с мягким lime-светом в углу,
-   крупный заголовок и реквизиты обычным текстом, строками документа */
-.sert-card {
-  --sert-pad: clamp(1.5rem, 2.6vw, 2.25rem);
-  position: relative;
-  isolation: isolate;
-  container-type: inline-size;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: clamp(320px, 30vw, 440px);
-  padding: var(--sert-pad);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: var(--radius-card);
-  background:
-    radial-gradient(120% 96% at 92% -8%, rgba(227, 252, 3, 0.12), transparent 58%),
-    linear-gradient(158deg, #1c1c1c, #0a0a0a 58%);
-  box-shadow:
-    0 44px 80px -48px rgba(0, 0, 0, 0.95),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14);
-}
-
-/* косой блик по поверхности — тот же свет, что на стекле в первом экране */
-.sert-card::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset: -30% -60%;
-  pointer-events: none;
-  background: linear-gradient(
-    104deg,
-    transparent 44%,
-    rgba(255, 255, 255, 0.07) 49%,
-    transparent 55%
-  );
-  rotate: -4deg;
-}
-
-.sert-card-top {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.sert-card-brand {
-  display: inline-flex;
-  align-items: center;
-  height: 32px;
-  padding-inline: 11px;
-  border-radius: 10px;
-  background: var(--lime);
-  color: var(--obsidian);
-  box-shadow: 0 10px 26px -12px rgba(227, 252, 3, 0.7);
-}
-
-.sert-card-brand svg { display: block; width: auto; height: 15px; }
-
-/* заголовок карты повторяет приём h1 героя: строка белая, строка lime.
-   Размер считается от ширины самой карты, поэтому не прыгает на брейкпоинтах */
-.sert-card-title {
-  position: relative;
-  z-index: 1;
-  margin-top: clamp(1.75rem, 3.4vw, 2.6rem);
-  font-family: var(--font-display);
-  font-size: clamp(2.25rem, 7.6cqw, 3.4rem);
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-}
-
-.sert-card-title span { color: var(--lime); }
-
-/* реквизиты — обычный текст в две колонки, разделённый волосяными линиями */
-.sert-card-meta {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  margin: auto 0 0;
-  padding-top: clamp(1.5rem, 2.6vw, 2rem);
-}
-
-.sert-card-meta > div {
-  display: grid;
-  grid-template-columns: minmax(0, 170px) minmax(0, 1fr);
-  align-items: baseline;
-  gap: 0.2rem 1.25rem;
-  padding-block: 0.8rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.sert-card-meta dt {
-  font-size: 0.9375rem;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.sert-card-meta dd {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
-  font-size: 1.0625rem;
+  padding-top: clamp(1rem, 1.6vw, 1.25rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.sert-spec > div {
+  display: grid;
+  align-content: start;
+  gap: 0.3rem;
+  padding-inline: clamp(1.1rem, 2vw, 1.75rem);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sert-spec > div:first-child { padding-inline-start: 0; border-left: 0; }
+.sert-spec > div:last-child { padding-inline-end: 0; }
+
+.sert-spec dt {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.sert-spec dd {
+  margin: 0;
+  font-size: 1.125rem;
   line-height: 1.4;
   color: var(--paper);
   font-variant-numeric: tabular-nums;
   text-wrap: pretty;
 }
 
-/* ---------- варианты подарка ---------- */
+/* три варианта подарка — колонки, а не коробки */
 .sert-options {
   display: grid;
-  gap: clamp(0.65rem, 1.1vw, 0.9rem);
-  margin: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: clamp(0.25rem, 1vw, 0.75rem) 0 0;
   padding: 0;
   list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
 }
 
 .sert-option {
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr);
-  align-content: start;
-  column-gap: clamp(0.9rem, 1.5vw, 1.15rem);
-  padding: clamp(1.05rem, 1.7vw, 1.35rem) clamp(1.1rem, 1.9vw, 1.45rem);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius-card);
-  background-color: rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  transition-property: background-color, border-color;
-  transition-duration: 150ms;
-  transition-timing-function: ease;
+  padding: clamp(1.3rem, 2vw, 1.75rem) clamp(1.1rem, 2vw, 1.75rem) 0;
 }
 
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .sert-option { background-color: rgba(255, 255, 255, 0.06); }
-}
+.sert-option:first-child { padding-inline-start: 0; }
+.sert-option:last-child { padding-inline-end: 0; }
 
-/* отклик поверхности: карточки не кликабельны, поэтому хватает
-   чуть более светлого стекла и чуть заметнее рамки — без сдвига и свечения */
-@media (hover: hover) and (pointer: fine) {
-  .sert-option:hover {
-    border-color: rgba(255, 255, 255, 0.26);
-    background-color: rgba(255, 255, 255, 0.085);
-  }
-}
+/* линия стоит посередине воздушного зазора между колонками */
+.sert-option + .sert-option { border-left: 1px solid rgba(255, 255, 255, 0.12); }
 
-/* иконка в lime-плитке: единственный цветной акцент в карточке */
 .sert-option-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  margin-top: 0.1rem;
-  border: 1px solid rgba(227, 252, 3, 0.22);
-  border-radius: 12px;
-  background: rgba(227, 252, 3, 0.1);
+  display: block;
+  margin-bottom: clamp(0.9rem, 1.6vw, 1.25rem);
   color: var(--lime);
 }
 
 .sert-option-icon .icon { display: block; }
 
 .sert-option-title {
-  font-size: clamp(1.0625rem, 1.15vw, 1.25rem);
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
   line-height: 1.25;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.015em;
 }
 
 .sert-option-text {
-  margin-top: 0.4rem;
+  margin-top: 0.5rem;
+  max-width: 62ch;
   font-size: 0.9375rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.66);
   text-wrap: pretty;
 }
 
-/* на десктопе карточки делят высоту карты поровну */
-@media (min-width: 1025px) {
-  .sert-options { grid-auto-rows: 1fr; }
-}
-
-@media (max-width: 1024px) {
-  .sert-head {
+@media (max-width: 1023px) {
+  /* колонки становятся списком: иконка слева, текст справа, разделители строками */
+  .sert-options {
     grid-template-columns: 1fr;
-    align-items: start;
-    gap: 1rem;
-  }
-
-  .sert-grid { grid-template-columns: 1fr; }
-
-  .sert-card { min-height: clamp(320px, 48vw, 460px); }
-
-  .sert-options { gap: clamp(0.65rem, 1.4vw, 0.9rem); }
-}
-
-@media (max-width: 640px) {
-  .sert-card {
-    --sert-pad: 1.25rem;
-    min-height: 0;
+    border-top: 0;
   }
 
   .sert-option {
-    grid-template-columns: 40px minmax(0, 1fr);
-    column-gap: 0.85rem;
-    padding: 1rem;
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr);
+    column-gap: clamp(0.85rem, 1.6vw, 1.1rem);
+    padding: 1.15rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
   }
 
+  .sert-option:first-child { border-top: 0; }
+  .sert-option + .sert-option { border-left: 0; }
+
   .sert-option-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 11px;
+    margin: 0.2rem 0 0;
   }
 
   .sert-option-title { font-size: var(--text-body); }
-  .sert-option-text { font-size: 0.875rem; }
 }
 
-/* реквизиты смотрят на ширину самой карты, а не окна: в узкой карте
-   подпись и значение не влезают в одну строку, поэтому идут друг под другом */
-@container (max-width: 480px) {
-  .sert-card-meta > div {
+@media (max-width: 840px) {
+  .sert-head {
     grid-template-columns: 1fr;
-    gap: 0.15rem;
-    padding-block: 0.75rem;
+    align-items: start;
+    gap: 1.25rem;
   }
 
-  .sert-card-meta dt { font-size: 0.8125rem; }
-  .sert-card-meta dd { font-size: 1rem; }
+  /* реквизиты читаются строками: подпись слева, значение справа */
+  .sert-spec {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .sert-spec > div {
+    grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0.2rem 1rem;
+    padding: 0.75rem 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .sert-spec > div:first-child { border-top: 0; }
+
+  .sert-spec dd { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .sert-spec > div { grid-template-columns: 1fr; gap: 0.15rem; }
+  .sert-spec dt { font-size: 0.8125rem; }
 }
 
 /* ---------- корт: лента фотографий ---------- */

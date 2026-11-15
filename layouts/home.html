@@ -324,67 +324,57 @@
 
   <section class="sert" id="sertifikat" aria-labelledby="sertifikat-title">
     <div class="wrap section sert-inner">
-      <div class="sert-head">
-        <h2 id="sertifikat-title">Сертификат</h2>
+      <header class="sert-head">
+        <h2 class="sert-title" id="sertifikat-title">Сертификат <span>ILO&nbsp;Club</span></h2>
 
         <a class="btn sert-cta" href="{{ site.Params.social.instagram }}" target="_blank" rel="noopener">
           Оформить сертификат
           {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
         </a>
-      </div>
+      </header>
 
-      <div class="sert-grid">
-        <article class="sert-card">
-          <div class="sert-card-top">
-            <span class="sert-card-brand">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
+      <dl class="sert-spec">
+        <div>
+          <dt>Формат</dt>
+          <dd>PDF или бумажный</dd>
+        </div>
+        <div>
+          <dt>Срок действия</dt>
+          <dd>2 месяца</dd>
+        </div>
+        <div>
+          <dt>Номинал</dt>
+          <dd>Любая сумма или услуга</dd>
+        </div>
+      </dl>
+
+      <ul class="sert-options">
+        <li class="sert-option">
+          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "users" "size" 26 "stroke" 1.6) }}</span>
+          <div class="sert-option-body">
+            <h3 class="sert-option-title">Персональное занятие с тренером</h3>
+            <p class="sert-option-text">Для тех, кто ещё не играл: необычный подарок и новые эмоции.
+              Для тех, кто уже играет: час с тренером, чтобы подтянуть навыки. Хороший повод удивить
+              вторую половинку и провести время по-новому.</p>
           </div>
-
-          <p class="sert-card-title">Сертификат<br><span>ILO&nbsp;Club</span></p>
-
-          <dl class="sert-card-meta">
-            <div>
-              <dt>Формат</dt>
-              <dd>PDF или бумажный</dd>
-            </div>
-            <div>
-              <dt>Срок действия</dt>
-              <dd>2 месяца</dd>
-            </div>
-            <div>
-              <dt>Номинал</dt>
-              <dd>Любая сумма или услуга</dd>
-            </div>
-          </dl>
-        </article>
-
-        <ul class="sert-options">
-          <li class="sert-option">
-            <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "users" "size" 20 "stroke" 1.7) }}</span>
-            <div class="sert-option-body">
-              <h3 class="sert-option-title">Персональное занятие с тренером</h3>
-              <p class="sert-option-text">Для тех, кто ещё не играл: необычный подарок и новые эмоции.
-                Для тех, кто уже играет: час с тренером, чтобы подтянуть навыки. Хороший повод удивить
-                вторую половинку и провести время по-новому.</p>
-            </div>
-          </li>
-          <li class="sert-option">
-            <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "court" "size" 20 "stroke" 1.7) }}</span>
-            <div class="sert-option-body">
-              <h3 class="sert-option-title">Аренда корта</h3>
-              <p class="sert-option-text">Для действующих игроков: корт целиком на час. Подойдёт тем,
-                кто уже играет матчи, и тем, кто ходит на персональные занятия и готов выходить на игру.</p>
-            </div>
-          </li>
-          <li class="sert-option">
-            <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "wallet" "size" 20 "stroke" 1.7) }}</span>
-            <div class="sert-option-body">
-              <h3 class="sert-option-title">На любую сумму</h3>
-              <p class="sert-option-text">Не привязывает к услуге: получатель сам выберет — арендовать
-                корт для матча или сходить на тренировку самостоятельно, в паре или группой.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
+        </li>
+        <li class="sert-option">
+          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "court" "size" 26 "stroke" 1.6) }}</span>
+          <div class="sert-option-body">
+            <h3 class="sert-option-title">Аренда корта</h3>
+            <p class="sert-option-text">Для действующих игроков: корт целиком на час. Подойдёт тем,
+              кто уже играет матчи, и тем, кто ходит на персональные занятия и готов выходить на игру.</p>
+          </div>
+        </li>
+        <li class="sert-option">
+          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "wallet" "size" 26 "stroke" 1.6) }}</span>
+          <div class="sert-option-body">
+            <h3 class="sert-option-title">На любую сумму</h3>
+            <p class="sert-option-text">Не привязывает к услуге: получатель сам выберет — арендовать
+              корт для матча или сходить на тренировку самостоятельно, в паре или группой.</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 
