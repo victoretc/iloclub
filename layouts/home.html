@@ -602,13 +602,34 @@
         </ul>
       </div>
 
-      <div class="rules-cancel">
-        <p class="rule-lead"><strong>Отмена или перенос бронирования:</strong></p>
-        <ul class="rule-sub">
-          <li>За 24 часа до занятия — бесплатно.</li>
-          <li>За 12–24 часа до занятия — возвращается 50% стоимости занятия.</li>
-          <li>За менее чем 12 часов до занятия — сумма не возвращается.</li>
-        </ul>
+      <div class="rules-cancel" id="cancel" aria-labelledby="cancel-title">
+        <header class="cancel-head">
+          <h3 class="cancel-title" id="cancel-title">Отмена или перенос <span>бронирования</span></h3>
+        </header>
+
+        <dl class="cancel-rates">
+          <div class="cancel-rate">
+            <dt>
+              <span class="cancel-rate-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "clock" "size" 24 "stroke" 1.6) }}</span>
+              За 24 часа до занятия
+            </dt>
+            <dd>Бесплатно</dd>
+          </div>
+          <div class="cancel-rate">
+            <dt>
+              <span class="cancel-rate-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "calendar" "size" 24 "stroke" 1.6) }}</span>
+              За 12–24 часа до занятия
+            </dt>
+            <dd>50% стоимости</dd>
+          </div>
+          <div class="cancel-rate">
+            <dt>
+              <span class="cancel-rate-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "x" "size" 24 "stroke" 1.6) }}</span>
+              Менее чем за 12 часов
+            </dt>
+            <dd>Без возврата</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </section>
