@@ -315,11 +315,10 @@ a { color: inherit; text-decoration-color: rgba(0, 0, 0, 0.35); text-underline-o
 
 /* ---------- шапка: мобильное меню ---------- */
 /* кнопка и панель живут только в узком полотне, на десктопе их нет */
-.header-toggle { display: none; }
-
 .header-panel { display: none; }
 
 .header-toggle {
+  display: none;
   place-items: center;
   width: 44px;
   height: 44px;
@@ -1292,76 +1291,51 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 }
 
-/* ---------- декор: мячи в графике героя ---------- */
-.ball-field {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.ball {
-  position: absolute;
-  display: block;
-  width: var(--ball-w, 120px);
-  aspect-ratio: 1;
-  color: var(--obsidian);
-  opacity: 0.9;
-}
-
-.ball svg { display: block; width: 100%; height: 100%; }
-
-.ball svg circle,
-.ball svg path { stroke-width: 2.4; }
-
-/* падение: мяч едет вниз, пока секция проходит через экран */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .ball {
-      animation-name: ball-fall;
-      animation-duration: 1ms;
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: --prices;
-      animation-range: cover 0% cover 100%;
-    }
-  }
-}
-
-@keyframes ball-fall {
-  from { transform: translateY(calc(var(--fall, 260px) * -1)) rotate(-18deg); }
-  to { transform: translateY(var(--fall, 260px)) rotate(24deg); }
-}
-
-/* ---------- цены ---------- */
+/* ---------- цены ----------
+   сцена как в герое: фото корта под плотной заливкой, фильтры и строки
+   прайса — стеклянные плашки, действие — lime-пилюля. Панели-карты нет:
+   поверхность несут отдельные строки, фото остаётся видимым между ними. */
 .pricing {
   position: relative;
   isolation: isolate;
   overflow: clip;
-  background: #edfc55;
-  view-timeline: --prices block;
+  background: var(--obsidian);
+  color: var(--paper);
 }
 
-.pricing .section { position: relative; z-index: 1; }
+.price-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
 
-.pricing .ball--a { top: 3%; left: -40px; --ball-w: 210px; --fall: 280px; }
-.pricing .ball--b { top: 34%; right: -32px; --ball-w: 170px; --fall: 340px; }
-.pricing .ball--c { bottom: 9%; left: 6%; --ball-w: 120px; --fall: 220px; }
-.pricing .ball--d { bottom: 3%; right: 8%; --ball-w: 96px; --fall: 300px; }
+.price-scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 46%;
+  filter: grayscale(0.9) saturate(0.5) contrast(1.08) brightness(0.92);
+}
 
-/* белая карта на lime: ряд фильтров, строки-прайс с крупной цифрой
-   справа и действие внизу — по правому краю, в одну линию с ценами */
+/* заливка держит текст читаемым: тёмный верх и низ, свет и lime снизу слева */
+.pricing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.55) 24%, rgba(0, 0, 0, 0.5) 46%, rgba(0, 0, 0, 0.92) 94%, #000 100%),
+    radial-gradient(58% 52% at 10% 102%, rgba(227, 252, 3, 0.16), transparent 72%),
+    linear-gradient(96deg, rgba(0, 0, 0, 0.74) 0%, rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0.64) 100%);
+}
+
+.pricing .section { position: relative; z-index: 1; padding-block: clamp(4.5rem, 9vw, 7rem); }
+
+/* панель — только сетка: каждая часть несёт свою стеклянную поверхность */
 .price-panel {
-  width: min(100%, 1060px);
+  width: min(100%, 1080px);
   margin-inline: auto;
-  padding: clamp(1.25rem, 2.6vw, 2rem);
-  border-radius: 28px;
-  background: var(--paper);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 30px 70px -28px rgba(0, 0, 0, 0.6),
-    0 2px 0 rgba(0, 0, 0, 0.04);
 }
 
 .price-bar {
@@ -1374,11 +1348,14 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .price-tabs,
 .price-durations {
-  padding: 3px;
-  gap: 3px;
+  padding: 4px;
+  gap: 4px;
   max-width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-pill);
-  background: rgba(0, 0, 0, 0.055);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
 }
 
 .price-tabs {
@@ -1400,14 +1377,15 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   justify-content: center;
   min-height: 44px;
   padding: 0.55rem 1.1rem;
+  border: 1px solid transparent;
   border-radius: var(--radius-pill);
   font-size: var(--text-body-sm);
   line-height: 1.2;
-  color: var(--graphite);
+  color: rgba(255, 255, 255, 0.74);
   white-space: nowrap;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition-property: background-color, color, box-shadow;
+  transition-property: background-color, color, border-color;
   transition-duration: 150ms;
   transition-timing-function: ease;
 }
@@ -1421,31 +1399,34 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 @media (hover: hover) and (pointer: fine) {
   .price-tabs input:not(:checked) + label:hover,
   .price-durations input:not(:checked) + label:hover {
-    background: rgba(255, 255, 255, 0.85);
-    color: var(--obsidian);
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--paper);
   }
 }
 
 .price-tabs input:checked + label,
 .price-durations input:checked + label {
-  background: var(--obsidian);
-  color: var(--paper);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+  border-color: var(--lime);
+  background: var(--lime);
+  color: var(--obsidian);
 }
 
 .price-tabs input:focus-visible + label,
 .price-durations input:focus-visible + label {
-  outline: 2px solid var(--obsidian);
-  outline-offset: 2px;
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
 }
 
 .price-lists {
-  margin-top: clamp(1.1rem, 2vw, 1.5rem);
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  display: grid;
+  gap: 0.5rem;
+  margin-top: clamp(1rem, 2vw, 1.5rem);
   overflow: hidden;
 }
 
 .price-list {
+  display: grid;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1453,13 +1434,23 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .price-list[hidden] { display: none; }
 
+/* строка прайса — плашка как у фактов героя: стекло, hairline, крупная цифра */
 .price-list li {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0.6rem 1.5rem;
-  padding-block: clamp(1rem, 1.9vw, 1.4rem);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  gap: 0.75rem 1.5rem;
+  padding: clamp(1.2rem, 2.2vw, 1.7rem) clamp(1.15rem, 2vw, 1.65rem);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-card);
+  background: rgba(0, 0, 0, 0.36);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .price-list li { background: rgba(0, 0, 0, 0.66); }
 }
 
 .price-name {
@@ -1473,7 +1464,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   margin-top: 0.2rem;
   font-size: var(--text-body-sm);
   line-height: 1.45;
-  color: var(--graphite);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .price-box { text-align: right; }
@@ -1484,10 +1475,11 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   justify-content: flex-end;
   gap: 0.4rem;
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4.2vw, 3.4rem);
-  line-height: 1;
-  letter-spacing: -0.025em;
+  font-size: clamp(3rem, 5.6vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
   font-variant-numeric: tabular-nums;
+  color: var(--lime);
   white-space: nowrap;
 }
 
@@ -1497,21 +1489,23 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   font-family: var(--font-display);
   font-size: var(--text-caption);
   line-height: 1;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--graphite);
+  color: inherit;
+  opacity: 0.7;
 }
 
 .price-per {
   display: inline-flex;
   align-items: center;
-  margin-top: 0.55rem;
-  padding: 0.2rem 0.65rem;
+  margin-top: 0.6rem;
+  padding: 0.22rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius-pill);
-  background: var(--lime);
+  background: rgba(255, 255, 255, 0.12);
   font-size: 0.8125rem;
   line-height: 1.3;
-  color: var(--obsidian);
+  color: rgba(255, 255, 255, 0.9);
   white-space: nowrap;
 }
 
@@ -1521,52 +1515,48 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-top: clamp(1.1rem, 2vw, 1.5rem);
+  padding-top: clamp(1.25rem, 2.2vw, 1.75rem);
 }
 
-/* тот же размер и форма, что у «Забронировать» в шапке, но чёрная */
+/* действие — та же lime-пилюля, что в герое: единственная залитая поверхность */
 .price-cta {
-  min-height: 52px;
-  padding-inline: 1.5rem 1.2rem;
+  min-height: 56px;
+  padding-inline: 2rem 1.7rem;
   font-size: var(--text-body);
   letter-spacing: -0.005em;
   white-space: nowrap;
-  background: var(--obsidian);
-  color: var(--paper);
-  box-shadow: none;
+  background: var(--lime);
+  color: var(--obsidian);
+  box-shadow: 0 18px 36px -20px rgba(0, 0, 0, 0.9);
 }
 
 .price-cta .icon { width: 16px; height: 16px; }
 
-@media (max-width: 1100px) {
-  .pricing .ball--a { --ball-w: 150px; left: -50px; }
-  .pricing .ball--b { --ball-w: 130px; right: -44px; }
-  .pricing .ball--c,
-  .pricing .ball--d { display: none; }
-}
+.pricing .price-cta:focus-visible { outline-color: var(--paper); }
 
 @media (max-width: 840px) {
   .price-tabs { flex-basis: 100%; max-width: none; }
   .price-durations { margin-inline-start: auto; }
 }
 
-@media (max-width: 760px) {
-  .pricing .ball--a,
-  .pricing .ball--b { display: none; }
-  .price-panel { padding: 1rem; border-radius: 22px; }
+@media (max-width: 620px) {
   .price-tabs label { min-height: 42px; padding-inline: 0.5rem; font-size: 0.875rem; }
-  .price-durations label { padding-inline: 0.4rem; font-size: var(--text-caption); }
+  .price-durations label { padding-inline: 0.5rem; font-size: var(--text-caption); }
+
+  /* цена уходит под название: крупная цифра не делит строку с текстом */
+  .price-list li { grid-template-columns: 1fr; }
+  .price-box { text-align: left; }
+  .price-value { justify-content: flex-start; font-size: clamp(2.5rem, 12vw, 3.25rem); }
   .price-name { font-size: var(--text-body); }
   .price-note { font-size: var(--text-caption); }
-  .price-value { font-size: clamp(2rem, 9vw, 2.6rem); gap: 0.3rem; }
-  .price-unit { font-size: 0.75rem; }
-  .price-per { font-size: 0.75rem; padding-inline: 0.5rem; }
+  .price-per { font-size: 0.75rem; margin-top: 0.5rem; }
   .price-cta { width: 100%; }
 }
 
 /* ---------- сертификат ----------
-   тёмная полоса на всю ширину: шапка в одну строку, ниже три варианта
-   подарка списком и макет сертификата справа */
+   витрина подарка в духе первого экрана: слева карта с фото корта,
+   стеклянной строкой реквизитов и lime-строкой в заголовке,
+   справа — три стеклянные карточки с вариантами подарка */
 .sert {
   position: relative;
   isolation: isolate;
@@ -1588,186 +1578,147 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .sert-inner {
   display: grid;
-  gap: clamp(1.75rem, 3vw, 2.5rem);
+  gap: clamp(1.6rem, 3vw, 2.4rem);
 }
 
 /* шапка: заголовок и кнопка по краям одной строки */
 .sert-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
+  align-items: end;
   gap: 0.95rem clamp(1.5rem, 3vw, 3rem);
 }
 
 .sert-head h2 {
-  font-size: clamp(2.25rem, 3.5vw, 3.25rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.5rem, 4.4vw, 3.75rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
 }
 
-.sert-cta { justify-self: start; }
+.sert-cta { justify-self: start; align-self: center; }
 
-/* тело: варианты подарка слева, макет справа; линия отделяет шапку */
-.sert-body {
+.sert .btn:focus-visible { outline-color: var(--paper); }
+
+/* карта слева, карточки вариантов справа; высота общая */
+.sert-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
   align-items: stretch;
-  gap: clamp(1.75rem, 4vw, 3.5rem);
-  padding-top: clamp(1.4rem, 2.4vw, 2rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
 }
 
-/* макет сертификата: стеклянная карта с отрывной линией */
-.sert-ticket {
+/* ---------- карта сертификата ----------
+   без фотографии: тёмная поверхность с мягким lime-светом в углу,
+   крупный заголовок и реквизиты обычным текстом, строками документа */
+.sert-card {
+  --sert-pad: clamp(1.5rem, 2.6vw, 2.25rem);
   position: relative;
   isolation: isolate;
+  container-type: inline-size;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: clamp(1.4rem, 2.4vw, 2.15rem);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  min-height: clamp(320px, 30vw, 440px);
+  padding: var(--sert-pad);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-card);
   background:
-    radial-gradient(120% 88% at 92% 0%, rgba(227, 252, 3, 0.14), transparent 58%),
-    linear-gradient(158deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05) 46%, rgba(255, 255, 255, 0.03));
+    radial-gradient(120% 96% at 92% -8%, rgba(227, 252, 3, 0.12), transparent 58%),
+    linear-gradient(158deg, #1c1c1c, #0a0a0a 58%);
   box-shadow:
-    0 34px 70px -38px rgba(0, 0, 0, 0.95),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
+    0 44px 80px -48px rgba(0, 0, 0, 0.95),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
-/* косой блик по стеклу — как свет на фотографии в первом экране */
-.sert-ticket::after {
+/* косой блик по поверхности — тот же свет, что на стекле в первом экране */
+.sert-card::after {
   content: "";
   position: absolute;
-  z-index: -1;
-  inset: -30% -70%;
+  z-index: 0;
+  inset: -30% -60%;
   pointer-events: none;
   background: linear-gradient(
     104deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.1) 47%,
-    transparent 54%
+    transparent 44%,
+    rgba(255, 255, 255, 0.07) 49%,
+    transparent 55%
   );
   rotate: -4deg;
 }
 
-/* мяч уходит за край: тот же мотив, что в шапке и в «Тренерах» */
-.sert-ticket-ball {
-  position: absolute;
-  z-index: -1;
-  right: -104px;
-  top: 16%;
-  color: rgba(255, 255, 255, 0.06);
-  pointer-events: none;
-  rotate: -10deg;
-}
-
-.sert-ticket-ball .icon { display: block; }
-
-.sert-ticket-top {
+.sert-card-top {
   position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 
-.sert-ticket-brand {
+.sert-card-brand {
   display: inline-flex;
   align-items: center;
-  height: 30px;
-  padding-inline: 10px;
+  height: 32px;
+  padding-inline: 11px;
   border-radius: 10px;
   background: var(--lime);
   color: var(--obsidian);
+  box-shadow: 0 10px 26px -12px rgba(227, 252, 3, 0.7);
 }
 
-.sert-ticket-brand svg { display: block; width: auto; height: 14px; }
+.sert-card-brand svg { display: block; width: auto; height: 15px; }
 
-.sert-ticket-title {
-  margin: clamp(1.6rem, 3vw, 2.4rem) 0 clamp(1.4rem, 2.6vw, 2.1rem);
+/* заголовок карты повторяет приём h1 героя: строка белая, строка lime.
+   Размер считается от ширины самой карты, поэтому не прыгает на брейкпоинтах */
+.sert-card-title {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(1.75rem, 3.4vw, 2.6rem);
   font-family: var(--font-display);
-  font-size: clamp(2.15rem, 3.1vw, 3rem);
-  line-height: 0.98;
+  font-size: clamp(2.25rem, 7.6cqw, 3.4rem);
+  line-height: 0.95;
   letter-spacing: -0.035em;
 }
 
-.sert-ticket-title span { color: var(--lime); }
+.sert-card-title span { color: var(--lime); }
 
-/* отрывная линия с просечками по краям: верхняя часть отделена от реквизитов */
-.sert-ticket-cut {
+/* реквизиты — обычный текст в две колонки, разделённый волосяными линиями */
+.sert-card-meta {
   position: relative;
-  margin-top: auto;
-  height: 1px;
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.26) 0 4px,
-    transparent 4px 10px
-  );
-}
-
-.sert-ticket-cut::before,
-.sert-ticket-cut::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--obsidian);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-  transform: translateY(-50%);
-}
-
-.sert-ticket-cut::before { left: calc(-1 * clamp(1.25rem, 2.2vw, 1.9rem) - 9px); }
-.sert-ticket-cut::after { right: calc(-1 * clamp(1.25rem, 2.2vw, 1.9rem) - 9px); }
-
-/* реквизиты: подпись слева, значение справа, разделители вместо плашки */
-.sert-ticket-meta {
-  position: relative;
+  z-index: 1;
   display: grid;
-  margin: clamp(1rem, 1.8vw, 1.4rem) 0 0;
+  margin: auto 0 0;
+  padding-top: clamp(1.5rem, 2.6vw, 2rem);
 }
 
-.sert-ticket-meta > div {
+.sert-card-meta > div {
   display: grid;
-  grid-template-columns: minmax(0, 158px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 170px) minmax(0, 1fr);
   align-items: baseline;
-  gap: 0.3rem 1rem;
-  padding-block: 0.72rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 0.2rem 1.25rem;
+  padding-block: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.sert-ticket-meta > div:first-child { padding-top: 0; border-top: 0; }
-.sert-ticket-meta > div:last-child { padding-bottom: 0; }
-
-.sert-ticket-meta dt {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.6875rem;
-  line-height: 1.5;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+.sert-card-meta dt {
+  font-size: 0.9375rem;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.55);
 }
 
-.sert-ticket-meta dt .icon { flex: none; color: var(--lime); }
-
-.sert-ticket-meta dd {
+.sert-card-meta dd {
   margin: 0;
-  font-size: var(--text-body-sm);
+  font-size: 1.0625rem;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.94);
+  color: var(--paper);
   font-variant-numeric: tabular-nums;
   text-wrap: pretty;
 }
 
-/* три варианта подарка: строки с иконкой, разделённые линиями */
+/* ---------- варианты подарка ---------- */
 .sert-options {
   display: grid;
-  align-content: start;
+  gap: clamp(0.65rem, 1.1vw, 0.9rem);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1775,46 +1726,66 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .sert-option {
   display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
+  grid-template-columns: 44px minmax(0, 1fr);
   align-content: start;
-  column-gap: clamp(0.85rem, 1.4vw, 1.15rem);
-  padding-block: clamp(1.1rem, 2vw, 1.55rem);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  column-gap: clamp(0.9rem, 1.5vw, 1.15rem);
+  padding: clamp(1.05rem, 1.7vw, 1.35rem) clamp(1.1rem, 1.9vw, 1.45rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-card);
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  transition-property: background-color, border-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
 }
 
-.sert-option:first-child {
-  padding-top: 0;
-  border-top: 0;
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sert-option { background-color: rgba(255, 255, 255, 0.06); }
 }
 
-/* иконка стоит на первой строке заголовка — по центру его линии */
+/* отклик поверхности: карточки не кликабельны, поэтому хватает
+   чуть более светлого стекла и чуть заметнее рамки — без сдвига и свечения */
+@media (hover: hover) and (pointer: fine) {
+  .sert-option:hover {
+    border-color: rgba(255, 255, 255, 0.26);
+    background-color: rgba(255, 255, 255, 0.085);
+  }
+}
+
+/* иконка в lime-плитке: единственный цветной акцент в карточке */
 .sert-option-icon {
-  grid-row: 1 / span 2;
-  display: block;
-  margin-top: 0.3em;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-top: 0.1rem;
+  border: 1px solid rgba(227, 252, 3, 0.22);
+  border-radius: 12px;
+  background: rgba(227, 252, 3, 0.1);
   color: var(--lime);
 }
 
 .sert-option-icon .icon { display: block; }
 
 .sert-option-title {
-  font-size: var(--text-subheading);
-  line-height: 1.24;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.0625rem, 1.15vw, 1.25rem);
+  line-height: 1.25;
+  letter-spacing: -0.018em;
 }
 
 .sert-option-text {
-  margin-top: 0.45rem;
-  max-width: 52ch;
-  font-size: var(--text-body-sm);
+  margin-top: 0.4rem;
+  font-size: 0.9375rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.68);
   text-wrap: pretty;
 }
 
-/* без blur стекло остаётся плоским, но контраст сохраняем */
-@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .sert-ticket { background: rgba(255, 255, 255, 0.1); }
+/* на десктопе карточки делят высоту карты поровну */
+@media (min-width: 1025px) {
+  .sert-options { grid-auto-rows: 1fr; }
 }
 
 @media (max-width: 1024px) {
@@ -1824,51 +1795,46 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
     gap: 1rem;
   }
 
-  .sert-body {
-    grid-template-columns: 1fr;
-    gap: clamp(1.75rem, 3vw, 2.25rem);
-  }
+  .sert-grid { grid-template-columns: 1fr; }
 
-  /* карта лежит во всю ширину: реквизиты встают в три колонки */
-  .sert-ticket-meta {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.9rem clamp(1rem, 2.4vw, 2rem);
-  }
+  .sert-card { min-height: clamp(320px, 48vw, 460px); }
 
-  .sert-ticket-meta > div {
-    display: block;
-    padding: 0;
-    border-top: 0;
-  }
-
-  .sert-ticket-meta dd { margin-top: 0.35rem; }
+  .sert-options { gap: clamp(0.65rem, 1.4vw, 0.9rem); }
 }
 
 @media (max-width: 640px) {
-  /* кнопка в одну строку с заголовком не влезает: разводим шапку в колонку */
-  .sert-head {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
+  .sert-card {
+    --sert-pad: 1.25rem;
+    min-height: 0;
   }
 
-  /* на узком экране мяч-водяной знак мешает тексту */
-  .sert-ticket-ball { display: none; }
-
-  /* карта узкая и высокая: реквизиты снова в столбик */
-  .sert-ticket-meta { grid-template-columns: 1fr; gap: 0; }
-
-  .sert-ticket-meta > div {
-    display: block;
-    padding-block: 0.7rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  .sert-option {
+    grid-template-columns: 40px minmax(0, 1fr);
+    column-gap: 0.85rem;
+    padding: 1rem;
   }
 
-  .sert-ticket-meta > div:first-child { padding-top: 0; border-top: 0; }
-  .sert-ticket-meta dd { margin-top: 0.3rem; }
-
-  .sert-option { padding-block: 1rem; }
+  .sert-option-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
 
   .sert-option-title { font-size: var(--text-body); }
+  .sert-option-text { font-size: 0.875rem; }
+}
+
+/* реквизиты смотрят на ширину самой карты, а не окна: в узкой карте
+   подпись и значение не влезают в одну строку, поэтому идут друг под другом */
+@container (max-width: 480px) {
+  .sert-card-meta > div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+    padding-block: 0.75rem;
+  }
+
+  .sert-card-meta dt { font-size: 0.8125rem; }
+  .sert-card-meta dd { font-size: 1rem; }
 }
 
 /* ---------- корт: лента фотографий ---------- */
@@ -2267,7 +2233,6 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border-radius: var(--radius-card) var(--radius-card) 0 0;
   background: var(--obsidian);
   color: var(--paper);
 }
@@ -2654,7 +2619,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 @media (max-width: 860px) {
-  /* меню не схлопываем: единственная правка — плотнее типографика */
+  /* разделы в полотне ещё видны: единственная правка — плотнее типографика */
   .header-link { font-size: 0.75rem; letter-spacing: 0.04em; }
   .header-shell { gap: 0.5rem; }
   /* в узком полотне кнопка шапки отнимает место у разделов, а на первом экране она и так есть */
@@ -2668,28 +2633,129 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 @media (max-width: 720px) {
+  /* шапка: знак и меню; разделы переезжают в панель под пилюлей */
   .site-header { padding-block: 8px; }
-  .header-link { font-size: 0.6875rem; letter-spacing: 0.02em; }
-  .header-nav { gap: 0.35rem; }
+
+  .header-shell {
+    position: relative;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    padding-left: 0.7rem;
+    padding-right: 0.35rem;
+  }
+
+  .brand { min-height: 44px; -webkit-tap-highlight-color: transparent; }
+  .brand-badge { height: 32px; padding-inline: 9px; }
+  .brand-badge svg { height: 14px; }
+
+  .header-nav-wrap { display: none; }
+
+  .header-meta { gap: 0.25rem; }
+
+  .header-toggle { display: grid; }
+
+  /* панель — отдельная поверхность под пилюлей: свой радиус и светлый фон */
+  .header-panel {
+    display: block;
+    position: absolute;
+    inset-inline: 0;
+    top: calc(100% + 8px);
+    padding: 0.35rem 0.5rem 0.5rem;
+    border-radius: var(--radius-card);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: var(--paper);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 18px 40px -14px rgba(0, 0, 0, 0.4);
+    color: var(--obsidian);
+    opacity: 0;
+    visibility: hidden;
+    translate: 0 -6px;
+    pointer-events: none;
+    transition-property: opacity, translate, visibility;
+    transition-duration: 150ms;
+    transition-timing-function: var(--ease-out);
+  }
+
+  .site-header.is-menu-open .header-panel {
+    opacity: 1;
+    visibility: visible;
+    translate: 0 0;
+    pointer-events: auto;
+  }
+
+  .header-panel__nav { display: flex; flex-direction: column; }
+
+  .header-panel__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 52px;
+    padding-inline: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .header-panel__link .icon { flex: none; color: rgba(0, 0, 0, 0.4); }
+
+  .header-panel__link:last-of-type { border-bottom: 0; }
+
+  .header-panel__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    margin-top: 0.2rem;
+    padding: 0.55rem 0.5rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+  }
+
+  .header-panel__place {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 44px;
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .header-panel__place .icon { flex: none; color: rgba(0, 0, 0, 0.5); }
+
+  .header-panel__place > span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: var(--text-caption);
+    line-height: 1.3;
+  }
+
+  .header-panel__city { color: rgba(0, 0, 0, 0.5); }
+  .header-panel__hours { color: var(--obsidian); font-variant-numeric: tabular-nums; }
+
+  .header-panel .social-row { margin-inline-start: auto; }
+  .header-panel .icon-link { color: rgba(0, 0, 0, 0.65); }
+  .header-panel :focus-visible { outline-color: var(--obsidian); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-toggle__icons .icon { transition-property: opacity; }
+  .header-panel { transition-property: opacity, visibility; translate: none; }
 }
 
 @media (max-width: 640px) {
   :root { --header-h: 56px; }
-  .header-shell { padding-inline: 0.6rem; }
-  .brand-badge { height: 30px; padding-inline: 8px; }
-  .brand-badge svg { height: 13px; }
   .btn--sm { padding: 0.65rem 1rem; }
   .hero h1 { max-width: 12ch; }
   .hero-card { grid-template-columns: 1fr; gap: 0.85rem; }
   .regalia { grid-template-columns: 1fr; }
   .map-frame { aspect-ratio: 4 / 3; }
-}
-
-@media (max-width: 374px) {
-  /* только на самых узких экранах остаётся знак клуба: три пункта меню видны всегда */
-  .header-shell { padding-inline: 0.5rem; }
-  .header-nav { gap: 0.25rem; }
-  .header-link { padding-inline: 0.15rem; letter-spacing: 0; }
 }
 
 /* ---------- блог ---------- */
