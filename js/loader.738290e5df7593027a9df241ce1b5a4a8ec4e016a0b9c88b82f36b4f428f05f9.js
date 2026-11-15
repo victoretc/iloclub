@@ -1,0 +1,1 @@
+(()=>{var n=document.querySelector("[data-loader]");if(n){let e=()=>{n.classList.add("is-done");try{sessionStorage.setItem("ilo-loader","1")}catch{}},s=performance.now(),t=()=>{let o=Math.max(0,220-(performance.now()-s));window.setTimeout(e,o)};document.readyState==="complete"?t():window.addEventListener("load",t,{once:!0}),window.setTimeout(e,6e3)}})();

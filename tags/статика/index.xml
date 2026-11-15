@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Статика on ILO Club</title><link>https://victoretc.github.io/iloclub/tags/%D1%81%D1%82%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/</link><description>Recent content in Статика on ILO Club</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Thu, 12 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://victoretc.github.io/iloclub/tags/%D1%81%D1%82%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>Первый пост: как устроен этот сайт</title><link>https://victoretc.github.io/iloclub/posts/hello-hugo/</link><pubDate>Thu, 12 Nov 2026 00:00:00 +0000</pubDate><guid>https://victoretc.github.io/iloclub/posts/hello-hugo/</guid><description>&lt;p&gt;Сайт собран на Hugo и не тянет ни одного npm-пакета. HTML-шаблоны лежат в
+&lt;code&gt;layouts/&lt;/code&gt;, стили — в &lt;code&gt;assets/css/main.css&lt;/code&gt;, и Hugo минифицирует их при сборке.&lt;/p&gt;
+&lt;h2 id="структура"&gt;Структура&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;content/ тексты в Markdown
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;layouts/ HTML-шаблоны
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;assets/ CSS и другие ресурсы, которые обрабатывает Hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;static/ файлы как есть: картинки, favicon, robots.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="как-добавить-материал"&gt;Как добавить материал&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo new content posts/nazvanie.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo server -D
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Черновики видны только с флагом &lt;code&gt;-D&lt;/code&gt;. Публикация — просто &lt;code&gt;hugo&lt;/code&gt;, результат в
+&lt;code&gt;public/&lt;/code&gt;.&lt;/p&gt;</description></item></channel></rss>
