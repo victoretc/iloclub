@@ -1,1 +1,0 @@
-[   11746ms] [LOG] LiveReload protocol error (invalid command 'reload', only valid commands are: hello)) after receiving data: "{"command":"reload","path":"/css/main.min.0a8bd1f6f9c082c02736c82fd704f688e26927aa33d4e5c364f91f8c40fc2c5c.css","originalPath":"","liveCSS":true,"liveImg":true}".. @ http://localhost:1313/livereload.js?mindelay=10&v=2&port=1414&path=livereload:3

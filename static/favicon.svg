@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ilo Club">
-  <rect width="64" height="64" rx="14" fill="#0b0b0d"/>
-  <rect x="20" y="20" width="24" height="24" rx="6" fill="#2b5cff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ILO Club">
+  <rect width="64" height="64" rx="14" fill="#e3fc03"/>
+  <g fill="#000" transform="translate(4 25.2) scale(0.0721649)">
+    <path d="M0 0h40a28 28 0 0 1 28 28v131a28 28 0 0 1-28 28H0Z"/>
+    <path d="M109 0h40a28 28 0 0 1 28 28v91h230a20 20 0 0 1 20 20v28a20 20 0 0 1-20 20H109Z"/>
+    <path fill-rule="evenodd" d="M479 0h270a27 27 0 0 1 27 27v132a27 27 0 0 1-27 27H479a27 27 0 0 1-27-27V27A27 27 0 0 1 479 0Zm66 68h136a25 25 0 0 1 25 25 25 25 0 0 1-25 25H545a25 25 0 0 1-25-25 25 25 0 0 1 25-25Z"/>
+  </g>
 </svg>

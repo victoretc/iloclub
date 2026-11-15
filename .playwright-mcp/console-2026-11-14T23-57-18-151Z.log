@@ -1,2 +1,0 @@
-[     303ms] [WARNING] Replay is disabled because neither `replaysSessionSampleRate` nor `replaysOnErrorSampleRate` are set. @ https://n1297334.yclients.ru/chunk-PACMYHYJ.js:28
-[     314ms] [WARNING] using deprecated parameters for the initialization function; pass a single object instead @ https://n1297334.yclients.ru/chunk-PACMYHYJ.js:21

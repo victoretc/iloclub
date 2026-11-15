@@ -1,3 +1,0 @@
-[     205ms] [WARNING] Replay is disabled because neither `replaysSessionSampleRate` nor `replaysOnErrorSampleRate` are set. @ https://n1297334.yclients.ru/chunk-PACMYHYJ.js:28
-[     213ms] [WARNING] using deprecated parameters for the initialization function; pass a single object instead @ https://n1297334.yclients.ru/chunk-PACMYHYJ.js:21
-[    2566ms] [ERROR] Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID @ https://mdd.yandex.net/:1
