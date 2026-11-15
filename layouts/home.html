@@ -212,138 +212,143 @@
           </div>
         </div>
 
-        <ul class="price-list" data-cat="court">
-          {{ range $f := $formats }}
-            {{ if eq $f.id "rent" }}
-              <li data-prices="{{ delimit $f.prices "," }}" data-players="{{ $f.players }}">
+        <div class="price-lists">
+          <ul class="price-list" data-cat="court">
+            {{ range $f := $formats }}
+              {{ if eq $f.id "rent" }}
+                <li data-prices="{{ delimit $f.prices "," }}" data-players="{{ $f.players }}">
+                  <div>
+                    <p class="price-name">{{ $f.name }}</p>
+                    <p class="price-note">{{ $f.note }}</p>
+                  </div>
+                  <div class="price-box">
+                    <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span> <span class="price-unit">BYN</span></p>
+                    {{ if gt $f.players 1 }}
+                      {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
+                      <p class="price-per" data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</p>
+                    {{ end }}
+                  </div>
+                </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+
+          <ul class="price-list" data-cat="training" hidden>
+            {{ range $f := $formats }}
+              {{ if ne $f.id "rent" }}
+                <li data-prices="{{ delimit $f.prices "," }}" data-players="{{ $f.players }}">
+                  <div>
+                    <p class="price-name">{{ $f.name }}</p>
+                    <p class="price-note">{{ $f.note }}</p>
+                  </div>
+                  <div class="price-box">
+                    <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span> <span class="price-unit">BYN</span></p>
+                    {{ if gt $f.players 1 }}
+                      {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
+                      <p class="price-per" data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</p>
+                    {{ end }}
+                  </div>
+                </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+
+          <ul class="price-list" data-cat="gear" hidden>
+            {{ range $e := $extras }}
+              <li data-prices="{{ delimit $e.prices "," }}">
                 <div>
-                  <p class="price-name">{{ $f.name }}</p>
-                  <p class="price-note">{{ $f.note }}</p>
+                  <p class="price-name">{{ $e.name }}</p>
+                  <p class="price-note">{{ $e.unit }}</p>
                 </div>
                 <div class="price-box">
-                  <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span> <span class="price-unit">BYN</span></p>
-                  {{ if gt $f.players 1 }}
-                    {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
-                    <p class="price-per" data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</p>
-                  {{ end }}
+                  <p class="price-value"><span data-price>{{ index $e.prices 0 }}</span> <span class="price-unit">BYN</span></p>
                 </div>
               </li>
             {{ end }}
-          {{ end }}
-        </ul>
+          </ul>
+        </div>
 
-        <ul class="price-list" data-cat="training" hidden>
-          {{ range $f := $formats }}
-            {{ if ne $f.id "rent" }}
-              <li data-prices="{{ delimit $f.prices "," }}" data-players="{{ $f.players }}">
-                <div>
-                  <p class="price-name">{{ $f.name }}</p>
-                  <p class="price-note">{{ $f.note }}</p>
-                </div>
-                <div class="price-box">
-                  <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span> <span class="price-unit">BYN</span></p>
-                  {{ if gt $f.players 1 }}
-                    {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
-                    <p class="price-per" data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</p>
-                  {{ end }}
-                </div>
-              </li>
-            {{ end }}
-          {{ end }}
-        </ul>
-
-        <ul class="price-list" data-cat="gear" hidden>
-          {{ range $e := $extras }}
-            <li data-prices="{{ delimit $e.prices "," }}">
-              <div>
-                <p class="price-name">{{ $e.name }}</p>
-                <p class="price-note">{{ $e.unit }}</p>
-              </div>
-              <div class="price-box">
-                <p class="price-value"><span data-price>{{ index $e.prices 0 }}</span> <span class="price-unit">BYN</span></p>
-              </div>
-            </li>
-          {{ end }}
-        </ul>
-
-        <button class="btn price-cta" type="button" data-sheet-open>Выбрать время</button>
+        <div class="price-cta-wrap">
+          <a class="btn price-cta" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
+            Выбрать время
+            {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 16 "stroke" 2) }}
+          </a>
+        </div>
       </div>
     </div>
 
-    <dialog class="sheet" id="price-sheet" aria-labelledby="sheet-title">
-      <div class="sheet-inner">
-        <div class="sheet-head">
-          <p class="sheet-title" id="sheet-title">Выбрать время</p>
-          <form method="dialog">
-            <button class="sheet-close" aria-label="Закрыть">{{ partial "art/icon.html" (dict "name" "x" "size" 18 "stroke" 2) }}</button>
-          </form>
-        </div>
-        <a class="btn sheet-btn" href="{{ site.Params.booking }}" target="_blank" rel="noopener">Перейти к записи</a>
-        {{ with site.Params.social.telegram }}
-          <a class="sheet-link" href="{{ . }}" target="_blank" rel="noopener">Написать в Telegram</a>
-        {{ end }}
-      </div>
-    </dialog>
   </section>
 
   <section class="wrap section" id="sertifikat" aria-labelledby="sertifikat-title">
-    <div class="section-head">
-      <p class="eyebrow">Подарок</p>
-      <h2 id="sertifikat-title">Подарочный сертификат</h2>
-      <p class="lead">Новые эмоции и подарок, который точно пригодится: час на корте, тренировка
-        с тренером или любая сумма. Сертификат действует два месяца, оформляем электронно
-        или в бумажном виде.</p>
+    <div class="sert-head">
+      <div class="section-head">
+        <h2 id="sertifikat-title">Подарочный сертификат</h2>
+      </div>
+
+      <a class="btn" href="{{ site.Params.social.instagram }}" target="_blank" rel="noopener">
+        Оформить сертификат
+        {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
+      </a>
     </div>
 
     <div class="sert">
-      <div class="sert-body">
-        <ol class="sert-options">
-          <li>
-            <p class="sert-option-title">Персональное занятие с тренером</p>
+      <ul class="sert-options">
+        <li class="sert-option">
+          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "graduation-cap" "size" 20 "stroke" 1.8) }}</span>
+          <div class="sert-option-body">
+            <h3 class="sert-option-title">Персональное занятие с тренером</h3>
             <p class="sert-option-text">Для тех, кто ещё не играл: необычный подарок и новые эмоции.
               Для тех, кто уже играет: час с тренером, чтобы подтянуть навыки. Хороший повод удивить
               вторую половинку и провести время по-новому.</p>
-          </li>
-          <li>
-            <p class="sert-option-title">Аренда корта</p>
+          </div>
+        </li>
+        <li class="sert-option">
+          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "court" "size" 20 "stroke" 1.8) }}</span>
+          <div class="sert-option-body">
+            <h3 class="sert-option-title">Аренда корта</h3>
             <p class="sert-option-text">Для действующих игроков: корт целиком на час. Подойдёт тем,
               кто уже играет матчи, и тем, кто ходит на персональные занятия и готов выходить на игру.</p>
-          </li>
-          <li>
-            <p class="sert-option-title">На любую сумму</p>
+          </div>
+        </li>
+        <li class="sert-option">
+          <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "wallet" "size" 20 "stroke" 1.8) }}</span>
+          <div class="sert-option-body">
+            <h3 class="sert-option-title">На любую сумму</h3>
             <p class="sert-option-text">Не привязывает к услуге: получатель сам выберет — арендовать
               корт для матча или сходить на тренировку самостоятельно, в паре или группой.</p>
-          </li>
-        </ol>
+          </div>
+        </li>
+      </ul>
 
-        <dl class="sert-facts">
-          <div class="sert-fact sert-fact--wide">
-            <dt>Формат</dt>
+      <div class="sert-ticket">
+        <div class="sert-ticket-top">
+          <span class="sert-ticket-brand">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
+          <span class="sert-ticket-stamp">Подарочный</span>
+        </div>
+
+        <p class="sert-ticket-title">Сертификат<br>ILO&nbsp;Club</p>
+
+        <div class="sert-ticket-cut"></div>
+
+        <dl class="sert-ticket-meta">
+          <div>
+            <dt>{{ partial "art/icon.html" (dict "name" "file-text" "size" 14 "stroke" 1.8) }}<span>Формат</span></dt>
             <dd>PDF — отправим на почту. Бумажный — забрать в клубе: Ратомка, Перспективная, 12.</dd>
           </div>
-          <div class="sert-fact">
-            <dt>Срок действия</dt>
+          <div>
+            <dt>{{ partial "art/icon.html" (dict "name" "calendar" "size" 14 "stroke" 1.8) }}<span>Срок действия</span></dt>
             <dd>2 месяца</dd>
           </div>
-          <div class="sert-fact">
-            <dt>Номинал</dt>
+          <div>
+            <dt>{{ partial "art/icon.html" (dict "name" "wallet" "size" 14 "stroke" 1.8) }}<span>Номинал</span></dt>
             <dd>Любая сумма или конкретная услуга</dd>
           </div>
         </dl>
-
-        <div class="sert-actions">
-          <a class="btn" href="{{ site.Params.booking }}" target="_blank" rel="noopener">Оформить сертификат</a>
-        </div>
-
-        <p class="sert-note">Вопросы по сертификату — {{ with site.Params.social.telegram }}<a href="{{ . }}" target="_blank" rel="noopener">в Telegram</a>{{ end }}.</p>
       </div>
-
-      <figure class="sert-media">
-        <img src="{{ "img/sert.jpg" | relURL }}" alt="Игрок ILO Club на синем корте в окружении мячей" width="1000" height="950" loading="lazy">
-      </figure>
     </div>
   </section>
 
+  {{/* скрыто по просьбе: блок закомментирован
   <section class="wrap section padel" id="padel" aria-labelledby="padel-title">
     <div class="section-head">
       <p class="eyebrow">Падел</p>
@@ -461,25 +466,25 @@
       </dl>
     </div>
   </section>
+  */}}
 
-  <section class="band" id="court" aria-labelledby="court-title">
-    <div class="wrap section">
-      <div class="section-head">
-        <p class="eyebrow">Корт</p>
-        <h2 id="court-title">Один корт. Весь ваш</h2>
-        <p class="lead">Крытый корт с синим покрытием, стеклянные стены и окна в потолок.
-          Душ и раздевалки в том же здании.</p>
-      </div>
-
-      <div class="gallery">
-        <figure>
-          <img src="{{ "img/court-wide.webp" | relURL }}" alt="Общий вид корта ILO Club" width="1280" height="960" loading="lazy">
-          <figcaption>Крытый корт, синее покрытие</figcaption>
-        </figure>
-        <figure>
-          <img src="{{ "img/court.webp" | relURL }}" alt="Стеклянная стена и сетка корта ILO Club" width="960" height="1280" loading="lazy">
-          <figcaption>Свет с потолочных окон</figcaption>
-        </figure>
+  <section class="court" id="court" aria-label="Корт">
+    {{ $shots := slice
+      (dict "src" "img/court-wide.webp" "alt" "Общий вид корта ILO Club: синее покрытие и стеклянные стены" "w" 1280 "h" 960 "cls" "wide")
+      (dict "src" "img/court.webp" "alt" "Стеклянная стена, сетка и окна в потолок на корте ILO Club" "w" 960 "h" 1280 "cls" "tall")
+      (dict "src" "img/rackets.webp" "alt" "Две ракетки для падела в руках на синем корте ILO Club" "w" 960 "h" 1280 "cls" "tall")
+    }}
+    <div class="court-strip">
+      <div class="court-track">
+        {{ range $i := seq 4 }}
+          <div class="court-group"{{ if gt $i 1 }} aria-hidden="true"{{ end }}>
+            {{ range $shots }}
+              <figure class="court-shot court-shot--{{ .cls }}">
+                <img src="{{ .src | relURL }}" alt="{{ .alt }}" width="{{ .w }}" height="{{ .h }}" loading="lazy">
+              </figure>
+            {{ end }}
+          </div>
+        {{ end }}
       </div>
     </div>
   </section>
@@ -515,55 +520,40 @@
   </section>
 
   <section class="band" id="rules" aria-labelledby="rules-title">
-    <div class="wrap section">
-      <div class="section-head">
-        <p class="eyebrow">Правила</p>
-        <h2 id="rules-title">Правила посещения клуба</h2>
-        <p class="lead">Пять пунктов, которые действуют для всех гостей — от сменной обуви
-          до отмены брони.</p>
-      </div>
+    <div class="wrap rules-section">
+      <h2 class="rules-title" id="rules-title">Правила посещения клуба</h2>
 
-      <div class="rules">
-        <figure class="rules-media">
-          <img src="{{ "img/rules.jpg" | relURL }}" alt="Памятка с правилами посещения ILO Club" width="1080" height="1350" loading="lazy">
-        </figure>
-
-        <ol class="rules-list">
-          <li>
-            <p class="rule-lead">Вход в зал и на корт разрешён только в сменной обуви (бахилах).</p>
-            <p class="rule-text">Администратор вправе не пустить на корт, если сменной обуви у кого-то
-              не будет. Стоимость аренды в этом случае не возвращается.</p>
-          </li>
-          <li>
-            <p class="rule-lead">Для подтверждения вашего бронирования производится оплата полной
-              стоимости занятия.</p>
-            <p class="rule-text">Без полной оплаты мы не бронируем время — оно остаётся открытым
-              для других желающих.</p>
-          </li>
-          <li>
-            <p class="rule-lead">Оплата возможна только через ЕРИП:</p>
-            <ol class="rule-sub">
-              <li>по карте через онлайн-банкинг;</li>
-              <li>наличными через ЕРИП-терминалы по городу.</li>
-            </ol>
-          </li>
-          <li>
-            <p class="rule-lead">На территории ILO Club запрещено оказывать тренерские услуги.</p>
-            <p class="rule-text">Тренировки доступны от тренеров команды ILO.</p>
-          </li>
-          <li>
-            <p class="rule-lead">Отмена или перенос бронирования:</p>
-            <ul class="rule-sub">
-              <li>за 24 часа до занятия — бесплатно;</li>
-              <li>за 12–24 часа до занятия — возвращается 50% стоимости занятия;</li>
-              <li>менее чем за 12 часов до занятия — сумма не возвращается.</li>
-            </ul>
-          </li>
-        </ol>
-      </div>
+      <ul class="rules-list">
+        <li class="rule">
+          <p><strong>Вход в зал и на корт разрешён только в сменной обуви (бахилах).</strong>
+            Администратор вправе не пустить на корт в случае, если сменной обуви у кого-то не будет,
+            стоимость аренды в этом случае возвращаться не будет.</p>
+        </li>
+        <li class="rule">
+          <p><strong>Для подтверждения вашего бронирования производится оплата полной стоимости
+            занятия.</strong> Без полной оплаты мы не бронируем время, и оно остаётся открытым
+            для других желающих.</p>
+        </li>
+        <li class="rule">
+          <p><strong>Оплата возможна только через ЕРИП:</strong><br>
+            по карте через онлайн банкинг;<br>
+            наличными через ЕРИП терминалы по городу.</p>
+        </li>
+        <li class="rule">
+          <p><strong>На территории ILO CLUB запрещено оказывать тренерские услуги.</strong>
+            Тренировки доступны от тренеров команды ILO.</p>
+        </li>
+        <li class="rule">
+          <p><strong>Отмена или перенос бронирования:</strong><br>
+            За 24 часа до занятия — бесплатно.<br>
+            За 12–24 часа до занятия — возвращается 50% стоимости занятия.<br>
+            За менее чем 12 часов до занятия — сумма не возвращается.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
+  {{/* скрыто по просьбе: блок закомментирован
   <section class="wrap section" id="location" aria-labelledby="location-title">
     <div class="section-head">
       <p class="eyebrow">Как добраться</p>
@@ -591,14 +581,6 @@
       </div>
     </div>
   </section>
+  */}}
 
-  <section class="cta-band" aria-labelledby="cta-title">
-    <div class="wrap cta-inner">
-      <div>
-        <p class="eyebrow">ILO Club · Ратомка</p>
-        <h2 id="cta-title">Корт свободен. <span>Час — 80 BYN.</span></h2>
-      </div>
-      <a class="btn" href="{{ site.Params.booking }}" target="_blank" rel="noopener">Забронировать корт</a>
-    </div>
-  </section>
 {{ end }}

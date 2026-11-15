@@ -1,8 +1,22 @@
 <footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-inner">
-      <div>
-        <p class="eyebrow">ILO Club</p>
+  <div class="wrap footer-inner">
+    {{ if .IsHome }}
+      <div class="footer-cta">
+        <div>
+          <p class="footer-kicker">ILO Club · Ратомка</p>
+          <h2 class="footer-claim">Корт свободен. <span>Час — 80 BYN.</span></h2>
+        </div>
+
+        <a class="btn" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
+          Забронировать корт
+          {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
+        </a>
+      </div>
+    {{ end }}
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <p class="footer-col-title">ILO Club</p>
         <ul class="footer-list">
           <li>Падел-корт в Ратомке</li>
           <li>Один корт, 7:00–00:00</li>
@@ -10,16 +24,16 @@
         </ul>
       </div>
 
-      <div>
-        <p class="eyebrow">Адрес</p>
+      <div class="footer-col">
+        <p class="footer-col-title">Адрес</p>
         <ul class="footer-list">
           <li>аг. Ратомка</li>
           <li>ул. Перспективная, 12</li>
         </ul>
       </div>
 
-      <div>
-        <p class="eyebrow">Связь</p>
+      <div class="footer-col">
+        <p class="footer-col-title">Связь</p>
         <ul class="footer-list">
           {{ with site.Params.social.instagram }}
             <li><a href="{{ . }}" target="_blank" rel="noopener me">Instagram</a></li>
@@ -30,8 +44,8 @@
         </ul>
       </div>
 
-      <div>
-        <p class="eyebrow">Бронь</p>
+      <div class="footer-col">
+        <p class="footer-col-title">Бронь</p>
         <ul class="footer-list">
           <li><a href="{{ site.Params.booking }}" target="_blank" rel="noopener">Забронировать корт</a></li>
         </ul>

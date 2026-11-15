@@ -1,77 +1,60 @@
-/* Прайс: длительность переключает цены в строках, тренажёрские форматы
-   показывают, что инвентарь уже входит. Само бронирование — в Yclients. */
+/* Прайс: категории и длительность. Цены — информация,
+   бронирование живёт в Yclients. */
 (() => {
-  const root = document.querySelector("[data-calc]");
+  const root = document.querySelector("[data-prices-root]");
   if (!root) return;
 
-  const durationInputs = [...root.querySelectorAll('input[name="duration"]')];
-  const formatInputs = [...root.querySelectorAll('input[name="format"]')];
-  const extras = root.querySelector("[data-extras]");
-  const extrasNote = root.querySelector("[data-extras-note]");
-  const extraInputs = [...root.querySelectorAll("input[data-extra]")];
-  const stepperButtons = [...root.querySelectorAll("[data-step]")];
-
-  if (!durationInputs.length || !formatInputs.length) return;
-
-  const pricesOf = (el) => el.dataset.prices.split(",").map(Number);
+  const catInputs = [...root.querySelectorAll('input[name="price-cat"]')];
+  const durationInputs = [...root.querySelectorAll('input[name="price-duration"]')];
+  const lists = [...root.querySelectorAll(".price-list")];
+  const listWrap = root.querySelector(".price-lists");
+  const rows = [...root.querySelectorAll(".price-list li")];
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   const durationIndex = () => {
     const checked = durationInputs.find((input) => input.checked) || durationInputs[0];
     return Number(checked.dataset.index) || 0;
   };
 
-  const perPerson = (format, price) => {
-    if (Number(format.dataset.players) === 1) return "за одного";
-    const each = price / Number(format.dataset.players);
-    return `${Number.isInteger(each) ? "" : "≈ "}${Math.round(each)} BYN с человека`;
-  };
-
   function syncPrices() {
     const index = durationIndex();
 
-    formatInputs.forEach((format) => {
-      const row = format.closest(".format");
-      const price = pricesOf(format)[index];
+    rows.forEach((row) => {
+      const price = Number(row.dataset.prices.split(",")[index]);
       row.querySelector("[data-price]").textContent = price;
-      row.querySelector("[data-per]").textContent = perPerson(format, price);
-    });
 
-    extraInputs.forEach((input) => {
-      const price = pricesOf(input)[index];
-      const node = root.querySelector(`[data-extra-price="${input.dataset.extra}"]`);
-      if (node) node.textContent = price;
+      const per = row.querySelector("[data-per]");
+      if (!per) return;
+
+      const each = price / Number(row.dataset.players);
+      per.textContent = `${Number.isInteger(each) ? "" : "≈ "}${Math.round(each)} BYN с человека`;
     });
   }
 
-  function syncExtras() {
-    const chosen = formatInputs.find((input) => input.checked) || formatInputs[0];
-    const included = chosen.dataset.training === "true";
+  function syncCategory({ animate = false } = {}) {
+    const value = (catInputs.find((input) => input.checked) || catInputs[0]).value;
+    const from = listWrap && animate && !reduceMotion.matches
+      ? listWrap.getBoundingClientRect().height
+      : null;
 
-    extras.classList.toggle("is-included", included);
-    extraInputs.forEach((input) => {
-      input.disabled = included;
+    lists.forEach((list) => {
+      list.hidden = list.dataset.cat !== value;
     });
-    if (extrasNote) {
-      extrasNote.textContent = included
-        ? "входит в тренировку"
-        : "нужен, если играете без своего";
-    }
+
+    if (from === null || !listWrap) return;
+
+    const to = listWrap.getBoundingClientRect().height;
+    if (Math.abs(to - from) < 1) return;
+
+    listWrap.animate(
+      [{ height: `${from}px` }, { height: `${to}px` }],
+      { duration: 200, easing: "cubic-bezier(0.2, 0, 0, 1)" }
+    );
   }
 
+  catInputs.forEach((input) => input.addEventListener("change", () => syncCategory({ animate: true })));
   durationInputs.forEach((input) => input.addEventListener("change", syncPrices));
-  formatInputs.forEach((input) => input.addEventListener("change", syncExtras));
 
-  stepperButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const input = button.closest(".stepper").querySelector("input");
-      if (!input || input.disabled) return;
-      const step = Number(button.dataset.step);
-      const min = Number(input.min) || 0;
-      const max = Number(input.max) || 99;
-      input.value = Math.min(max, Math.max(min, (Number(input.value) || 0) + step));
-    });
-  });
-
+  syncCategory();
   syncPrices();
-  syncExtras();
 })();
