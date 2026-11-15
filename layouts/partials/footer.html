@@ -1,57 +1,28 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    {{ if .IsHome }}
-      <div class="footer-cta">
-        <div>
-          <p class="footer-kicker">ILO Club · Ратомка</p>
-          <h2 class="footer-claim">Корт свободен. <span>Час — 80 BYN.</span></h2>
-        </div>
+    <div class="footer-top">
+      <a class="footer-brand" href="{{ site.Home.RelPermalink }}" aria-label="ILO Club — на главную">
+        <span class="footer-brand-badge">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
+      </a>
 
-        <a class="btn" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
-          Забронировать корт
-          {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
-        </a>
-      </div>
-    {{ end }}
+      {{ partial "social.html" . }}
+    </div>
 
-    <div class="footer-cols">
-      <div class="footer-col">
-        <p class="footer-col-title">ILO Club</p>
-        <ul class="footer-list">
-          <li>Падел-корт в Ратомке</li>
-          <li>Один корт, 7:00–00:00</li>
-          <li><a href="{{ site.Home.RelPermalink }}#sertifikat">Подарочный сертификат</a></li>
-        </ul>
-      </div>
+    <div class="footer-main">
+      <p class="footer-claim">Падел-корт в Ратомке.<br><span>80 BYN в час.</span></p>
 
-      <div class="footer-col">
-        <p class="footer-col-title">Адрес</p>
-        <ul class="footer-list">
-          <li>аг. Ратомка</li>
-          <li>ул. Перспективная, 12</li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <p class="footer-col-title">Связь</p>
-        <ul class="footer-list">
-          {{ with site.Params.social.instagram }}
-            <li><a href="{{ . }}" target="_blank" rel="noopener me">Instagram</a></li>
-          {{ end }}
-          {{ with site.Params.social.telegram }}
-            <li><a href="{{ . }}" target="_blank" rel="noopener">Telegram</a></li>
-          {{ end }}
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <p class="footer-col-title">Бронь</p>
-        <ul class="footer-list">
-          <li><a href="{{ site.Params.booking }}" target="_blank" rel="noopener">Забронировать корт</a></li>
-        </ul>
-      </div>
+      <a class="footer-address" href="{{ site.Params.map }}" target="_blank" rel="noopener">
+        <span class="footer-address__city">аг. Ратомка, Перспективная 12</span>
+        <span class="footer-address__hours">{{ site.Params.hours }}</span>
+      </a>
     </div>
 
     <p class="footer-bottom">© {{ now.Year }} ILO Club</p>
+  </div>
+
+  <div class="footer-net" aria-hidden="true">
+    <span class="footer-net-ball footer-net-ball--a">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
+    <span class="footer-net-ball footer-net-ball--b">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
+    <span class="footer-net-ball footer-net-ball--c">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
   </div>
 </footer>
