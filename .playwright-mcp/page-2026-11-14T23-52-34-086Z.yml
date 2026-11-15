@@ -1,0 +1,401 @@
+- generic [active] [ref=f10e1]:
+  - link "К содержимому" [ref=f10e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f10e3]:
+    - generic [ref=f10e4]:
+      - link [ref=f10e5] [cursor=pointer]:
+        - /url: /
+      - navigation "Разделы страницы" [ref=f10e7]:
+        - list [ref=f10e8]:
+          - listitem [ref=f10e9]:
+            - link "Тренеры" [ref=f10e10] [cursor=pointer]:
+              - /url: /#coaches
+          - listitem [ref=f10e11]:
+            - link "Цены" [ref=f10e12] [cursor=pointer]:
+              - /url: /#price
+          - listitem [ref=f10e13]:
+            - link "Сертификат" [ref=f10e14] [cursor=pointer]:
+              - /url: /#sertifikat
+  - main [ref=f10e15]:
+    - region "Падел-корт в Ратомке. 80 BYN в час." [ref=f10e16]:
+      - generic [ref=f10e17]:
+        - 'img "Корт ILO Club: синее покрытие, стеклянные стены, окна в потолке" [ref=f10e19]'
+        - generic [ref=f10e20]:
+          - generic [ref=f10e21]:
+            - heading "Падел-корт в Ратомке. 80 BYN в час." [level=1] [ref=f10e22]:
+              - text: Падел-корт в Ратомке.
+              - generic [ref=f10e23]: 80 BYN в час.
+            - paragraph [ref=f10e24]: Вчетвером — 20 BYN с человека. Корт целиком ваш.
+            - generic [ref=f10e25]:
+              - link "Забронировать корт" [ref=f10e26] [cursor=pointer]:
+                - /url: https://n1297334.yclients.ru/
+              - link "Сколько стоит" [ref=f10e27] [cursor=pointer]:
+                - /url: "#price"
+          - generic [ref=f10e31]:
+            - generic [ref=f10e32]:
+              - term [ref=f10e33]:
+                - generic [ref=f10e37]: Часы
+              - definition [ref=f10e38]: 7:00–00:00, каждый день
+            - generic [ref=f10e39]:
+              - term [ref=f10e40]:
+                - generic [ref=f10e43]: Корт
+              - definition [ref=f10e44]: Один, крытый
+            - generic [ref=f10e45]:
+              - term [ref=f10e46]:
+                - generic [ref=f10e50]: Адрес
+              - definition [ref=f10e51]: аг. Ратомка, Перспективная 12
+            - generic [ref=f10e52]:
+              - term [ref=f10e53]:
+                - generic [ref=f10e58]: Инвентарь
+              - definition [ref=f10e59]: Ракетки и мячи — 10 BYN
+    - region "Кого слушать на корте" [ref=f10e60]:
+      - generic [ref=f10e61]:
+        - paragraph [ref=f10e62]: Тренеры
+        - heading "Кого слушать на корте" [level=2] [ref=f10e63]
+        - paragraph [ref=f10e64]: Основатель клуба, тренеры по паделу и большому теннису. Выберите, к кому хотите на корт, — покажем график на этой неделе.
+      - generic [ref=f10e65]:
+        - radio "Илона" [checked] [ref=f10e66]
+        - radio "Карина" [ref=f10e67]
+        - radio "Эдуард" [ref=f10e68]
+        - radio "Евгений" [ref=f10e69]
+        - group "Выбор тренера" [ref=f10e70]:
+          - generic [ref=f10e71] [cursor=pointer]: Илона
+          - generic [ref=f10e72] [cursor=pointer]: Карина
+          - generic [ref=f10e73] [cursor=pointer]: Эдуард
+          - generic [ref=f10e74] [cursor=pointer]: Евгений
+        - article [ref=f10e76]:
+          - img "Илона, основатель и главный тренер ILO Club" [ref=f10e77]
+          - generic [ref=f10e78]:
+            - paragraph [ref=f10e79]: Илона
+            - paragraph [ref=f10e80]: Основатель и главный тренер
+            - generic [ref=f10e81]:
+              - generic [ref=f10e82]:
+                - term [ref=f10e83]: Звание
+                - definition [ref=f10e84]: Мастер спорта международного класса
+              - generic [ref=f10e85]:
+                - term [ref=f10e86]: Титулы
+                - definition [ref=f10e87]: 8-кратная чемпионка Беларуси, чемпионка Европы среди юниоров, 33 титула ITF в женском теннисе
+              - generic [ref=f10e88]:
+                - term [ref=f10e89]: Рейтинг
+                - definition [ref=f10e90]: "Наивысший WTA: №201 в одиночном и №157 в парном разряде; топ-20 мирового рейтинга среди юниоров"
+              - generic [ref=f10e91]:
+                - term [ref=f10e92]: Большой шлем
+                - definition [ref=f10e93]: Участница Australian Open, Roland Garros, Wimbledon, US Open
+              - generic [ref=f10e94]:
+                - term [ref=f10e95]: Опыт
+                - definition [ref=f10e96]: Дипломированный тренер по теннису (8+ лет), международно-сертифицированный тренер по паделу (4+ года)
+            - blockquote [ref=f10e97]:
+              - text: «Илона прошла путь профессионального спортсмена и знает, что сильная игра строится на дисциплине, системной работе и внимании к деталям».
+              - generic [ref=f10e98]: Из описания клуба
+            - paragraph [ref=f10e99]: "Работает с игроками любого уровня: помогает новичкам заложить правильную основу, а опытным — найти точки роста."
+    - region "За корт, а не за человека" [ref=f10e100]:
+      - generic [ref=f10e101]:
+        - generic [ref=f10e102]:
+          - paragraph [ref=f10e103]: Цены
+          - heading "За корт, а не за человека" [level=2] [ref=f10e104]
+          - paragraph [ref=f10e105]: 80 BYN за корт в час. Вчетвером — по 20 BYN с человека. Корт и ракетки входят в тренировку.
+        - generic [ref=f10e106]:
+          - generic [ref=f10e107]:
+            - group "Длительность" [ref=f10e108]:
+              - generic [ref=f10e110]:
+                - radio "1 час" [checked] [ref=f10e111]
+                - generic [ref=f10e112] [cursor=pointer]: 1 час
+                - radio "1,5 часа" [ref=f10e113]
+                - generic [ref=f10e114] [cursor=pointer]: 1,5 часа
+                - radio "2 часа" [ref=f10e115]
+                - generic [ref=f10e116] [cursor=pointer]: 2 часа
+            - group "Формат игры" [ref=f10e117]:
+              - generic [ref=f10e119] [cursor=pointer]:
+                - radio "Аренда корта Без тренера, инвентарь отдельно 80 BYN 20 BYN с человека" [checked] [ref=f10e120]
+                - generic [ref=f10e121]:
+                  - generic [ref=f10e122]: Аренда корта
+                  - generic [ref=f10e123]: Без тренера, инвентарь отдельно
+                - generic [ref=f10e124]: 80 BYN
+                - generic [ref=f10e125]: 20 BYN с человека
+              - generic [ref=f10e126] [cursor=pointer]:
+                - radio "Индивидуальная Один на один с тренером 150 BYN за одного" [ref=f10e127]
+                - generic [ref=f10e128]:
+                  - generic [ref=f10e129]: Индивидуальная
+                  - generic [ref=f10e130]: Один на один с тренером
+                - generic [ref=f10e131]: 150 BYN
+                - generic [ref=f10e132]: за одного
+              - generic [ref=f10e133] [cursor=pointer]:
+                - radio "Сплит Вдвоём с тренером 170 BYN 85 BYN с человека" [ref=f10e134]
+                - generic [ref=f10e135]:
+                  - generic [ref=f10e136]: Сплит
+                  - generic [ref=f10e137]: Вдвоём с тренером
+                - generic [ref=f10e138]: 170 BYN
+                - generic [ref=f10e139]: 85 BYN с человека
+              - generic [ref=f10e140] [cursor=pointer]:
+                - radio "Групповая Вчетвером с тренером 195 BYN ≈ 49 BYN с человека" [ref=f10e141]
+                - generic [ref=f10e142]:
+                  - generic [ref=f10e143]: Групповая
+                  - generic [ref=f10e144]: Вчетвером с тренером
+                - generic [ref=f10e145]: 195 BYN
+                - generic [ref=f10e146]: ≈ 49 BYN с человека
+            - generic [ref=f10e147]:
+              - paragraph [ref=f10e148]:
+                - text: Инвентарь
+                - generic [ref=f10e149]: нужен, если играете без своего
+              - generic [ref=f10e150]:
+                - generic [ref=f10e151]:
+                  - generic [ref=f10e152]: Ракетки
+                  - generic [ref=f10e153]: за штуку · 10 BYN
+                - generic [ref=f10e154]:
+                  - 'button "Меньше: Ракетки" [disabled] [ref=f10e155]': −
+                  - spinbutton "Ракетки, количество" [ref=f10e156]: "0"
+                  - 'button "Больше: Ракетки" [ref=f10e157] [cursor=pointer]': +
+              - generic [ref=f10e158] [cursor=pointer]:
+                - generic [ref=f10e159]:
+                  - generic [ref=f10e160]: Мячи
+                  - generic [ref=f10e161]: комплект 4 шт · 10 BYN
+                - checkbox "Мячи комплект 4 шт · 10 BYN" [ref=f10e162]
+          - complementary "Итог" [ref=f10e163]:
+            - paragraph [ref=f10e164]: Итого
+            - paragraph [ref=f10e165]: 80 BYN
+            - paragraph [ref=f10e166]: Аренда корта, 1 час
+            - paragraph [ref=f10e167]: 20 BYN с человека при игре вчетвером
+            - link "Забронировать" [ref=f10e168] [cursor=pointer]:
+              - /url: https://n1297334.yclients.ru/
+            - paragraph [ref=f10e169]: Бронь — по 100% предоплате. Время держим после оплаты.
+        - group [ref=f10e170]:
+          - generic "Весь прайс таблицей" [ref=f10e171] [cursor=pointer]
+          - text: 1 ч 1,5 ч 2 ч 1 ч 1,5 ч 2 ч 1 ч 1,5 ч 2 ч 1 ч 1,5 ч 2 ч
+    - region "Подарочный сертификат" [ref=f10e174]:
+      - generic [ref=f10e175]:
+        - paragraph [ref=f10e176]: Подарок
+        - heading "Подарочный сертификат" [level=2] [ref=f10e177]
+        - paragraph [ref=f10e178]: "Новые эмоции и подарок, который точно пригодится: час на корте, тренировка с тренером или любая сумма. Сертификат действует два месяца, оформляем электронно или в бумажном виде."
+      - generic [ref=f10e179]:
+        - generic [ref=f10e180]:
+          - list [ref=f10e181]:
+            - listitem [ref=f10e182]:
+              - paragraph [ref=f10e183]: Персональное занятие с тренером
+              - paragraph [ref=f10e184]: "Для тех, кто ещё не играл: необычный подарок и новые эмоции. Для тех, кто уже играет: час с тренером, чтобы подтянуть навыки. Хороший повод удивить вторую половинку и провести время по-новому."
+            - listitem [ref=f10e185]:
+              - paragraph [ref=f10e186]: Аренда корта
+              - paragraph [ref=f10e187]: "Для действующих игроков: корт целиком на час. Подойдёт тем, кто уже играет матчи, и тем, кто ходит на персональные занятия и готов выходить на игру."
+            - listitem [ref=f10e188]:
+              - paragraph [ref=f10e189]: На любую сумму
+              - paragraph [ref=f10e190]: "Не привязывает к услуге: получатель сам выберет — арендовать корт для матча или сходить на тренировку самостоятельно, в паре или группой."
+          - generic [ref=f10e191]:
+            - generic [ref=f10e192]:
+              - term [ref=f10e193]: Формат
+              - definition [ref=f10e194]: "PDF — отправим на почту. Бумажный — забрать в клубе: Ратомка, Перспективная, 12."
+            - generic [ref=f10e195]:
+              - term [ref=f10e196]: Срок действия
+              - definition [ref=f10e197]: 2 месяца
+            - generic [ref=f10e198]:
+              - term [ref=f10e199]: Номинал
+              - definition [ref=f10e200]: Любая сумма или конкретная услуга
+          - link "Оформить сертификат" [ref=f10e202] [cursor=pointer]:
+            - /url: https://n1297334.yclients.ru/
+          - paragraph [ref=f10e203]:
+            - text: Вопросы по сертификату —
+            - link "в Telegram" [ref=f10e204] [cursor=pointer]:
+              - /url: https://t.me/+mBHLVXAWk_FmYmIy
+            - text: .
+        - figure [ref=f10e205]:
+          - img "Игрок ILO Club на синем корте в окружении мячей" [ref=f10e206]
+    - region "Что такое падел" [ref=f10e207]:
+      - generic [ref=f10e208]:
+        - paragraph [ref=f10e209]: Падел
+        - heading "Что такое падел" [level=2] [ref=f10e210]
+        - paragraph [ref=f10e211]: Игра 2 на 2 на корте со стеклянными стенами. Подача снизу, ракетка без струн, а мяч после отскока от стекла остаётся в игре.
+      - generic [ref=f10e212]:
+        - 'figure "Стеклянные стены стоят по периметру. Мяч отскакивает от пола, уходит в стекло и возвращается обратно: такой удар в теннисе невозможен." [ref=f10e213]':
+          - 'img "Схема падел-корта: площадка со стеклянными стенами по периметру, сетка посередине. Мяч после отскока от пола уходит в стекло и возвращается в игру" [ref=f10e214]':
+            - generic [ref=f10e221]: сетка
+        - generic [ref=f10e223]:
+          - paragraph [ref=f10e224]: "Придумали падел в 1969 году в Мексике: Энрике Коркуэра обнёс стенами небольшой теннисный корт в Акапулько. Игра прижилась в Испании, оттуда разошлась по миру."
+          - generic [ref=f10e225]:
+            - generic [ref=f10e226]:
+              - term [ref=f10e227]: Двое на двое
+              - definition [ref=f10e228]: Подача по диагонали, как в теннисе.
+            - generic [ref=f10e229]:
+              - term [ref=f10e230]: Подача снизу
+              - definition [ref=f10e231]: Мяч бьют с отскока от пола, не выше пояса.
+            - generic [ref=f10e232]:
+              - term [ref=f10e233]: Стены в игре
+              - definition [ref=f10e234]: После отскока от пола мяч можно вернуть от стекла.
+            - generic [ref=f10e235]:
+              - term [ref=f10e236]: Ракетка без струн
+              - definition [ref=f10e237]: Сплошная, с отверстиями. Перетягивать не нужно.
+      - generic [ref=f10e238]:
+        - heading "Чем отличается от тенниса" [level=3] [ref=f10e239]
+        - table "Сравнение падела и большого тенниса" [ref=f10e240]:
+          - caption [ref=f10e241]: Сравнение падела и большого тенниса
+          - rowgroup [ref=f10e242]:
+            - row [ref=f10e243]:
+              - columnheader "Параметр" [ref=f10e244]
+              - columnheader "Падел" [ref=f10e246]
+              - columnheader "Теннис" [ref=f10e247]
+          - rowgroup [ref=f10e248]:
+            - row [ref=f10e249]:
+              - rowheader "Игроков" [ref=f10e250]
+              - cell "Четверо, почти всегда пары" [ref=f10e251]
+              - cell "Двое или четверо" [ref=f10e252]
+            - row [ref=f10e253]:
+              - rowheader "Подача" [ref=f10e254]
+              - cell "Снизу, с отскока, не выше пояса" [ref=f10e255]
+              - cell "Сверху, над головой" [ref=f10e256]
+            - row [ref=f10e257]:
+              - rowheader "Ракетка" [ref=f10e258]
+              - cell "Сплошная, без струн" [ref=f10e259]
+              - cell "Со струнами" [ref=f10e260]
+            - row [ref=f10e261]:
+              - rowheader "Стены" [ref=f10e262]
+              - cell "Мяч можно вернуть от стекла" [ref=f10e263]
+              - cell "Стен нет" [ref=f10e264]
+            - row [ref=f10e265]:
+              - rowheader "Счёт" [ref=f10e266]
+              - cell "15, 30, 40, гейм" [ref=f10e267]
+              - cell "15, 30, 40, гейм" [ref=f10e268]
+      - generic [ref=f10e269]:
+        - generic [ref=f10e270]:
+          - paragraph [ref=f10e271]: Падел в мире
+          - paragraph [ref=f10e273]: FIP World Padel Report, 2026
+        - generic [ref=f10e274]:
+          - generic [ref=f10e275]:
+            - term [ref=f10e276]: Игроков в мире
+            - definition [ref=f10e277]: 40 млн
+          - generic [ref=f10e278]:
+            - term [ref=f10e279]: Кортов
+            - definition [ref=f10e280]: 91 234
+          - generic [ref=f10e281]:
+            - term [ref=f10e282]: Стран
+            - definition [ref=f10e283]: "191"
+          - generic [ref=f10e284]:
+            - term [ref=f10e285]: Новых кортов в день
+            - definition [ref=f10e286]: "40"
+      - generic [ref=f10e287]:
+        - generic [ref=f10e288]:
+          - paragraph [ref=f10e289]: Первый раз
+          - heading "Без ракетки и без опыта" [level=3] [ref=f10e290]
+          - link "Забронировать корт" [ref=f10e291] [cursor=pointer]:
+            - /url: https://n1297334.yclients.ru/
+        - generic [ref=f10e292]:
+          - generic [ref=f10e293]:
+            - term [ref=f10e294]: Без компании
+            - definition [ref=f10e295]: "Можно прийти одному: есть индивидуальные тренировки, занятия вдвоём с тренером и группы."
+          - generic [ref=f10e296]:
+            - term [ref=f10e297]: Без своей ракетки
+            - definition [ref=f10e298]: Прокат — 10 BYN в час, мячи — 10 BYN за комплект. В тренировку инвентарь входит.
+          - generic [ref=f10e299]:
+            - term [ref=f10e300]: Что взять
+            - definition [ref=f10e301]: "Сменную обувь: вход на корт только в ней. Душ и раздевалки в том же здании."
+    - region "Один корт. Весь ваш" [ref=f10e302]:
+      - generic [ref=f10e303]:
+        - generic [ref=f10e304]:
+          - paragraph [ref=f10e305]: Корт
+          - heading "Один корт. Весь ваш" [level=2] [ref=f10e306]
+          - paragraph [ref=f10e307]: Крытый корт с синим покрытием, стеклянные стены и окна в потолок. Душ и раздевалки в том же здании.
+        - generic [ref=f10e308]:
+          - figure "Крытый корт, синее покрытие" [ref=f10e309]:
+            - img "Общий вид корта ILO Club" [ref=f10e310]
+          - figure "Свет с потолочных окон" [ref=f10e312]:
+            - img "Стеклянная стена и сетка корта ILO Club" [ref=f10e313]
+    - region "Коротко о главном" [ref=f10e315]:
+      - generic [ref=f10e316]:
+        - paragraph [ref=f10e317]: Вопросы
+        - heading "Коротко о главном" [level=2] [ref=f10e318]
+      - generic [ref=f10e319]:
+        - group [ref=f10e320]:
+          - generic "Нужна ли своя ракетка?" [ref=f10e321] [cursor=pointer]
+        - group [ref=f10e324]:
+          - generic "Можно прийти без опыта?" [ref=f10e325] [cursor=pointer]
+        - group [ref=f10e328]:
+          - generic "Сколько стоит час?" [ref=f10e329] [cursor=pointer]
+        - group [ref=f10e332]:
+          - generic "Как забронировать?" [ref=f10e333] [cursor=pointer]
+        - group [ref=f10e336]:
+          - generic "Где это?" [ref=f10e337] [cursor=pointer]
+    - region "Правила посещения клуба" [ref=f10e340]:
+      - generic [ref=f10e341]:
+        - generic [ref=f10e342]:
+          - paragraph [ref=f10e343]: Правила
+          - heading "Правила посещения клуба" [level=2] [ref=f10e344]
+          - paragraph [ref=f10e345]: Пять пунктов, которые действуют для всех гостей — от сменной обуви до отмены брони.
+        - generic [ref=f10e346]:
+          - figure [ref=f10e347]:
+            - img "Памятка с правилами посещения ILO Club" [ref=f10e348]
+          - list [ref=f10e349]:
+            - listitem [ref=f10e350]:
+              - paragraph [ref=f10e351]: Вход в зал и на корт разрешён только в сменной обуви (бахилах).
+              - paragraph [ref=f10e352]: Администратор вправе не пустить на корт, если сменной обуви у кого-то не будет. Стоимость аренды в этом случае не возвращается.
+            - listitem [ref=f10e353]:
+              - paragraph [ref=f10e354]: Для подтверждения вашего бронирования производится оплата полной стоимости занятия.
+              - paragraph [ref=f10e355]: Без полной оплаты мы не бронируем время — оно остаётся открытым для других желающих.
+            - listitem [ref=f10e356]:
+              - paragraph [ref=f10e357]: "Оплата возможна только через ЕРИП:"
+              - list [ref=f10e358]:
+                - listitem [ref=f10e359]: по карте через онлайн-банкинг;
+                - listitem [ref=f10e360]: наличными через ЕРИП-терминалы по городу.
+            - listitem [ref=f10e361]:
+              - paragraph [ref=f10e362]: На территории ILO Club запрещено оказывать тренерские услуги.
+              - paragraph [ref=f10e363]: Тренировки доступны от тренеров команды ILO.
+            - listitem [ref=f10e364]:
+              - paragraph [ref=f10e365]: "Отмена или перенос бронирования:"
+              - list [ref=f10e366]:
+                - listitem [ref=f10e367]: за 24 часа до занятия — бесплатно;
+                - listitem [ref=f10e368]: за 12–24 часа до занятия — возвращается 50% стоимости занятия;
+                - listitem [ref=f10e369]: менее чем за 12 часов до занятия — сумма не возвращается.
+    - region "Ратомка, Перспективная, 12" [ref=f10e370]:
+      - generic [ref=f10e371]:
+        - paragraph [ref=f10e372]: Как добраться
+        - heading "Ратомка, Перспективная, 12" [level=2] [ref=f10e373]
+        - paragraph [ref=f10e374]: Крытый корт в агрогородке Ратомка. Работаем каждый день с 7:00 до 00:00.
+      - generic [ref=f10e375]:
+        - iframe [ref=f10e377]
+        - generic [ref=f10e378]:
+          - generic [ref=f10e379]:
+            - generic [ref=f10e380]:
+              - term [ref=f10e381]: Адрес
+              - definition [ref=f10e382]: аг. Ратомка, ул. Перспективная, 12
+            - generic [ref=f10e383]:
+              - term [ref=f10e384]: Часы
+              - definition [ref=f10e385]: 7:00–00:00, каждый день
+            - generic [ref=f10e386]:
+              - term [ref=f10e387]: Корт
+              - definition [ref=f10e388]: Один, крытый
+          - link "Открыть в Яндекс Картах" [ref=f10e389] [cursor=pointer]:
+            - /url: https://yandex.by/maps/?text=%D0%A0%D0%B0%D1%82%D0%BE%D0%BC%D0%BA%D0%B0%2C%20%D0%9F%D0%B5%D1%80%D1%81%D0%BF%D0%B5%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F%2012
+    - region "Корт свободен. Час — 80 BYN." [ref=f10e390]:
+      - generic [ref=f10e391]:
+        - generic [ref=f10e392]:
+          - paragraph [ref=f10e393]: ILO Club · Ратомка
+          - heading "Корт свободен. Час — 80 BYN." [level=2] [ref=f10e394]
+        - link "Забронировать корт" [ref=f10e395] [cursor=pointer]:
+          - /url: https://n1297334.yclients.ru/
+  - contentinfo [ref=f10e396]:
+    - generic [ref=f10e397]:
+      - generic [ref=f10e398]:
+        - generic [ref=f10e399]:
+          - paragraph [ref=f10e400]: ILO Club
+          - list [ref=f10e401]:
+            - listitem [ref=f10e402]: Падел-корт в Ратомке
+            - listitem [ref=f10e403]: Один корт, 7:00–00:00
+            - listitem [ref=f10e404]:
+              - link "Подарочный сертификат" [ref=f10e405] [cursor=pointer]:
+                - /url: /#sertifikat
+        - generic [ref=f10e406]:
+          - paragraph [ref=f10e407]: Адрес
+          - list [ref=f10e408]:
+            - listitem [ref=f10e409]: аг. Ратомка
+            - listitem [ref=f10e410]: ул. Перспективная, 12
+        - generic [ref=f10e411]:
+          - paragraph [ref=f10e412]: Связь
+          - list [ref=f10e413]:
+            - listitem [ref=f10e414]:
+              - link "Instagram" [ref=f10e415] [cursor=pointer]:
+                - /url: https://www.instagram.com/iloclub.minsk
+            - listitem [ref=f10e416]:
+              - link "Telegram" [ref=f10e417] [cursor=pointer]:
+                - /url: https://t.me/+mBHLVXAWk_FmYmIy
+        - generic [ref=f10e418]:
+          - paragraph [ref=f10e419]: Бронь
+          - list [ref=f10e420]:
+            - listitem [ref=f10e421]:
+              - link "Забронировать корт" [ref=f10e422] [cursor=pointer]:
+                - /url: https://n1297334.yclients.ru/
+      - paragraph [ref=f10e423]: © 2026 ILO Club

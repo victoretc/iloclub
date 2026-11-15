@@ -1,0 +1,27 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+  <defs>
+    <radialGradient id="bl-body" cx="0.34" cy="0.26" r="0.85">
+      <stop offset="0" stop-color="#e9fc7c"/>
+      <stop offset="0.45" stop-color="#cdf03a"/>
+      <stop offset="0.82" stop-color="#bedf2a"/>
+      <stop offset="1" stop-color="#a5c11d"/>
+    </radialGradient>
+    <radialGradient id="bl-shade" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.62" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#2f3d00" stop-opacity="0.35"/>
+    </radialGradient>
+    <clipPath id="bl-clip">
+      <circle cx="100" cy="100" r="92"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="100" cy="100" r="92" fill="url(#bl-body)"/>
+  <g clip-path="url(#bl-clip)">
+    <g fill="none" stroke="#f6f9e4" stroke-width="8.5" stroke-linecap="round" transform="rotate(-13 100 100)">
+      <path d="M16 62C54 96 146 96 184 62"/>
+      <path d="M16 138C54 104 146 104 184 138"/>
+    </g>
+    <ellipse cx="66" cy="56" rx="34" ry="20" fill="#ffffff" opacity="0.16" transform="rotate(-24 66 56)"/>
+    <circle cx="100" cy="100" r="92" fill="url(#bl-shade)"/>
+  </g>
+</svg>

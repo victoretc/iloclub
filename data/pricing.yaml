@@ -1,0 +1,45 @@
+# Прайс клуба. Правки здесь попадают в калькулятор и в таблицу.
+durations:
+  - key: "60"
+    label: "1 час"
+    short: "1 ч"
+  - key: "90"
+    label: "1,5 часа"
+    short: "1,5 ч"
+  - key: "120"
+    label: "2 часа"
+    short: "2 ч"
+
+formats:
+  - id: rent
+    name: "Аренда корта"
+    note: "Без тренера, инвентарь отдельно"
+    players: 4
+    prices: [80, 120, 160]
+  - id: individual
+    name: "Индивидуальная"
+    note: "Один на один с тренером"
+    players: 1
+    prices: [150, 225, 300]
+  - id: split
+    name: "Сплит"
+    note: "Вдвоём с тренером"
+    players: 2
+    prices: [170, 256, 340]
+  - id: group
+    name: "Групповая"
+    note: "Вчетвером с тренером"
+    players: 4
+    prices: [195, 294, 390]
+
+extras:
+  - id: rackets
+    name: "Ракетки"
+    unit: "за штуку"
+    max: 4
+    prices: [10, 15, 20]
+  - id: balls
+    name: "Мячи"
+    unit: "комплект 4 шт"
+    max: 1
+    prices: [10, 15, 20]

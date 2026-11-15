@@ -1,0 +1,85 @@
+- generic [active] [ref=f64e1]:
+  - link "К содержимому" [ref=f64e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f64e3]:
+    - generic [ref=f64e4]:
+      - link "ILO Club" [ref=f64e5] [cursor=pointer]:
+        - /url: /
+      - button "Забронировать" [ref=f64e8] [cursor=pointer]
+  - main [ref=f64e9]:
+    - region "Падел-корт в Ратомке. 80 BYN в час." [ref=f64e10]:
+      - 'img "Корт ILO Club: синее покрытие, стеклянные стены и окна в потолке" [ref=f64e12]'
+      - generic [ref=f64e13]:
+        - paragraph [ref=f64e14]: ILO Club · Ратомка
+        - heading "Падел-корт в Ратомке. 80 BYN в час." [level=1] [ref=f64e15]:
+          - text: Падел-корт в Ратомке.
+          - generic [ref=f64e16]: 80 BYN в час.
+        - paragraph [ref=f64e17]: 20 BYN с человека, если играете вчетвером. Ракетка и мячи — по 10 BYN, всё есть на месте.
+        - generic [ref=f64e18]:
+          - button "Забронировать корт" [ref=f64e19] [cursor=pointer]
+          - link "Кто будет вас учить" [ref=f64e20] [cursor=pointer]:
+            - /url: "#coaches"
+        - generic [ref=f64e21]:
+          - generic [ref=f64e22]:
+            - term [ref=f64e23]: Часы
+            - definition [ref=f64e24]: 7:00–00:00, каждый день
+          - generic [ref=f64e25]:
+            - term [ref=f64e26]: Корт
+            - definition [ref=f64e27]: Один — и он весь ваш
+          - generic [ref=f64e28]:
+            - term [ref=f64e29]: Внутри
+            - definition [ref=f64e30]: Душ и раздевалки
+          - generic [ref=f64e31]:
+            - term [ref=f64e32]: Адрес
+            - definition [ref=f64e33]: аг. Ратомка, Перспективная 12
+    - region "Играла на всех четырёх турнирах Большого шлема" [ref=f64e34]:
+      - img "Илона, основатель и главный тренер ILO Club" [ref=f64e36]
+      - generic [ref=f64e37]:
+        - paragraph [ref=f64e38]: Основатель и главный тренер
+        - heading "Играла на всех четырёх турнирах Большого шлема" [level=2] [ref=f64e39]
+        - paragraph [ref=f64e40]: Илона — мастер спорта международного класса и восьмикратная чемпионка Беларуси. Теперь она ставит игру здесь — вместе с командой тренеров по паделу и большому теннису.
+        - list [ref=f64e41]:
+          - listitem [ref=f64e42]:
+            - generic [ref=f64e43]: №201
+            - generic [ref=f64e44]: WTA, одиночный разряд
+          - listitem [ref=f64e45]:
+            - generic [ref=f64e46]: "33"
+            - generic [ref=f64e47]: титула ITF
+          - listitem [ref=f64e48]:
+            - generic [ref=f64e49]: "4"
+            - generic [ref=f64e50]: турнира Большого шлема
+          - listitem [ref=f64e51]:
+            - generic [ref=f64e52]: "8"
+            - generic [ref=f64e53]: титулов чемпионки Беларуси
+    - generic [ref=f64e55]:
+      - blockquote [ref=f64e56]:
+        - paragraph [ref=f64e57]: «Если тренер, то только такой. Тут про понятность, дисциплину и всё это с любовью и профессионализмом».
+        - generic [ref=f64e58]: Игроки клуба — про Эдуарда
+      - blockquote [ref=f64e59]:
+        - paragraph [ref=f64e60]: «Лучшее её я не знаю. Все, кто у неё бывал, в восторге. Она доступная и понятная».
+        - generic [ref=f64e61]: Игроки клуба — про Карину
+  - contentinfo [ref=f64e62]:
+    - generic [ref=f64e63]:
+      - generic [ref=f64e64]:
+        - generic [ref=f64e65]:
+          - paragraph [ref=f64e66]: ILO Club
+          - list [ref=f64e67]:
+            - listitem [ref=f64e68]: Падел-корт в Ратомке
+            - listitem [ref=f64e69]: Один корт, 7:00–00:00
+        - generic [ref=f64e70]:
+          - paragraph [ref=f64e71]: Адрес
+          - list [ref=f64e72]:
+            - listitem [ref=f64e73]: аг. Ратомка
+            - listitem [ref=f64e74]: ул. Перспективная, 12
+        - generic [ref=f64e75]:
+          - paragraph [ref=f64e76]: Связь
+          - list [ref=f64e77]:
+            - listitem [ref=f64e78]:
+              - link "Instagram" [ref=f64e79] [cursor=pointer]:
+                - /url: https://instagram.com/iloclub.minsk
+        - generic [ref=f64e80]:
+          - paragraph [ref=f64e81]: Бронь
+          - list [ref=f64e82]:
+            - listitem [ref=f64e83]:
+              - button "Забронировать корт" [ref=f64e84] [cursor=pointer]
+      - paragraph [ref=f64e85]: © 2026 ILO Club

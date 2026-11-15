@@ -1,0 +1,14 @@
+<li>
+  <article class="card">
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+      {{ with .Params.tags }}
+        <span class="dot">·</span>
+        <span class="tags">{{ delimit . ", " }}</span>
+      {{ end }}
+    </p>
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}</p>
+    <p class="read-more"><a href="{{ .RelPermalink }}">Читать</a></p>
+  </article>
+</li>

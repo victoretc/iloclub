@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img" aria-label="Мяч для падела">
+  <title>Мяч для падела</title>
+  <circle cx="60" cy="60" r="51" stroke="currentColor" stroke-width="5"/>
+  <g stroke="currentColor" stroke-width="5" stroke-linecap="round" transform="rotate(-14 60 60)">
+    <path d="M36 26C52 41 52 79 36 94"/>
+    <path d="M84 26C68 41 68 79 84 94"/>
+  </g>
+</svg>

@@ -1,0 +1,102 @@
+- generic [active] [ref=f93e1]:
+  - link "К содержимому" [ref=f93e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f93e3]:
+    - generic [ref=f93e4]:
+      - link "ILO Club" [ref=f93e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f93e7]:
+        - list "Соцсети" [ref=f93e8]:
+          - listitem [ref=f93e9]:
+            - link "Instagram" [ref=f93e10] [cursor=pointer]:
+              - /url: https://www.instagram.com/iloclub.minsk
+          - listitem [ref=f93e12]:
+            - link "Telegram" [ref=f93e13] [cursor=pointer]:
+              - /url: https://t.me/+mBHLVXAWk_FmYmIy
+        - link "Тренеры" [ref=f93e15] [cursor=pointer]:
+          - /url: "#coaches"
+        - link "Забронировать" [ref=f93e16] [cursor=pointer]:
+          - /url: https://n1297334.yclients.ru/
+  - main [ref=f93e17]:
+    - region "Падел-корт в Ратомке. 80 BYN в час." [ref=f93e18]:
+      - generic [ref=f93e19]:
+        - 'img "Корт ILO Club: синее покрытие, стеклянные стены и окна в потолке" [ref=f93e21]'
+        - generic [ref=f93e22]:
+          - paragraph [ref=f93e23]: ILO Club · Ратомка
+          - heading "Падел-корт в Ратомке. 80 BYN в час." [level=1] [ref=f93e24]:
+            - text: Падел-корт в Ратомке.
+            - generic [ref=f93e25]: 80 BYN в час.
+          - paragraph [ref=f93e26]: 20 BYN с человека, если играете вчетвером. Ракетка и мячи — по 10 BYN, всё есть на месте.
+          - generic [ref=f93e27]:
+            - link "Забронировать корт" [ref=f93e28] [cursor=pointer]:
+              - /url: https://n1297334.yclients.ru/
+            - link "Кто будет вас учить" [ref=f93e29] [cursor=pointer]:
+              - /url: "#coaches"
+          - generic [ref=f93e30]:
+            - generic [ref=f93e31]:
+              - term [ref=f93e32]: Часы
+              - definition [ref=f93e33]: 7:00–00:00, каждый день
+            - generic [ref=f93e34]:
+              - term [ref=f93e35]: Корт
+              - definition [ref=f93e36]: Один — и он весь ваш
+            - generic [ref=f93e37]:
+              - term [ref=f93e38]: Внутри
+              - definition [ref=f93e39]: Душ и раздевалки
+            - generic [ref=f93e40]:
+              - term [ref=f93e41]: Адрес
+              - definition [ref=f93e42]: аг. Ратомка, Перспективная 12
+    - region "Играла на всех четырёх турнирах Большого шлема" [ref=f93e43]:
+      - img "Илона, основатель и главный тренер ILO Club" [ref=f93e45]
+      - generic [ref=f93e46]:
+        - paragraph [ref=f93e47]: Основатель и главный тренер
+        - heading "Играла на всех четырёх турнирах Большого шлема" [level=2] [ref=f93e48]
+        - paragraph [ref=f93e49]: Илона — мастер спорта международного класса и восьмикратная чемпионка Беларуси. Теперь она ставит игру здесь — вместе с командой тренеров по паделу и большому теннису.
+        - list [ref=f93e50]:
+          - listitem [ref=f93e51]:
+            - generic [ref=f93e52]: №201
+            - generic [ref=f93e53]: WTA, одиночный разряд
+          - listitem [ref=f93e54]:
+            - generic [ref=f93e55]: "33"
+            - generic [ref=f93e56]: титула ITF
+          - listitem [ref=f93e57]:
+            - generic [ref=f93e58]: "4"
+            - generic [ref=f93e59]: турнира Большого шлема
+          - listitem [ref=f93e60]:
+            - generic [ref=f93e61]: "8"
+            - generic [ref=f93e62]: титулов чемпионки Беларуси
+    - generic [ref=f93e64]:
+      - blockquote [ref=f93e65]:
+        - paragraph [ref=f93e66]: «Если тренер, то только такой. Тут про понятность, дисциплину и всё это с любовью и профессионализмом».
+        - generic [ref=f93e67]: Игроки клуба — про Эдуарда
+      - blockquote [ref=f93e68]:
+        - paragraph [ref=f93e69]: «Лучшее её я не знаю. Все, кто у неё бывал, в восторге. Она доступная и понятная».
+        - generic [ref=f93e70]: Игроки клуба — про Карину
+  - contentinfo [ref=f93e71]:
+    - generic [ref=f93e72]:
+      - generic [ref=f93e73]:
+        - generic [ref=f93e74]:
+          - paragraph [ref=f93e75]: ILO Club
+          - list [ref=f93e76]:
+            - listitem [ref=f93e77]: Падел-корт в Ратомке
+            - listitem [ref=f93e78]: Один корт, 7:00–00:00
+        - generic [ref=f93e79]:
+          - paragraph [ref=f93e80]: Адрес
+          - list [ref=f93e81]:
+            - listitem [ref=f93e82]: аг. Ратомка
+            - listitem [ref=f93e83]: ул. Перспективная, 12
+        - generic [ref=f93e84]:
+          - paragraph [ref=f93e85]: Связь
+          - list [ref=f93e86]:
+            - listitem [ref=f93e87]:
+              - link "Instagram" [ref=f93e88] [cursor=pointer]:
+                - /url: https://www.instagram.com/iloclub.minsk
+            - listitem [ref=f93e89]:
+              - link "Telegram" [ref=f93e90] [cursor=pointer]:
+                - /url: https://t.me/+mBHLVXAWk_FmYmIy
+        - generic [ref=f93e91]:
+          - paragraph [ref=f93e92]: Бронь
+          - list [ref=f93e93]:
+            - listitem [ref=f93e94]:
+              - link "Забронировать корт" [ref=f93e95] [cursor=pointer]:
+                - /url: https://n1297334.yclients.ru/
+      - paragraph [ref=f93e96]: © 2026 ILO Club

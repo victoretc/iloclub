@@ -1,0 +1,25 @@
+{{ define "main" }}
+  <article class="wrap post">
+    <header class="page-head">
+      <p class="meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+        {{ with .Params.tags }}
+          <span class="dot">·</span>
+          {{ range . }}<a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a>{{ end }}
+        {{ end }}
+        {{ if .ReadingTime }}<span class="dot">·</span><span>{{ .ReadingTime }} мин</span>{{ end }}
+      </p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    <footer class="post-foot">
+      {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+      {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+    </footer>
+  </article>
+{{ end }}

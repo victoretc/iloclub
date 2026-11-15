@@ -1,0 +1,71 @@
+- generic [active] [ref=f195e1]:
+  - link "К содержимому" [ref=f195e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f195e3]:
+    - generic [ref=f195e4]:
+      - link "ILO Club" [ref=f195e5] [cursor=pointer]:
+        - /url: /
+      - navigation "Разделы страницы" [ref=f195e8]:
+        - list [ref=f195e9]:
+          - listitem [ref=f195e10]:
+            - link "Тренеры" [ref=f195e11] [cursor=pointer]:
+              - /url: /#coaches
+          - listitem [ref=f195e12]:
+            - link "Цены" [ref=f195e13] [cursor=pointer]:
+              - /url: /#price
+          - listitem [ref=f195e14]:
+            - link "Сертификат" [ref=f195e15] [cursor=pointer]:
+              - /url: /#sertifikat
+  - main [ref=f195e16]:
+    - article [ref=f195e17]:
+      - generic [ref=f195e18]:
+        - paragraph [ref=f195e19]:
+          - time [ref=f195e20]: 1 января 1 г.
+          - text: ·1 мин
+        - heading "О клубе" [level=1] [ref=f195e21]
+        - paragraph [ref=f195e22]: Чем занимается клуб и как к нему присоединиться.
+      - generic [ref=f195e23]:
+        - paragraph [ref=f195e24]: Ilo Club собирает разработчиков, дизайнеров и продактов, которым интересно доводить продукты до состояния, когда ими приятно пользоваться.
+        - heading "Что происходит" [level=2] [ref=f195e25]
+        - list [ref=f195e26]:
+          - listitem [ref=f195e27]: "Ежемесячные разборы интерфейсов: смотрим на реальные экраны и предлагаем правки."
+          - listitem [ref=f195e28]: "Воркшопы по инструментам: Hugo, дизайн-системы, аналитика."
+          - listitem [ref=f195e29]: "Открытые заметки: пишем о том, что проверили на практике."
+        - heading "Как попасть" [level=2] [ref=f195e30]
+        - paragraph [ref=f195e31]:
+          - text: Напишите на
+          - link "hello@example.org" [ref=f195e32] [cursor=pointer]:
+            - /url: mailto:hello@example.org
+          - text: с парой слов о себе.
+  - contentinfo [ref=f195e33]:
+    - generic [ref=f195e34]:
+      - generic [ref=f195e35]:
+        - generic [ref=f195e36]:
+          - paragraph [ref=f195e37]: ILO Club
+          - list [ref=f195e38]:
+            - listitem [ref=f195e39]: Падел-корт в Ратомке
+            - listitem [ref=f195e40]: Один корт, 7:00–00:00
+            - listitem [ref=f195e41]:
+              - link "Подарочный сертификат" [ref=f195e42] [cursor=pointer]:
+                - /url: /#sertifikat
+        - generic [ref=f195e43]:
+          - paragraph [ref=f195e44]: Адрес
+          - list [ref=f195e45]:
+            - listitem [ref=f195e46]: аг. Ратомка
+            - listitem [ref=f195e47]: ул. Перспективная, 12
+        - generic [ref=f195e48]:
+          - paragraph [ref=f195e49]: Связь
+          - list [ref=f195e50]:
+            - listitem [ref=f195e51]:
+              - link "Instagram" [ref=f195e52] [cursor=pointer]:
+                - /url: https://www.instagram.com/iloclub.minsk
+            - listitem [ref=f195e53]:
+              - link "Telegram" [ref=f195e54] [cursor=pointer]:
+                - /url: https://t.me/+mBHLVXAWk_FmYmIy
+        - generic [ref=f195e55]:
+          - paragraph [ref=f195e56]: Бронь
+          - list [ref=f195e57]:
+            - listitem [ref=f195e58]:
+              - link "Забронировать корт" [ref=f195e59] [cursor=pointer]:
+                - /url: https://n1297334.yclients.ru/
+      - paragraph [ref=f195e60]: © 2026 ILO Club

@@ -1,0 +1,68 @@
+- generic [active] [ref=f13e1]:
+  - link "К содержимому" [ref=f13e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f13e3]:
+    - generic [ref=f13e4]:
+      - link "Ilo Club" [ref=f13e5] [cursor=pointer]:
+        - /url: /
+      - navigation "Основная навигация" [ref=f13e7]:
+        - list [ref=f13e8]:
+          - listitem [ref=f13e9]:
+            - link "Главная" [ref=f13e10] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f13e11]:
+            - link "Заметки" [ref=f13e12] [cursor=pointer]:
+              - /url: /posts/
+          - listitem [ref=f13e13]:
+            - link "О клубе" [ref=f13e14] [cursor=pointer]:
+              - /url: /about/
+  - main [ref=f13e15]:
+    - generic [ref=f13e18]:
+      - heading "Ilo Club" [level=1] [ref=f13e19]
+      - paragraph [ref=f13e20]: Клуб для тех, кто делает продукты руками.
+      - paragraph [ref=f13e22]: "Раз в месяц собираемся очно и онлайн: разбираем чужие интерфейсы и показываем, что сделали за это время. Записи и заметки участников — в разделе «Заметки»."
+    - generic [ref=f13e23]:
+      - generic [ref=f13e24]:
+        - heading "Последние заметки" [level=2] [ref=f13e25]
+        - link "Все заметки →" [ref=f13e26] [cursor=pointer]:
+          - /url: /posts/
+      - list [ref=f13e27]:
+        - listitem [ref=f13e28]:
+          - article [ref=f13e29]:
+            - paragraph [ref=f13e30]:
+              - time [ref=f13e31]: 12 ноября 2026 г.
+              - generic [ref=f13e32]: ·
+              - generic [ref=f13e33]: hugo, статика
+            - heading [level=3] [ref=f13e34]:
+              - 'link "Первый пост: как устроен этот сайт" [ref=f13e35] [cursor=pointer]':
+                - /url: /posts/hello-hugo/
+            - paragraph [ref=f13e36]: Собираем статический сайт на Hugo без темы и внешних зависимостей.
+            - paragraph [ref=f13e37]:
+              - link "Читать" [ref=f13e38] [cursor=pointer]:
+                - /url: /posts/hello-hugo/
+        - listitem [ref=f13e39]:
+          - article [ref=f13e40]:
+            - paragraph [ref=f13e41]:
+              - time [ref=f13e42]: 10 ноября 2026 г.
+              - generic [ref=f13e43]: ·
+              - generic [ref=f13e44]: css, дизайн
+            - heading [level=3] [ref=f13e45]:
+              - link "Тёмная тема без переключателя" [ref=f13e46] [cursor=pointer]:
+                - /url: /posts/dark-theme/
+            - paragraph [ref=f13e47]: prefers-color-scheme и CSS-переменные вместо JS-логики.
+            - paragraph [ref=f13e48]:
+              - link "Читать" [ref=f13e49] [cursor=pointer]:
+                - /url: /posts/dark-theme/
+  - contentinfo [ref=f13e50]:
+    - generic [ref=f13e51]:
+      - paragraph [ref=f13e52]: © 2026 Ilo Club. Собрано на Hugo.
+      - list [ref=f13e53]:
+        - listitem [ref=f13e54]:
+          - link "github" [ref=f13e55] [cursor=pointer]:
+            - /url: https://github.com/
+        - listitem [ref=f13e56]:
+          - link "telegram" [ref=f13e57] [cursor=pointer]:
+            - /url: https://t.me/
+        - listitem [ref=f13e58]:
+          - link "rss" [ref=f13e59] [cursor=pointer]:
+            - /url: /index.xml

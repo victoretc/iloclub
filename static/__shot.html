@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;padding:0;overflow:hidden}iframe{width:100vw;height:100vh;border:0;display:block}</style></head>
+<body>
+<iframe id="f" src="/"></iframe>
+<script>
+  const q = new URLSearchParams(location.search);
+  const y = Number(q.get('y') || 0);
+  const f = document.getElementById('f');
+  f.addEventListener('load', () => {
+    const w = f.contentWindow;
+    w.document.documentElement.style.scrollBehavior = 'auto';
+    w.scrollTo(0, y);
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const out = { scrollY: w.scrollY };
+      for (const sel of ['.hero-ball', '.hero-racket']) {
+        const el = w.document.querySelector(sel);
+        const r = el.getBoundingClientRect();
+        out[sel] = [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height)];
+      }
+      const pre = document.createElement('pre');
+      pre.id = 'dbg';
+      pre.textContent = JSON.stringify(out);
+      document.body.appendChild(pre);
+    }));
+  });
+</script>
+</body></html>

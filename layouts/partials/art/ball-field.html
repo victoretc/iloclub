@@ -1,0 +1,5 @@
+<div class="ball-field" aria-hidden="true">
+  {{- range $b := .balls }}
+    <span class="ball ball--{{ $b }}"><span class="ball-float">{{ partial "art/padel-ball.html" (dict "id" (printf "%s-%s" $.prefix $b)) }}</span></span>
+  {{- end }}
+</div>

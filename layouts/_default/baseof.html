@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode }}" dir="ltr">
+  {{ partial "head.html" . }}
+  <body>
+    <a class="skip" href="#main">К содержимому</a>
+    {{ partial "header.html" . }}
+    <main id="main"{{ if not .IsHome }} class="main--offset"{{ end }}>
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    {{ with resources.Get "css/main.css" }}
+      {{ $css := . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+    {{ end }}
+    {{ with resources.Get "js/header.js" }}
+      {{ $js := . | js.Build (dict "minify" true) | fingerprint }}
+      <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+    {{ end }}
+  </body>
+</html>

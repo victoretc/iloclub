@@ -1,0 +1,18 @@
+<header class="site-header{{ if not .IsHome }} site-header--solid{{ end }}" data-header>
+  <div class="header-inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">{{ site.Title }}</span>
+    </a>
+
+    <nav class="header-nav-wrap" aria-label="Разделы страницы">
+      <ul class="header-nav">
+        <li><a class="header-link" href="{{ site.Home.RelPermalink }}#coaches">Тренеры</a></li>
+        <li><a class="header-link" href="{{ site.Home.RelPermalink }}#price">Цены</a></li>
+        <li><a class="header-link" href="{{ site.Home.RelPermalink }}#sertifikat">Сертификат</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--header" href="{{ site.Params.booking }}" target="_blank" rel="noopener">Забронировать</a>
+  </div>
+</header>

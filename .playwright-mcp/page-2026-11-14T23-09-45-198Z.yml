@@ -1,0 +1,200 @@
+- generic [active] [ref=f16e1]:
+  - link "К содержимому" [ref=f16e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f16e3]:
+    - generic [ref=f16e4]:
+      - link "ILO Club" [ref=f16e5] [cursor=pointer]:
+        - /url: /
+      - navigation "Разделы страницы" [ref=f16e7]:
+        - list [ref=f16e8]:
+          - listitem [ref=f16e9]:
+            - link "Тренеры" [ref=f16e10] [cursor=pointer]:
+              - /url: "#coaches"
+          - listitem [ref=f16e11]:
+            - link "Цены" [ref=f16e12] [cursor=pointer]:
+              - /url: "#price"
+          - listitem [ref=f16e13]:
+            - link "Корт" [ref=f16e14] [cursor=pointer]:
+              - /url: "#court"
+          - listitem [ref=f16e15]:
+            - link "Вопросы" [ref=f16e16] [cursor=pointer]:
+              - /url: "#faq"
+        - list "Соцсети" [ref=f16e17]:
+          - listitem [ref=f16e18]:
+            - link "Instagram" [ref=f16e19] [cursor=pointer]:
+              - /url: https://www.instagram.com/iloclub.minsk
+          - listitem [ref=f16e21]:
+            - link "Telegram" [ref=f16e22] [cursor=pointer]:
+              - /url: https://t.me/+mBHLVXAWk_FmYmIy
+        - link "Забронировать" [ref=f16e24] [cursor=pointer]:
+          - /url: https://n1297334.yclients.ru/
+  - main [ref=f16e25]:
+    - region "Падел-корт в Ратомке. 80 BYN в час." [ref=f16e26]:
+      - generic [ref=f16e27]:
+        - 'img "Корт ILO Club: синее покрытие, стеклянные стены, окна в потолке" [ref=f16e29]'
+        - generic [ref=f16e30]:
+          - generic [ref=f16e31]:
+            - paragraph [ref=f16e32]: ILO Club · Ратомка
+            - heading "Падел-корт в Ратомке. 80 BYN в час." [level=1] [ref=f16e33]:
+              - text: Падел-корт в Ратомке.
+              - generic [ref=f16e34]: 80 BYN в час.
+            - paragraph [ref=f16e35]: Вчетвером — по 20 BYN с человека. Ракетки, мячи, душ и раздевалки на месте.
+            - generic [ref=f16e36]:
+              - link "Забронировать корт" [ref=f16e37] [cursor=pointer]:
+                - /url: https://n1297334.yclients.ru/
+              - link "Сколько стоит" [ref=f16e38] [cursor=pointer]:
+                - /url: "#price"
+          - generic [ref=f16e39]:
+            - generic [ref=f16e40]:
+              - term [ref=f16e41]: Часы
+              - definition [ref=f16e42]: 7:00–00:00, каждый день
+            - generic [ref=f16e43]:
+              - term [ref=f16e44]: Корт
+              - definition [ref=f16e45]: Один, крытый — весь ваш
+            - generic [ref=f16e46]:
+              - term [ref=f16e47]: Адрес
+              - definition [ref=f16e48]: аг. Ратомка, Перспективная, 12
+            - generic [ref=f16e49]:
+              - term [ref=f16e50]: Инвентарь
+              - definition [ref=f16e51]: Ракетки и мячи, 10 BYN
+    - region "Кого слушать на корте" [ref=f16e52]:
+      - generic [ref=f16e53]:
+        - paragraph [ref=f16e54]: 02 — Тренеры
+        - heading "Кого слушать на корте" [level=2] [ref=f16e55]
+        - paragraph [ref=f16e56]: Основатель клуба, тренеры по паделу и большому теннису. Выберите, к кому хотите на корт, — покажем график на этой неделе.
+      - generic [ref=f16e57]:
+        - radio "Илона" [checked] [ref=f16e58]
+        - radio "Карина" [ref=f16e59]
+        - radio "Эдуард" [ref=f16e60]
+        - radio "Евгений" [ref=f16e61]
+        - group "Выбор тренера" [ref=f16e62]: Илона Карина Эдуард Евгений
+        - generic [ref=f16e63]:
+          - article [ref=f16e64]:
+            - img "Илона, основатель и главный тренер ILO Club" [ref=f16e65]
+            - generic [ref=f16e66]:
+              - paragraph [ref=f16e67]: Илона
+              - paragraph [ref=f16e68]: Основатель и главный тренер
+              - generic [ref=f16e69]:
+                - generic [ref=f16e70]:
+                  - term [ref=f16e71]: Звание
+                  - definition [ref=f16e72]: Мастер спорта международного класса
+                - generic [ref=f16e73]:
+                  - term [ref=f16e74]: Титулы
+                  - definition [ref=f16e75]: 8-кратная чемпионка Беларуси, чемпионка Европы среди юниоров, 33 титула ITF в женском теннисе
+                - generic [ref=f16e76]:
+                  - term [ref=f16e77]: Рейтинг
+                  - definition [ref=f16e78]: "Наивысший WTA: №201 в одиночном и №157 в парном разряде; топ-20 мирового рейтинга среди юниоров"
+                - generic [ref=f16e79]:
+                  - term [ref=f16e80]: Большой шлем
+                  - definition [ref=f16e81]: Участница Australian Open, Roland Garros, Wimbledon, US Open
+                - generic [ref=f16e82]:
+                  - term [ref=f16e83]: Опыт
+                  - definition [ref=f16e84]: Дипломированный тренер по теннису (8+ лет), международно-сертифицированный тренер по паделу (4+ года)
+              - blockquote [ref=f16e85]: «Илона прошла путь профессионального спортсмена и знает, что сильная игра строится на дисциплине, системной работе и внимании к деталям». Из описания клуба
+              - paragraph [ref=f16e86]: "Работает с игроками любого уровня: помогает новичкам заложить правильную основу, а опытным — найти точки роста."
+          - article [ref=f16e87]:
+            - img "Карина, тренер ILO Club" [ref=f16e88]
+            - generic [ref=f16e89]:
+              - paragraph [ref=f16e90]: Карина
+              - paragraph [ref=f16e91]: Тренер по паделу
+              - generic [ref=f16e92]:
+                - generic [ref=f16e93]:
+                  - term [ref=f16e94]: Подход
+                  - definition [ref=f16e95]: Её ценят за умение объяснять сложное простым языком
+                - generic [ref=f16e96]:
+                  - term [ref=f16e97]: Атмосфера
+                  - definition [ref=f16e98]: Создаёт комфортную атмосферу на корте
+              - blockquote [ref=f16e99]: «Она доступная и понятная». Игроки клуба
+              - paragraph [ref=f16e100]: «Лучшее её я не знаю. Все, кто у неё бывал, в восторге». «Я много на турнирах общаюсь — все одинакового мнения».
+          - article [ref=f16e101]:
+            - img "Эдуард, тренер ILO Club" [ref=f16e102]
+            - generic [ref=f16e103]:
+              - paragraph [ref=f16e104]: Эдуард
+              - paragraph [ref=f16e105]: Тренер по паделу
+              - generic [ref=f16e106]:
+                - generic [ref=f16e107]:
+                  - term [ref=f16e108]: Опыт
+                  - definition [ref=f16e109]: 20+ лет тренерского опыта в теннисе, 3+ года работы в паделе
+                - generic [ref=f16e110]:
+                  - term [ref=f16e111]: Турниры
+                  - definition [ref=f16e112]: 10 лет сопровождения спортсменов на международных детских, юниорских и взрослых профессиональных турнирах
+                - generic [ref=f16e113]:
+                  - term [ref=f16e114]: Уровни
+                  - definition [ref=f16e115]: От начинающих до спортсменов высокого уровня
+                - generic [ref=f16e116]:
+                  - term [ref=f16e117]: Подход
+                  - definition [ref=f16e118]: Помогает довести удары до идеала и вывести игру на новый уровень
+              - blockquote [ref=f16e119]: «Если тренер, то только такой. Тут про понятность, дисциплину и всё это с любовью и профессионализмом». Игроки клуба
+          - article [ref=f16e120]:
+            - img "Евгений, тренер ILO Club" [ref=f16e121]
+            - generic [ref=f16e122]:
+              - paragraph [ref=f16e123]: Евгений
+              - paragraph [ref=f16e124]: Тренер по паделу
+              - generic [ref=f16e126]:
+                - term [ref=f16e127]: Подход
+                - definition [ref=f16e128]: Помогает лучше понимать игру и раскрывать свой потенциал на корте
+              - blockquote [ref=f16e129]: «Гоняет знатно! Объясняет доходчиво. Очень комфортно учиться под его руководством». Игроки клуба
+              - paragraph [ref=f16e130]: «Вот уж точно не даст расслабиться — проверено на себе».
+      - paragraph [ref=f16e131]: "Ещё в клубе — тренер по большому теннису: в теннисе с 7 лет, 10+ лет тренерского опыта, выпускник БГУФК, опыт судейства на турнирах."
+    - region "Один корт. Весь ваш" [ref=f16e132]:
+      - generic [ref=f16e133]:
+        - generic [ref=f16e134]:
+          - paragraph [ref=f16e135]: 03 — Корт
+          - heading "Один корт. Весь ваш" [level=2] [ref=f16e136]
+          - paragraph [ref=f16e137]: Крытый корт с синим покрытием, стеклянные стены и окна в потолок. Душ и раздевалки в том же здании.
+        - generic [ref=f16e138]:
+          - figure "Корт 10 × 20 м, крытый" [ref=f16e139]:
+            - img "Общий вид корта ILO Club" [ref=f16e140]
+          - figure "Свет с потолочных окон" [ref=f16e142]:
+            - img "Стеклянная стена и сетка корта ILO Club" [ref=f16e143]
+    - region "Коротко о главном" [ref=f16e145]:
+      - generic [ref=f16e146]:
+        - paragraph [ref=f16e147]: 04 — Вопросы
+        - heading "Коротко о главном" [level=2] [ref=f16e148]
+      - generic [ref=f16e149]:
+        - group [ref=f16e150]:
+          - generic "Нужна ли своя ракетка?" [ref=f16e151] [cursor=pointer]
+        - group [ref=f16e154]:
+          - generic "Можно прийти без опыта?" [ref=f16e155] [cursor=pointer]
+        - group [ref=f16e158]:
+          - generic "Сколько стоит час?" [ref=f16e159] [cursor=pointer]
+        - group [ref=f16e162]:
+          - generic "Как забронировать?" [ref=f16e163] [cursor=pointer]
+        - group [ref=f16e166]:
+          - generic "Где это?" [ref=f16e167] [cursor=pointer]
+    - region "Корт свободен. Час — 80 BYN." [ref=f16e170]:
+      - generic [ref=f16e171]:
+        - generic [ref=f16e172]:
+          - paragraph [ref=f16e173]: ILO Club · Ратомка
+          - heading "Корт свободен. Час — 80 BYN." [level=2] [ref=f16e174]
+        - link "Забронировать корт" [ref=f16e175] [cursor=pointer]:
+          - /url: https://n1297334.yclients.ru/
+  - contentinfo [ref=f16e176]:
+    - generic [ref=f16e177]:
+      - generic [ref=f16e178]:
+        - generic [ref=f16e179]:
+          - paragraph [ref=f16e180]: ILO Club
+          - list [ref=f16e181]:
+            - listitem [ref=f16e182]: Падел-корт в Ратомке
+            - listitem [ref=f16e183]: Один корт, 7:00–00:00
+        - generic [ref=f16e184]:
+          - paragraph [ref=f16e185]: Адрес
+          - list [ref=f16e186]:
+            - listitem [ref=f16e187]: аг. Ратомка
+            - listitem [ref=f16e188]: ул. Перспективная, 12
+        - generic [ref=f16e189]:
+          - paragraph [ref=f16e190]: Связь
+          - list [ref=f16e191]:
+            - listitem [ref=f16e192]:
+              - link "Instagram" [ref=f16e193] [cursor=pointer]:
+                - /url: https://www.instagram.com/iloclub.minsk
+            - listitem [ref=f16e194]:
+              - link "Telegram" [ref=f16e195] [cursor=pointer]:
+                - /url: https://t.me/+mBHLVXAWk_FmYmIy
+        - generic [ref=f16e196]:
+          - paragraph [ref=f16e197]: Бронь
+          - list [ref=f16e198]:
+            - listitem [ref=f16e199]:
+              - link "Забронировать корт" [ref=f16e200] [cursor=pointer]:
+                - /url: https://n1297334.yclients.ru/
+      - paragraph [ref=f16e201]: © 2026 ILO Club

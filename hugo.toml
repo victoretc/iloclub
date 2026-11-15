@@ -1,0 +1,29 @@
+baseURL = "https://example.org/"
+title = "ILO Club"
+languageCode = "ru-ru"
+defaultContentLanguage = "ru"
+enableRobotsTXT = true
+enableGitInfo = false
+
+[params]
+  description = "Падел-корт в Ратомке: 80 BYN в час, ракетки и мячи на месте, тренеры — от чемпионки Беларуси."
+  author = "ILO Club"
+  hours = "7:00–00:00, каждый день"
+  booking = "https://n1297334.yclients.ru/"
+  [params.social]
+    instagram = "https://www.instagram.com/iloclub.minsk"
+    telegram = "https://t.me/+mBHLVXAWk_FmYmIy"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    style = "github-dark"
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[pagination]
+  pagerSize = 6

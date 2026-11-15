@@ -1,0 +1,43 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <p class="eyebrow">ILO Club</p>
+        <ul class="footer-list">
+          <li>Падел-корт в Ратомке</li>
+          <li>Один корт, 7:00–00:00</li>
+          <li><a href="{{ site.Home.RelPermalink }}#sertifikat">Подарочный сертификат</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="eyebrow">Адрес</p>
+        <ul class="footer-list">
+          <li>аг. Ратомка</li>
+          <li>ул. Перспективная, 12</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="eyebrow">Связь</p>
+        <ul class="footer-list">
+          {{ with site.Params.social.instagram }}
+            <li><a href="{{ . }}" target="_blank" rel="noopener me">Instagram</a></li>
+          {{ end }}
+          {{ with site.Params.social.telegram }}
+            <li><a href="{{ . }}" target="_blank" rel="noopener">Telegram</a></li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div>
+        <p class="eyebrow">Бронь</p>
+        <ul class="footer-list">
+          <li><a href="{{ site.Params.booking }}" target="_blank" rel="noopener">Забронировать корт</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-bottom">© {{ now.Year }} ILO Club</p>
+  </div>
+</footer>

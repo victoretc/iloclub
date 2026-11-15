@@ -1,0 +1,12 @@
+{{- /*
+  Иконки брендов берём из Simple Icons (CC0) как файлы в static/icons и
+  заливаем через mask, чтобы цвет шёл от currentColor и не тащить path в HTML.
+*/ -}}
+<ul class="social-row" aria-label="Соцсети">
+  {{ with site.Params.social.instagram }}
+    <li><a class="icon-link icon-link--instagram" href="{{ . }}" target="_blank" rel="noopener me"><span class="sr-only">Instagram</span></a></li>
+  {{ end }}
+  {{ with site.Params.social.telegram }}
+    <li><a class="icon-link icon-link--telegram" href="{{ . }}" target="_blank" rel="noopener"><span class="sr-only">Telegram</span></a></li>
+  {{ end }}
+</ul>

@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <section class="wrap">
+    <header class="page-head">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+    </header>
+
+    {{ $paginator := .Paginator }}
+    {{ if $paginator.Pages }}
+      <ul class="cards">
+        {{ range $paginator.Pages }}
+          {{ partial "card.html" . }}
+        {{ end }}
+      </ul>
+      {{ partial "pagination.html" $paginator }}
+    {{ else }}
+      <p class="empty">Пока пусто.</p>
+    {{ end }}
+  </section>
+{{ end }}
