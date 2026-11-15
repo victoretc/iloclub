@@ -489,67 +489,97 @@
     </div>
   </section>
 
-  <section class="wrap section" id="faq" aria-labelledby="faq-title">
-    <div class="section-head">
-      <p class="eyebrow">Вопросы</p>
-      <h2 id="faq-title">Коротко о главном</h2>
-    </div>
+  <section class="wrap section faq" id="faq" aria-labelledby="faq-title">
+    {{ $faq := slice
+      (dict
+        "q" "Как забронировать корт?"
+        "a" "Онлайн в Yclients: выбираете дату и время и платите 100%. Время держим за вами после оплаты. Если что-то не получается — напишите в Telegram.")
+      (dict
+        "q" "Сколько стоит игра?"
+        "a" "Час — 80 BYN за корт целиком, вчетвером это 20 BYN с человека. Полтора часа — 120 BYN, два — 160 BYN.")
+      (dict
+        "q" "Нужны ли свои ракетка и мячи?"
+        "a" "Нет. Ракетка — 10 BYN в час, комплект мячей — 10 BYN. На тренировку с тренером инвентарь входит в стоимость.")
+      (dict
+        "q" "Я никогда не играл. С чего начать?"
+        "a" "С индивидуальной тренировки — 150 BYN в час. Тренер поставит базовую технику, объяснит подачу и правила. Можно прийти одному, вдвоём (сплит — 170 BYN) или группой (195 BYN).")
+      (dict
+        "q" "Можно ли отменить или перенести бронь?"
+        "a" "За 24 часа и раньше — бесплатно. За 12–24 часа возвращаем 50% стоимости. Меньше чем за 12 часов оплата не возвращается.")
+      (dict
+        "q" "Что взять с собой?"
+        "a" "Сменную обувь — вход на корт только в ней. Душ и раздевалки в том же здании.")
+      (dict
+        "q" "Как добраться и когда вы работаете?"
+        "a" "Аг. Ратомка, ул. Перспективная, 12. Работаем каждый день с 7:00 до 00:00 — карта в разделе «Как добраться».")
+    }}
 
-    <div class="faq">
-      <details>
-        <summary>Нужна ли своя ракетка?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
-        <p>Нет. Ракетка — 10 BYN в час, мячи — 10 BYN за комплект. В тренировку инвентарь входит.</p>
-      </details>
-      <details>
-        <summary>Можно прийти без опыта?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
-        <p>Да. Индивидуальная тренировка — 150 BYN в час, сплит — 170, группа — 195. Тренер подстроит темп под вас.</p>
-      </details>
-      <details>
-        <summary>Сколько стоит час?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
-        <p>80 BYN за корт целиком. Вчетвером — 20 BYN с человека.</p>
-      </details>
-      <details>
-        <summary>Как забронировать?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
-        <p>Онлайн: выбираете время и платите 100%. Время держим за вами после оплаты.</p>
-      </details>
-      <details>
-        <summary>Где это?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></summary>
-        <p>аг. Ратомка, ул. Перспективная, 12. Каждый день с 7:00 до 00:00.</p>
-      </details>
+    <div class="faq-layout">
+      <div class="faq-head">
+        <h2 id="faq-title">Частые вопросы</h2>
+        {{ with site.Params.social.telegram }}
+          <p class="faq-note">Не нашли ответ — <a href="{{ . }}" target="_blank" rel="noopener">напишите в Telegram</a>.</p>
+        {{ end }}
+      </div>
+
+      <div class="faq-list">
+        {{ range $i, $item := $faq }}
+          <div class="faq-item">
+            <h3 class="faq-q-wrap">
+              <button class="faq-q" type="button" id="faq-q-{{ $i }}" aria-controls="faq-a-{{ $i }}" aria-expanded="false">
+                <span>{{ $item.q }}</span>
+                <span class="faq-mark" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "plus" "size" 16 "stroke" 1.8) }}</span>
+              </button>
+            </h3>
+            <div class="faq-body" id="faq-a-{{ $i }}" role="region" aria-labelledby="faq-q-{{ $i }}">
+              <div class="faq-body-inner">
+                <p>{{ $item.a }}</p>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
     </div>
   </section>
 
   <section class="band" id="rules" aria-labelledby="rules-title">
     <div class="wrap rules-section">
-      <h2 class="rules-title" id="rules-title">Правила посещения клуба</h2>
+      <div class="rules-layout">
+        <h2 class="rules-title" id="rules-title">Правила посещения клуба</h2>
 
-      <ul class="rules-list">
-        <li class="rule">
-          <p><strong>Вход в зал и на корт разрешён только в сменной обуви (бахилах).</strong>
-            Администратор вправе не пустить на корт в случае, если сменной обуви у кого-то не будет,
-            стоимость аренды в этом случае возвращаться не будет.</p>
-        </li>
-        <li class="rule">
-          <p><strong>Для подтверждения вашего бронирования производится оплата полной стоимости
-            занятия.</strong> Без полной оплаты мы не бронируем время, и оно остаётся открытым
-            для других желающих.</p>
-        </li>
-        <li class="rule">
-          <p><strong>Оплата возможна только через ЕРИП:</strong><br>
-            по карте через онлайн банкинг;<br>
-            наличными через ЕРИП терминалы по городу.</p>
-        </li>
-        <li class="rule">
-          <p><strong>На территории ILO CLUB запрещено оказывать тренерские услуги.</strong>
-            Тренировки доступны от тренеров команды ILO.</p>
-        </li>
-        <li class="rule">
-          <p><strong>Отмена или перенос бронирования:</strong><br>
-            За 24 часа до занятия — бесплатно.<br>
-            За 12–24 часа до занятия — возвращается 50% стоимости занятия.<br>
-            За менее чем 12 часов до занятия — сумма не возвращается.</p>
-        </li>
-      </ul>
+        <ul class="rules-list">
+          <li class="rule">
+            <p class="rule-lead"><strong>Вход в зал и на корт разрешён только в сменной обуви (бахилах).</strong></p>
+            <p>Администратор вправе не пустить на корт в случае, если сменной обуви у кого-то не будет,
+              стоимость аренды в этом случае возвращаться не будет.</p>
+          </li>
+          <li class="rule">
+            <p class="rule-lead"><strong>Для подтверждения вашего бронирования производится оплата полной стоимости
+              занятия.</strong></p>
+            <p>Без полной оплаты мы не бронируем время, и оно остаётся открытым
+              для других желающих.</p>
+          </li>
+          <li class="rule">
+            <p class="rule-lead"><strong>Оплата возможна только через ЕРИП:</strong></p>
+            <ul class="rule-sub">
+              <li>по карте через онлайн банкинг;</li>
+              <li>наличными через ЕРИП терминалы по городу.</li>
+            </ul>
+          </li>
+          <li class="rule">
+            <p class="rule-lead"><strong>На территории ILO CLUB запрещено оказывать тренерские услуги.</strong></p>
+            <p>Тренировки доступны от тренеров команды ILO.</p>
+          </li>
+          <li class="rule">
+            <p class="rule-lead"><strong>Отмена или перенос бронирования:</strong></p>
+            <ul class="rule-sub">
+              <li>За 24 часа до занятия — бесплатно.</li>
+              <li>За 12–24 часа до занятия — возвращается 50% стоимости занятия.</li>
+              <li>За менее чем 12 часов до занятия — сумма не возвращается.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 

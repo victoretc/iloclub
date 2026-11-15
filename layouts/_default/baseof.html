@@ -16,6 +16,10 @@
       {{ $js := . | js.Build (dict "minify" true) | fingerprint }}
       <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
     {{ end }}
+    {{ with resources.Get "js/faq.js" }}
+      {{ $js := . | js.Build (dict "minify" true) | fingerprint }}
+      <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+    {{ end }}
     {{ with resources.Get "js/header.js" }}
       {{ $js := . | js.Build (dict "minify" true) | fingerprint }}
       <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

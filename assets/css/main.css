@@ -957,14 +957,13 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   color: var(--paper);
 }
 
+/* шапка: заголовок слева, мячи по диагонали, подводка справа — блок занимает всю ширину */
 .coaches-head {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  grid-template-areas:
-    "title balls"
-    "lead lead";
+  grid-template-columns: auto auto minmax(0, 1fr);
+  grid-template-areas: "title balls lead";
   align-items: end;
-  gap: 1.25rem clamp(2rem, 5vw, 4rem);
+  gap: 1.25rem clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .coaches-head h2 {
@@ -976,7 +975,8 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .coaches-head .lead {
   grid-area: lead;
-  max-width: 52ch;
+  max-width: 44ch;
+  justify-self: end;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -986,8 +986,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   display: flex;
   align-items: flex-end;
   gap: clamp(0.5rem, 1vw, 0.85rem);
-  margin-left: clamp(0.75rem, 1.5vw, 1.5rem);
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.35rem;
   color: rgba(255, 255, 255, 0.26);
 }
 
@@ -1070,7 +1069,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 #tab-eduard:checked ~ .coach-panels [data-panel="eduard"],
 #tab-evgeny:checked ~ .coach-panels [data-panel="evgeny"] {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: start;
 }
@@ -1197,6 +1196,23 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   /* в одну колонку мячи только мешают: остаётся заголовок и подводка */
   .coaches-balls { display: none; }
 
+  .coaches-head .lead {
+    max-width: 52ch;
+    justify-self: start;
+  }
+}
+
+/* на планшетах профиль ещё держится в две колонки — портрет заметно уже текста */
+@media (max-width: 1080px) and (min-width: 901px) {
+  #tab-ilona:checked ~ .coach-panels [data-panel="ilona"],
+  #tab-karina:checked ~ .coach-panels [data-panel="karina"],
+  #tab-eduard:checked ~ .coach-panels [data-panel="eduard"],
+  #tab-evgeny:checked ~ .coach-panels [data-panel="evgeny"] {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  }
+}
+
+@media (max-width: 900px) {
   #tab-ilona:checked ~ .coach-panels [data-panel="ilona"],
   #tab-karina:checked ~ .coach-panels [data-panel="karina"],
   #tab-eduard:checked ~ .coach-panels [data-panel="eduard"],
@@ -1204,10 +1220,9 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
     grid-template-columns: 1fr;
   }
 
-  .coach-photo img {
-    max-width: 360px;
-    height: auto;
-  }
+  .coach-photo { max-width: 360px; }
+
+  .coach-photo img { width: 100%; height: auto; }
 }
 
 @media (max-width: 640px) {
@@ -1736,81 +1751,210 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   .court-strip { overflow-x: auto; overscroll-behavior-x: contain; }
 }
 
-/* ---------- вопросы ---------- */
-.faq { margin-top: clamp(2rem, 5vw, 3rem); border-top: 1px solid var(--obsidian); }
-.faq details { border-bottom: 1px solid var(--line); }
-.faq details:last-child { border-bottom-color: var(--obsidian); }
+/* ---------- частые вопросы ---------- */
+.faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
 
-.faq summary {
+.faq-head {
+  position: sticky;
+  top: calc(var(--header-h) + 32px);
+}
+
+.faq-head h2 {
+  font-size: var(--text-heading-lg);
+  line-height: 1.06;
+  max-width: 12ch;
+}
+
+.faq-note {
+  margin-top: 1.25rem;
+  max-width: 26ch;
+  font-size: var(--text-body-sm);
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+.faq-note a {
+  white-space: nowrap;
+  text-decoration-color: var(--obsidian);
+  text-underline-offset: 0.2em;
+}
+
+.faq-list { border-top: 1px solid var(--obsidian); }
+
+.faq-item { border-bottom: 1px solid rgba(0, 0, 0, 0.14); }
+.faq-item:last-child { border-bottom-color: var(--obsidian); }
+
+.faq-q-wrap { margin: 0; }
+
+.faq-q {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem 0;
-  list-style: none;
-  cursor: pointer;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.35rem 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-body);
   font-size: var(--text-body);
+  line-height: 1.35;
+  text-align: left;
+  color: var(--obsidian);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.faq summary::-webkit-details-marker { display: none; }
-
-.faq summary svg {
+/* плюс в круге: открытый вопрос — чёрная заливка, знак поворачивается в крестик */
+.faq-mark {
   flex: none;
-  width: 20px;
-  height: 20px;
-  transition-property: transform;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  transition-property: background-color, border-color, color;
   transition-duration: 150ms;
-  transition-timing-function: var(--ease);
+  transition-timing-function: ease-out;
 }
 
-.faq details[open] summary svg { transform: rotate(45deg); }
+.faq-mark svg {
+  transition-property: transform;
+  transition-duration: 220ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.faq-item.is-open .faq-mark {
+  background: var(--obsidian);
+  border-color: var(--obsidian);
+  color: var(--paper);
+}
+
+.faq-item.is-open .faq-mark svg { transform: rotate(45deg); }
 
 @media (hover: hover) and (pointer: fine) {
-  .faq summary:hover { color: var(--graphite); }
+  .faq-q:hover .faq-mark { border-color: var(--obsidian); }
 }
 
-.faq p { padding-bottom: 1.25rem; max-width: 62ch; color: var(--graphite); }
-
-/* ---------- правила ----------
-   только текст: две колонки, без фото и нумерации */
-.rules-section { padding-block: clamp(2.5rem, 4.5vw, 3.5rem); }
-
-.rules-title {
-  margin: 0;
-  font-size: var(--text-heading-lg);
-  line-height: 1.08;
+.faq-q:focus-visible {
+  outline: 2px solid var(--obsidian);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-.rules-list {
-  columns: 2;
-  column-gap: clamp(2rem, 5vw, 4.5rem);
-  max-width: 1040px;
-  margin: clamp(1.25rem, 2.5vw, 1.75rem) 0 0;
-  padding: 0;
-  list-style: none;
+.faq-body {
+  height: 0;
+  overflow: hidden;
 }
 
-.rule {
-  break-inside: avoid;
-  padding-block: 0.7rem;
+@media (prefers-reduced-motion: no-preference) {
+  .faq-body { transition-property: height; transition-duration: 240ms; transition-timing-function: var(--ease-out); }
+}
+
+.faq-body-inner { padding: 0 3.5rem 1.5rem 0; }
+
+.faq-body p {
+  max-width: 56ch;
   font-size: var(--text-body-sm);
   line-height: 1.55;
   color: var(--graphite);
   text-wrap: pretty;
 }
 
-.rule:first-child { padding-top: 0; }
-.rule:last-child { padding-bottom: 0; }
+@media (max-width: 900px) {
+  .faq-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .faq-head { position: static; }
+  .faq-note { max-width: 42ch; }
+}
+
+/* ---------- правила ----------
+   только текст: заголовок слева, список справа, строки на волосяных линиях */
+.rules-section { padding-block: clamp(2.75rem, 5vw, 4rem); }
+
+.rules-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.rules-title {
+  margin: 0;
+  max-width: 15ch;
+  font-size: var(--text-heading-lg);
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.rules-list {
+  max-width: 64ch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-body-sm);
+  border-top: 1px solid var(--obsidian);
+}
+
+.rule {
+  padding-block: clamp(0.95rem, 1.6vw, 1.15rem);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+  line-height: 1.6;
+  color: var(--graphite);
+  text-wrap: pretty;
+}
+
+.rule:last-child { border-bottom-color: var(--obsidian); }
 
 .rule p { margin: 0; }
 
-.rule strong {
-  font-weight: 600;
+.rule-lead {
+  font-size: 1.125rem;
+  line-height: 1.35;
   color: var(--obsidian);
+  text-wrap: balance;
 }
 
-@media (max-width: 760px) {
-  .rules-list { columns: 1; }
+.rule-lead strong { font-weight: 600; }
+
+.rule p + p { margin-top: 0.35rem; }
+
+/* перечисления внутри правила: висячий отступ, точки-маркеры */
+.rule-sub {
+  margin: 0.3rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.rule-sub li {
+  position: relative;
+  padding-left: 1.05rem;
+}
+
+.rule-sub li + li { margin-top: 0.1rem; }
+
+.rule-sub li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0.1rem;
+  top: 0.68em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+@media (max-width: 900px) {
+  .rules-layout { grid-template-columns: 1fr; gap: clamp(1.25rem, 3vw, 1.75rem); }
+  .rules-title,
+  .rules-list { max-width: none; }
 }
 
 /* ---------- как добраться ---------- */
@@ -1867,7 +2011,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   border-bottom-color: rgba(0, 0, 0, 0.3);
 }
 
-/* ---------- подвал: логотип, соцсети, адрес и сетка ---------- */
+/* ---------- подвал: логотип, адрес, сетка ---------- */
 .site-footer {
   position: relative;
   isolation: isolate;
@@ -1876,15 +2020,16 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
   color: var(--paper);
 }
 
-.footer-inner { padding-block: clamp(2.5rem, 5vw, 3.75rem) clamp(1.5rem, 3vw, 2.25rem); }
+.footer-inner { padding-block: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2rem); }
 
-.footer-top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
+.footer-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1.75rem clamp(2rem, 5vw, 4rem);
 }
+
+.footer-intro { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(1.5rem, 3vw, 2.25rem); }
 
 /* логотип — та же лаймовая плашка, что в шапке, но крупнее */
 .footer-brand { display: inline-flex; text-decoration: none; }
@@ -1901,14 +2046,6 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .footer-brand-badge svg { display: block; width: auto; height: 22px; }
 
-.footer-main {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 1.5rem clamp(2rem, 5vw, 4rem);
-  padding-block: clamp(2rem, 4vw, 3rem) clamp(1.75rem, 3.5vw, 2.5rem);
-}
-
 .footer-claim {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 3.4vw, 2.75rem);
@@ -1919,7 +2056,14 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 .footer-claim span { color: var(--lime); }
 
-/* адрес повторяет шапку: город сверху, часы ниже */
+/* правая группа повторяет шапку: адрес с часами, под ним соцсети */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+}
+
 .footer-address {
   display: flex;
   flex-direction: column;
@@ -1943,7 +2087,7 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 }
 
 .footer-bottom {
-  margin: 0;
+  margin: clamp(1.75rem, 3.5vw, 2.5rem) 0 0;
   font-size: var(--text-caption);
   color: rgba(255, 255, 255, 0.5);
 }
@@ -1952,56 +2096,159 @@ main section[id] { scroll-margin-top: calc(var(--header-h) + 40px); }
 
 @media (max-width: 760px) {
   .footer-main { grid-template-columns: 1fr; align-items: start; }
+  .footer-contact { align-items: flex-start; }
   .footer-address { align-items: flex-start; text-align: left; }
 }
 
-/* ---------- сетка для падела ----------
-   белая лента сверху, полотно с квадратными ячейками, мячи лежат на нижней ленте */
+/* ---------- натянутая сетка ----------
+   лента, столбы по краям, крупные ячейки с узелками и мячи на полу */
 .footer-net {
   position: relative;
-  height: clamp(96px, 11.5vw, 152px);
-  border-top: 8px solid rgba(255, 255, 255, 0.9);
-  border-bottom: 4px solid rgba(255, 255, 255, 0.9);
+  height: clamp(124px, 13.5vw, 178px);
   background: var(--obsidian);
 }
 
-/* полотно: ячейки гаснут к краям, чтобы сетка тянулась за пределы экрана */
-.footer-net::after {
-  content: "";
+/* белая лента, за которую держится полотно */
+.footer-net__tape {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 22px),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 22px);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  top: 0;
+  left: 21px;
+  right: 21px;
+  height: 15px;
+  z-index: 3;
+  background: #ffffff;
+  border-radius: 2px;
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.6);
 }
 
-/* свет из-под сетки: мячам есть на чём читаться */
+/* полотно: крупная ячейка, узелки в пересечениях, края уходят за экран */
+.footer-net__mesh {
+  position: absolute;
+  top: 12px;
+  left: 21px;
+  right: 21px;
+  bottom: 52px;
+  background-image:
+    radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.38) 0 1.3px, transparent 1.9px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.17) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.17) 0 1px, transparent 1px 28px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+/* нижний шнур */
+.footer-net__cord {
+  position: absolute;
+  left: 21px;
+  right: 21px;
+  bottom: 51px;
+  height: 2px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* столбы: светотень по цилиндру и плита у пола */
+.footer-net__post {
+  position: absolute;
+  top: -9px;
+  bottom: 41px;
+  width: 14px;
+  z-index: 4;
+  border-radius: 7px 7px 0 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.95) 40%,
+    rgba(255, 255, 255, 0.62)
+  );
+}
+
+.footer-net__post::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  bottom: -8px;
+  height: 9px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.footer-net__post--l { left: 7px; }
+.footer-net__post--r { right: 7px; }
+
+/* пол: свет из-под сетки и тень от полотна */
 .footer-net::before {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 52px;
   pointer-events: none;
-  background: radial-gradient(48% 86% at 50% 116%, rgba(227, 252, 3, 0.15), transparent 72%);
+  background: radial-gradient(54% 132% at 42% 138%, rgba(227, 252, 3, 0.2), transparent 72%);
+}
+
+.footer-net::after {
+  content: "";
+  position: absolute;
+  left: 21px;
+  right: 21px;
+  bottom: 40px;
+  height: 12px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent);
 }
 
 .footer-net-ball {
   position: absolute;
-  bottom: 0;
-  z-index: 1;
+  bottom: 8px;
+  z-index: 5;
   display: block;
-  width: clamp(44px, 5.4vw, 72px);
+  width: clamp(44px, 5.2vw, 68px);
   aspect-ratio: 1;
   color: var(--lime);
 }
 
 .footer-net-ball svg { display: block; width: 100%; height: 100%; }
 
-.footer-net-ball--a { left: 6%; rotate: -9deg; }
-.footer-net-ball--b { left: 42%; width: clamp(52px, 6.4vw, 86px); rotate: 4deg; }
-.footer-net-ball--c { right: 8%; width: clamp(40px, 4.6vw, 62px); rotate: -4deg; }
+/* мяч становится плотным: лаймовый диск с тёмными швами */
+.footer-net-ball svg circle {
+  fill: var(--lime);
+  stroke: var(--lime);
+}
+
+.footer-net-ball svg g { stroke: rgba(0, 0, 0, 0.55); }
+
+/* тень под мячом держит его на полу */
+.footer-net-ball::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: -4px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  filter: blur(5px);
+}
+
+.footer-net-ball--a { left: 7%; bottom: 13px; rotate: -9deg; }
+.footer-net-ball--b { left: 28%; bottom: 11px; width: clamp(38px, 3.9vw, 52px); rotate: 6deg; }
+.footer-net-ball--c { right: 9%; bottom: 14px; width: clamp(42px, 4.8vw, 60px); rotate: -4deg; }
+
+@media (max-width: 560px) {
+  .footer-net__tape,
+  .footer-net__mesh,
+  .footer-net__cord,
+  .footer-net::after { left: 16px; right: 16px; }
+  .footer-net__post { width: 10px; }
+  .footer-net__post--l { left: 4px; }
+  .footer-net__post--r { right: 4px; }
+}
 
 /* ---------- соцсети ---------- */
 .social-row {

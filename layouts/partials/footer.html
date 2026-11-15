@@ -1,26 +1,34 @@
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <div class="footer-top">
-      <a class="footer-brand" href="{{ site.Home.RelPermalink }}" aria-label="ILO Club — на главную">
-        <span class="footer-brand-badge">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
-      </a>
-
-      {{ partial "social.html" . }}
-    </div>
-
     <div class="footer-main">
-      <p class="footer-claim">Падел-корт в Ратомке.<br><span>80 BYN в час.</span></p>
+      <div class="footer-intro">
+        <a class="footer-brand" href="{{ site.Home.RelPermalink }}" aria-label="ILO Club — на главную">
+          <span class="footer-brand-badge">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
+        </a>
 
-      <a class="footer-address" href="{{ site.Params.map }}" target="_blank" rel="noopener">
-        <span class="footer-address__city">аг. Ратомка, Перспективная 12</span>
-        <span class="footer-address__hours">{{ site.Params.hours }}</span>
-      </a>
+        <p class="footer-claim">Падел-корт в Ратомке.<br><span>80 BYN в час.</span></p>
+      </div>
+
+      <div class="footer-contact">
+        <a class="footer-address" href="{{ site.Params.map }}" target="_blank" rel="noopener">
+          <span class="footer-address__city">аг. Ратомка, Перспективная 12</span>
+          <span class="footer-address__hours">{{ site.Params.hours }}</span>
+        </a>
+
+        {{ partial "social.html" . }}
+      </div>
     </div>
 
     <p class="footer-bottom">© {{ now.Year }} ILO Club</p>
   </div>
 
   <div class="footer-net" aria-hidden="true">
+    <span class="footer-net__post footer-net__post--l"></span>
+    <span class="footer-net__post footer-net__post--r"></span>
+    <span class="footer-net__tape"></span>
+    <span class="footer-net__mesh"></span>
+    <span class="footer-net__cord"></span>
+
     <span class="footer-net-ball footer-net-ball--a">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
     <span class="footer-net-ball footer-net-ball--b">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
     <span class="footer-net-ball footer-net-ball--c">{{ readFile "static/img/ball.svg" | safeHTML }}</span>
