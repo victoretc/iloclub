@@ -265,6 +265,48 @@
     wake();
   };
 
+  /* удар ракеткой: толкаем мячи, попавшие в радиус головки */
+  window.footerBallsHit = (hit) => {
+    if (!hit) return;
+    const box = floor.getBoundingClientRect();
+    const hx = hit.x - box.left;
+    const hy = hit.y - box.top;
+
+    const now = performance.now();
+
+    items.forEach((b) => {
+      if (b.drag) return;
+      // один удар за проход: иначе мяч разгоняется на каждом кадре
+      if (now - (b.hitAt || 0) < 120) return;
+
+      const dx = b.cx + b.x - hx;
+      const dy = b.cy + b.y - hy;
+      const dist = Math.hypot(dx, dy);
+      const reach = hit.radius + b.r;
+      if (dist > reach) return;
+
+      let nx = dist > 0.5 ? dx / dist : 0.8;
+      let ny = dist > 0.5 ? dy / dist : -0.6;
+
+      // если задано направление удара — бьём им, иначе расталкиваем от центра
+      const dirLen = Math.hypot(hit.dirX || 0, hit.dirY || 0);
+      if (dirLen > 1) {
+        nx = hit.dirX / dirLen;
+        ny = hit.dirY / dirLen;
+      }
+
+      const force = hit.power * (1 - dist / reach);
+
+      b.hitAt = now;
+      b.hold = 0;
+      b.vx += nx * force;
+      b.vy += ny * force * 0.5 - force * 0.34;
+      b.touched = true;
+    });
+
+    wake();
+  };
+
   items.forEach((b) => {
     b.el.addEventListener("pointerdown", (event) => onDown(event, b));
     b.el.addEventListener("pointermove", (event) => onMove(event, b));

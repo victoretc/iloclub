@@ -87,11 +87,25 @@
         <div class="coach-panels">
           <article class="coach-panel" data-panel="ilona">
             <figure class="coach-photo">
-              <img src="{{ "img/ilona.jpg" | relURL }}" alt="Илона, основатель и главный тренер ILO Club" width="1080" height="1920" loading="lazy">
+              <button class="photo-open" type="button" data-photo-open>
+                <img src="{{ "img/ilona.jpg" | relURL }}" alt="Илона, основатель и главный тренер ILO Club" width="1080" height="1920" loading="lazy">
+              </button>
             </figure>
             <div class="coach-body">
-              <h3 class="coach-name">Илона</h3>
               <p class="coach-role">Основатель и главный тренер</p>
+              <h3 class="coach-name">Илона</h3>
+
+              <blockquote class="coach-quote">
+                «Илона прошла путь профессионального спортсмена и знает, что сильная игра строится
+                на дисциплине, системной работе и внимании к деталям».
+              </blockquote>
+
+              <div class="coach-actions">
+                <a class="btn btn--coach" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
+                  Записаться на тренировку
+                  {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
+                </a>
+              </div>
 
               <ul class="coach-facts">
                   <li>{{ partial "art/icon.html" (dict "name" "medal" "size" 18 "stroke" 1.8) }}<span>Мастер спорта международного класса</span></li>
@@ -101,11 +115,6 @@
                   <li>{{ partial "art/icon.html" (dict "name" "graduation-cap" "size" 18 "stroke" 1.8) }}<span>Дипломированный тренер по теннису (8+ лет), международно-сертифицированный тренер по паделу (4+ года)</span></li>
               </ul>
 
-              <blockquote class="coach-quote">
-                «Илона прошла путь профессионального спортсмена и знает, что сильная игра строится
-                на дисциплине, системной работе и внимании к деталям».
-              </blockquote>
-
               <p class="coach-voices">Работает с игроками любого уровня: помогает новичкам заложить правильную
                 основу, а опытным — найти точки роста.</p>
             </div>
@@ -113,11 +122,25 @@
 
           <article class="coach-panel" data-panel="karina">
             <figure class="coach-photo">
-              <img src="{{ "img/karina.jpg" | relURL }}" alt="Карина, тренер ILO Club" width="1080" height="1920" loading="lazy">
+              <button class="photo-open" type="button" data-photo-open>
+                <img src="{{ "img/karina.jpg" | relURL }}" alt="Карина, тренер ILO Club" width="1080" height="1920" loading="lazy">
+              </button>
             </figure>
             <div class="coach-body">
-              <h3 class="coach-name">Карина</h3>
               <p class="coach-role">Тренер по паделу</p>
+              <h3 class="coach-name">Карина</h3>
+
+              <blockquote class="coach-quote">
+                «Её подход — это понятные объяснения, внимательная работа с каждым игроком и развитие
+                навыков, которые помогают получать больше удовольствия от игры».
+              </blockquote>
+
+              <div class="coach-actions">
+                <a class="btn btn--coach" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
+                  Записаться на тренировку
+                  {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
+                </a>
+              </div>
 
               <ul class="coach-facts">
                   <li>{{ partial "art/icon.html" (dict "name" "clock" "size" 18 "stroke" 1.8) }}<span>26 лет в теннисе; 12+ лет тренерского опыта в большом теннисе и 2+ года в паделе</span></li>
@@ -126,11 +149,6 @@
                   <li>{{ partial "art/icon.html" (dict "name" "graduation-cap" "size" 18 "stroke" 1.8) }}<span>Выпускница БГУФК, специальность «тренер по теннису»</span></li>
               </ul>
 
-              <blockquote class="coach-quote">
-                «Её подход — это понятные объяснения, внимательная работа с каждым игроком и развитие
-                навыков, которые помогают получать больше удовольствия от игры».
-              </blockquote>
-
               <p class="coach-voices">«Лучшее её я не знаю. Все, кто у неё бывал, в восторге». «Она
                 доступная и понятная».</p>
             </div>
@@ -138,11 +156,25 @@
 
           <article class="coach-panel" data-panel="eduard">
             <figure class="coach-photo">
-              <img src="{{ "img/eduard.jpg" | relURL }}" alt="Эдуард, тренер ILO Club" width="1080" height="1920" loading="lazy">
+              <button class="photo-open" type="button" data-photo-open>
+                <img src="{{ "img/eduard.jpg" | relURL }}" alt="Эдуард, тренер ILO Club" width="1080" height="1920" loading="lazy">
+              </button>
             </figure>
             <div class="coach-body">
-              <h3 class="coach-name">Эдуард</h3>
               <p class="coach-role">Тренер по паделу</p>
+              <h3 class="coach-name">Эдуард</h3>
+
+              <blockquote class="coach-quote">
+                «Если тренер, то только такой. Тут про понятность, дисциплину и всё это с любовью
+                и профессионализмом».
+              </blockquote>
+
+              <div class="coach-actions">
+                <a class="btn btn--coach" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
+                  Записаться на тренировку
+                  {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
+                </a>
+              </div>
 
               <ul class="coach-facts">
                   <li>{{ partial "art/icon.html" (dict "name" "clock" "size" 18 "stroke" 1.8) }}<span>20+ лет тренерского опыта в теннисе, 3+ года работы в паделе</span></li>
@@ -150,21 +182,29 @@
                   <li>{{ partial "art/icon.html" (dict "name" "users" "size" 18 "stroke" 1.8) }}<span>От начинающих до спортсменов высокого уровня</span></li>
                   <li>{{ partial "art/icon.html" (dict "name" "target" "size" 18 "stroke" 1.8) }}<span>Помогает довести удары до идеала и вывести игру на новый уровень</span></li>
               </ul>
-
-              <blockquote class="coach-quote">
-                «Если тренер, то только такой. Тут про понятность, дисциплину и всё это с любовью
-                и профессионализмом».
-              </blockquote>
             </div>
           </article>
 
           <article class="coach-panel" data-panel="evgeny">
             <figure class="coach-photo">
-              <img src="{{ "img/evgeny.jpg" | relURL }}" alt="Евгений, тренер ILO Club" width="1080" height="1920" loading="lazy">
+              <button class="photo-open" type="button" data-photo-open>
+                <img src="{{ "img/evgeny.jpg" | relURL }}" alt="Евгений, тренер ILO Club" width="1080" height="1920" loading="lazy">
+              </button>
             </figure>
             <div class="coach-body">
-              <h3 class="coach-name">Евгений</h3>
               <p class="coach-role">Тренер по паделу</p>
+              <h3 class="coach-name">Евгений</h3>
+
+              <blockquote class="coach-quote">
+                «Гоняет знатно! Объясняет доходчиво. Очень комфортно учиться под его руководством».
+              </blockquote>
+
+              <div class="coach-actions">
+                <a class="btn btn--coach" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
+                  Записаться на тренировку
+                  {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
+                </a>
+              </div>
 
               <ul class="coach-facts">
                   <li>{{ partial "art/icon.html" (dict "name" "clock" "size" 18 "stroke" 1.8) }}<span>В теннисе с 7 лет; 10+ лет тренерского опыта в большом теннисе</span></li>
@@ -172,10 +212,6 @@
                   <li>{{ partial "art/icon.html" (dict "name" "flag" "size" 18 "stroke" 1.8) }}<span>Опыт работы на турнирах в качестве судьи</span></li>
                   <li>{{ partial "art/icon.html" (dict "name" "target" "size" 18 "stroke" 1.8) }}<span>Помогает лучше понимать игру и раскрывать свой потенциал на корте</span></li>
               </ul>
-
-              <blockquote class="coach-quote">
-                «Гоняет знатно! Объясняет доходчиво. Очень комфортно учиться под его руководством».
-              </blockquote>
 
               <p class="coach-voices">«Вот уж точно не даст расслабиться — проверено на себе». Тренировки
                 отличаются динамикой и энергией: благодаря насыщенной практике игроки быстро учатся
@@ -191,10 +227,10 @@
   <section class="pricing" id="price" aria-labelledby="price-title">
     {{ partial "art/ball-field.html" (dict "balls" (slice "a" "b" "c" "d")) }}
     <div class="wrap section">
-      <h2 class="sr-only" id="price-title">Цены</h2>
-
       <div class="price-panel" data-prices-root>
-        <div class="price-filters">
+        <h2 class="sr-only" id="price-title">Цены</h2>
+
+        <div class="price-bar">
           <div class="price-tabs" role="group" aria-label="Категория">
             <input class="sr-only" type="radio" name="price-cat" id="cat-court" value="court" checked>
             <label for="cat-court">Корт</label>
@@ -218,14 +254,16 @@
               {{ if eq $f.id "rent" }}
                 <li data-prices="{{ delimit $f.prices "," }}" data-players="{{ $f.players }}">
                   <div>
-                    <p class="price-name">{{ $f.name }}</p>
+                    <h3 class="price-name">{{ $f.name }}</h3>
                     <p class="price-note">{{ $f.note }}</p>
                   </div>
                   <div class="price-box">
-                    <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span> <span class="price-unit">BYN</span></p>
+                    <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span><span class="price-unit">BYN</span></p>
                     {{ if gt $f.players 1 }}
                       {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
-                      <p class="price-per" data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</p>
+                      <p class="price-per">
+                        <span data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</span>
+                      </p>
                     {{ end }}
                   </div>
                 </li>
@@ -238,14 +276,16 @@
               {{ if ne $f.id "rent" }}
                 <li data-prices="{{ delimit $f.prices "," }}" data-players="{{ $f.players }}">
                   <div>
-                    <p class="price-name">{{ $f.name }}</p>
+                    <h3 class="price-name">{{ $f.name }}</h3>
                     <p class="price-note">{{ $f.note }}</p>
                   </div>
                   <div class="price-box">
-                    <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span> <span class="price-unit">BYN</span></p>
+                    <p class="price-value"><span data-price>{{ index $f.prices 0 }}</span><span class="price-unit">BYN</span></p>
                     {{ if gt $f.players 1 }}
                       {{ $each := div (float (index $f.prices 0)) (float $f.players) }}
-                      <p class="price-per" data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</p>
+                      <p class="price-per">
+                        <span data-per>{{ if ne $each (math.Floor $each) }}≈ {{ end }}{{ math.Round $each }} BYN с человека</span>
+                      </p>
                     {{ end }}
                   </div>
                 </li>
@@ -257,18 +297,18 @@
             {{ range $e := $extras }}
               <li data-prices="{{ delimit $e.prices "," }}">
                 <div>
-                  <p class="price-name">{{ $e.name }}</p>
+                  <h3 class="price-name">{{ $e.name }}</h3>
                   <p class="price-note">{{ $e.unit }}</p>
                 </div>
                 <div class="price-box">
-                  <p class="price-value"><span data-price>{{ index $e.prices 0 }}</span> <span class="price-unit">BYN</span></p>
+                  <p class="price-value"><span data-price>{{ index $e.prices 0 }}</span><span class="price-unit">BYN</span></p>
                 </div>
               </li>
             {{ end }}
           </ul>
         </div>
 
-        <div class="price-cta-wrap">
+        <div class="price-foot">
           <a class="btn price-cta" href="{{ site.Params.booking }}" target="_blank" rel="noopener">
             Выбрать время
             {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 16 "stroke" 2) }}
@@ -282,34 +322,31 @@
   <section class="sert" id="sertifikat" aria-labelledby="sertifikat-title">
     <div class="wrap section sert-inner">
       <div class="sert-head">
-        <h2 id="sertifikat-title">Подарочный сертификат</h2>
+        <h2 id="sertifikat-title">Сертификат</h2>
 
         <a class="btn sert-cta" href="{{ site.Params.social.instagram }}" target="_blank" rel="noopener">
           Оформить сертификат
           {{ partial "art/icon.html" (dict "name" "arrow-up-right" "size" 18 "stroke" 2) }}
         </a>
-
-        <p class="lead">Час на корте в подарок: занятие с тренером, аренда корта или любая сумма
-          на выбор получателя.</p>
       </div>
 
       <div class="sert-body">
         <ul class="sert-options">
           <li class="sert-option">
-            <p class="sert-option-index" aria-hidden="true">01</p>
+            <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "users" "size" 18 "stroke" 1.8) }}</span>
             <h3 class="sert-option-title">Персональное занятие с тренером</h3>
             <p class="sert-option-text">Для тех, кто ещё не играл: необычный подарок и новые эмоции.
               Для тех, кто уже играет: час с тренером, чтобы подтянуть навыки. Хороший повод удивить
               вторую половинку и провести время по-новому.</p>
           </li>
           <li class="sert-option">
-            <p class="sert-option-index" aria-hidden="true">02</p>
+            <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "court" "size" 18 "stroke" 1.8) }}</span>
             <h3 class="sert-option-title">Аренда корта</h3>
             <p class="sert-option-text">Для действующих игроков: корт целиком на час. Подойдёт тем,
               кто уже играет матчи, и тем, кто ходит на персональные занятия и готов выходить на игру.</p>
           </li>
           <li class="sert-option">
-            <p class="sert-option-index" aria-hidden="true">03</p>
+            <span class="sert-option-icon" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "wallet" "size" 18 "stroke" 1.8) }}</span>
             <h3 class="sert-option-title">На любую сумму</h3>
             <p class="sert-option-text">Не привязывает к услуге: получатель сам выберет — арендовать
               корт для матча или сходить на тренировку самостоятельно, в паре или группой.</p>
@@ -317,21 +354,20 @@
         </ul>
 
         <div class="sert-ticket">
-          <span class="sert-ticket-ball" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "ball" "size" 320 "stroke" 1) }}</span>
+          <span class="sert-ticket-ball" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "ball" "size" 300 "stroke" 1) }}</span>
 
           <div class="sert-ticket-top">
             <span class="sert-ticket-brand">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
-            <span class="sert-ticket-stamp">Подарочный</span>
           </div>
 
-          <p class="sert-ticket-title">Сертификат<br>ILO&nbsp;Club</p>
+          <p class="sert-ticket-title">Сертификат<br><span>ILO&nbsp;Club</span></p>
 
           <div class="sert-ticket-cut"></div>
 
           <dl class="sert-ticket-meta">
             <div>
               <dt>{{ partial "art/icon.html" (dict "name" "file-text" "size" 14 "stroke" 1.8) }}<span>Формат</span></dt>
-              <dd>PDF или бумажный<span class="sert-ticket-note">Бумажный — забрать в клубе: Ратомка, Перспективная, 12.</span></dd>
+              <dd>PDF или бумажный</dd>
             </div>
             <div>
               <dt>{{ partial "art/icon.html" (dict "name" "calendar" "size" 14 "stroke" 1.8) }}<span>Срок действия</span></dt>
@@ -479,7 +515,9 @@
           <div class="court-group"{{ if gt $i 1 }} aria-hidden="true"{{ end }}>
             {{ range $shots }}
               <figure class="court-shot court-shot--{{ .cls }}">
-                <img src="{{ .src | relURL }}" alt="{{ .alt }}" width="{{ .w }}" height="{{ .h }}" loading="lazy">
+                <button class="photo-open" type="button" data-photo-open{{ if gt $i 1 }} tabindex="-1"{{ end }}>
+                  <img src="{{ .src | relURL }}" alt="{{ .alt }}" width="{{ .w }}" height="{{ .h }}" loading="lazy">
+                </button>
               </figure>
             {{ end }}
           </div>
@@ -488,7 +526,7 @@
     </div>
   </section>
 
-  <section class="wrap section faq" id="faq" aria-labelledby="faq-title">
+  <section class="wrap section faq" id="faq" aria-label="Частые вопросы">
     {{ $faq := slice
       (dict
         "q" "Как забронировать корт?"
@@ -513,38 +551,35 @@
         "a" "Аг. Ратомка, ул. Перспективная, 12. Работаем каждый день с 7:00 до 00:00 — карта в разделе «Как добраться».")
     }}
 
-    <div class="faq-layout">
-      <div class="faq-head">
-        <h2 id="faq-title">Частые вопросы</h2>
-        {{ with site.Params.social.telegram }}
-          <p class="faq-note">Не нашли ответ — <a href="{{ . }}" target="_blank" rel="noopener">напишите в Telegram</a>.</p>
-        {{ end }}
-      </div>
-
-      <div class="faq-list">
-        {{ range $i, $item := $faq }}
-          <div class="faq-item">
-            <h3 class="faq-q-wrap">
-              <button class="faq-q" type="button" id="faq-q-{{ $i }}" aria-controls="faq-a-{{ $i }}" aria-expanded="false">
-                <span>{{ $item.q }}</span>
-                <span class="faq-mark" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "plus" "size" 16 "stroke" 1.8) }}</span>
-              </button>
-            </h3>
-            <div class="faq-body" id="faq-a-{{ $i }}" role="region" aria-labelledby="faq-q-{{ $i }}">
-              <div class="faq-body-inner">
-                <p>{{ $item.a }}</p>
-              </div>
+    <div class="faq-list">
+      {{ range $i, $item := $faq }}
+        <div class="faq-item">
+          <h2 class="faq-q-wrap">
+            <button class="faq-q" type="button" id="faq-q-{{ $i }}" aria-controls="faq-a-{{ $i }}" aria-expanded="false">
+              <span>{{ $item.q }}</span>
+              <span class="faq-mark" aria-hidden="true">{{ partial "art/icon.html" (dict "name" "plus" "size" 18 "stroke" 1.6) }}</span>
+            </button>
+          </h2>
+          <div class="faq-body" id="faq-a-{{ $i }}" role="region" aria-labelledby="faq-q-{{ $i }}">
+            <div class="faq-body-inner">
+              <p>{{ $item.a }}</p>
             </div>
           </div>
-        {{ end }}
-      </div>
+        </div>
+      {{ end }}
     </div>
   </section>
 
   <section class="rules" id="rules" aria-labelledby="rules-title">
-    <div class="wrap">
-      <div class="rules-panel">
-        <h2 class="rules-title" id="rules-title">Правила посещения клуба</h2>
+    <div class="rules-art" aria-hidden="true">
+      {{ readFile "static/img/ball.svg" | safeHTML }}
+    </div>
+
+    <div class="wrap rules-inner">
+      <div class="rules-top">
+        <header class="rules-head">
+          <h2 class="rules-title" id="rules-title">Правила посещения клуба</h2>
+        </header>
 
         <ul class="rules-list">
           <li class="rule">
@@ -558,9 +593,6 @@
             <p>Без полной оплаты мы не бронируем время, и оно остаётся открытым
               для других желающих.</p>
           </li>
-        </ul>
-
-        <ul class="rules-list rules-list--next">
           <li class="rule">
             <p class="rule-lead"><strong>Оплата возможна только через ЕРИП:</strong></p>
             <ul class="rule-sub">
@@ -572,14 +604,15 @@
             <p class="rule-lead"><strong>На территории ILO CLUB запрещено оказывать тренерские услуги.</strong></p>
             <p>Тренировки доступны от тренеров команды ILO.</p>
           </li>
-          <li class="rule">
-            <p class="rule-lead"><strong>Отмена или перенос бронирования:</strong></p>
-            <ul class="rule-sub">
-              <li>За 24 часа до занятия — бесплатно.</li>
-              <li>За 12–24 часа до занятия — возвращается 50% стоимости занятия.</li>
-              <li>За менее чем 12 часов до занятия — сумма не возвращается.</li>
-            </ul>
-          </li>
+        </ul>
+      </div>
+
+      <div class="rules-cancel">
+        <p class="rule-lead"><strong>Отмена или перенос бронирования:</strong></p>
+        <ul class="rule-sub">
+          <li>За 24 часа до занятия — бесплатно.</li>
+          <li>За 12–24 часа до занятия — возвращается 50% стоимости занятия.</li>
+          <li>За менее чем 12 часов до занятия — сумма не возвращается.</li>
         </ul>
       </div>
     </div>
@@ -614,5 +647,12 @@
     </div>
   </section>
   */}}
+
+  <dialog class="lightbox" aria-label="Просмотр фотографии">
+    <button class="lightbox-close" type="button" aria-label="Закрыть">
+      {{ partial "art/icon.html" (dict "name" "x" "size" 20 "stroke" 2) }}
+    </button>
+    <img class="lightbox-img" alt="">
+  </dialog>
 
 {{ end }}

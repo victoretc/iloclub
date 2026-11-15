@@ -16,18 +16,34 @@
     return Number(checked.dataset.index) || 0;
   };
 
-  function syncPrices() {
+  // смена длительности: цифра меняется с коротким подъёмом, чтобы
+  // внимание осталось на цене, а не уезжало вместе с табом
+  function fadeValue(el) {
+    if (!el || reduceMotion.matches) return;
+    el.animate(
+      [
+        { opacity: 0, transform: "translateY(5px)" },
+        { opacity: 1, transform: "none" }
+      ],
+      { duration: 150, easing: "cubic-bezier(0.2, 0, 0, 1)" }
+    );
+  }
+
+  function syncPrices({ animate = false } = {}) {
     const index = durationIndex();
 
     rows.forEach((row) => {
       const price = Number(row.dataset.prices.split(",")[index]);
-      row.querySelector("[data-price]").textContent = price;
+      const value = row.querySelector("[data-price]");
+      value.textContent = price;
+      if (animate) fadeValue(value);
 
       const per = row.querySelector("[data-per]");
       if (!per) return;
 
       const each = price / Number(row.dataset.players);
       per.textContent = `${Number.isInteger(each) ? "" : "≈ "}${Math.round(each)} BYN с человека`;
+      if (animate) fadeValue(per);
     });
   }
 
@@ -53,7 +69,7 @@
   }
 
   catInputs.forEach((input) => input.addEventListener("change", () => syncCategory({ animate: true })));
-  durationInputs.forEach((input) => input.addEventListener("change", syncPrices));
+  durationInputs.forEach((input) => input.addEventListener("change", () => syncPrices({ animate: true })));
 
   syncCategory();
   syncPrices();
