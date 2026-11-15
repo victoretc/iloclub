@@ -1,0 +1,19 @@
+{{- /*
+  Экран загрузки. Показывается сразу из HTML, без JS — иначе на медленной
+  сети успевает мигнуть нестилизованная страница. Скрывается скриптом
+  assets/js/loader.js по событию load, а если JS не пришёл — CSS-анимацией
+  через 4 секунды.
+*/ -}}
+<div class="loader" data-loader aria-hidden="true">
+  <span class="loader-mark">{{ readFile "static/img/logo-ilo.svg" | safeHTML }}</span>
+  <span class="loader-track"><span class="loader-runner"></span></span>
+</div>
+<script>
+  // Внутри одной сессии экран показываем только на первом заходе:
+  // иначе каждое переключение страницы начинается с полусекундной паузы.
+  try {
+    if (sessionStorage.getItem("ilo-loader")) {
+      document.currentScript.previousElementSibling.classList.add("is-done");
+    }
+  } catch (e) {}
+</script>
